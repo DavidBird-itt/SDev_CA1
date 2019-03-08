@@ -1,9 +1,9 @@
-2019-03-06 22:41:11,861 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized at jdbc:h2:file:./data/productsDB
-2019-03-06 22:41:11,871 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
-2019-03-06 22:41:12,739 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - ApplicationTimer demo: Starting application at 2019-03-06T22:41:12.739Z
-2019-03-06 22:41:12,808 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-4 - 
+2019-03-08 09:35:47,816 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-6 - Database [default] initialized at jdbc:h2:file:./data/productsDB
+2019-03-08 09:35:47,855 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
+2019-03-08 09:35:49,129 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-6 - ApplicationTimer demo: Starting application at 2019-03-08T09:35:49.128Z
+2019-03-08 09:35:49,484 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-6 - 
 
-! @7b5j55g8d - Internal server error, for (GET) [/] ->
+! @7b63k6241 - Internal server error, for (GET) [/] ->
  
 play.api.UnexpectedException: Unexpected exception[CreationException: Unable to create injector, see the following errors:
 
@@ -582,4 +582,16 @@ Caused by: java.lang.ClassNotFoundException: models.
 	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
 	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:171)
 	... 24 common frames omitted
-2019-03-06 22:44:38,859 [INFO] from play.core.server.AkkaHttpServer in pool-6-thread-2 - Stopping server...
+2019-03-08 09:42:21,569 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Stopping application at 2019-03-08T09:42:21.569Z after 392s.
+2019-03-08 09:42:21,646 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Shutting down connection pool.
+2019-03-08 09:42:22,527 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] initialized at jdbc:h2:file:./data/productsDB
+2019-03-08 09:42:22,527 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
+2019-03-08 09:42:22,642 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Starting application at 2019-03-08T09:42:22.642Z
+2019-03-08 09:42:23,250 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2019-03-08 09:42:23,994 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
