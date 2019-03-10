@@ -1,5 +1,5 @@
-@(items: List[models.Employee])
-@main("Database") {
+@(items: List[models.Employee], emps: models.users.Employee)
+@main("Database", emps) {
     <p>It works!</p>
 
     <tbody>

@@ -17,6 +17,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import models.*;
+import models.users.*;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -28,12 +29,12 @@ public class HomeController extends Controller {
     }
 
     public Result index() {
-        return ok(index.render());
+        return ok(index.render(Employee.getEmployeeById(session().get("empId"))));
     }
 
     public Result databaseTest() {
         List<Employee> empList = Employee.findAll();
-        return ok(databaseTest.render(empList));
+        return ok(databaseTest.render(empList, Employee.getEmployeeById(session().get("empId"))));
     }
 
 }

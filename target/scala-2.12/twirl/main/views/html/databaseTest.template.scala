@@ -22,15 +22,15 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object databaseTest extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[models.Employee],play.twirl.api.HtmlFormat.Appendable] {
+object databaseTest extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[models.Employee],models.users.Employee,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(items: List[models.Employee]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(items: List[models.Employee], emps: models.users.Employee):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](_display_(/*2.2*/main("Database")/*2.18*/ {_display_(Seq[Any](format.raw/*2.20*/("""
+Seq[Any](_display_(/*2.2*/main("Database", emps)/*2.24*/ {_display_(Seq[Any](format.raw/*2.26*/("""
     """),format.raw/*3.5*/("""<p>It works!</p>
 
     <tbody>
@@ -50,9 +50,9 @@ Seq[Any](_display_(/*2.2*/main("Database")/*2.18*/ {_display_(Seq[Any](format.ra
     }
   }
 
-  def render(items:List[models.Employee]): play.twirl.api.HtmlFormat.Appendable = apply(items)
+  def render(items:List[models.Employee],emps:models.users.Employee): play.twirl.api.HtmlFormat.Appendable = apply(items,emps)
 
-  def f:((List[models.Employee]) => play.twirl.api.HtmlFormat.Appendable) = (items) => apply(items)
+  def f:((List[models.Employee],models.users.Employee) => play.twirl.api.HtmlFormat.Appendable) = (items,emps) => apply(items,emps)
 
   def ref: this.type = this
 
@@ -61,10 +61,10 @@ Seq[Any](_display_(/*2.2*/main("Database")/*2.18*/ {_display_(Seq[Any](format.ra
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 10 20:53:08 GMT 2019
+                  DATE: Sun Mar 10 21:30:04 GMT 2019
                   SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/databaseTest.scala.html
-                  HASH: 0eaebe9c94ac960a2c76f1de38a5bb776256a3c3
-                  MATRIX: 970->1|1094->33|1118->49|1157->51|1188->56|1319->161|1347->174|1386->176|1426->189|1478->215|1487->216|1513->222|1567->249|1577->250|1606->258|1660->285|1670->286|1700->295|1754->322|1764->323|1794->332|1848->359|1858->360|1889->370|1957->407|1989->412
+                  HASH: a4fe23c8d7b5f7973afcafc3c4f278f29fe426b1
+                  MATRIX: 992->1|1145->62|1175->84|1214->86|1245->91|1376->196|1404->209|1443->211|1483->224|1535->250|1544->251|1570->257|1624->284|1634->285|1663->293|1717->320|1727->321|1757->330|1811->357|1821->358|1851->367|1905->394|1915->395|1946->405|2014->442|2046->447
                   LINES: 28->1|33->2|33->2|33->2|34->3|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|41->10|41->10|42->11|42->11|42->11|43->12|43->12|43->12|44->13|44->13|44->13|46->15|47->16
                   -- GENERATED --
               */
