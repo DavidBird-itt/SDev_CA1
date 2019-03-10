@@ -7,7 +7,7 @@ import play.data.format.*;
 import play.data.validation.*;
 
 @Entity
-public class Employee {
+public class Employees {
     @Id
     private Long id;
     @Constraints.Required

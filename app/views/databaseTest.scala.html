@@ -1,10 +1,10 @@
-@(items: List[models.Employee], emps: models.users.Employee)
+@(emps: models.users.Employees)
 @main("Database", emps) {
     <p>It works!</p>
 
     <tbody>
         <!-- Loop for creating table rows from Employee data  -->
-        @for(i<-items) {
+        @for(i<-emps) {
             <tr>
                 <td>@i.getId</td>
                 <td>@i.getType</td>

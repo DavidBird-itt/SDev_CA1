@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,models.users.Employee,Html,play.twirl.api.HtmlFormat.Appendable] {
+object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,models.users.Employees,Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(pagename: String, emps: models.users.Employee)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(pagename: String, emps: models.users.Employees)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -64,9 +64,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(pagename:String,emps:models.users.Employee,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(pagename,emps)(content)
+  def render(pagename:String,emps:models.users.Employees,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(pagename,emps)(content)
 
-  def f:((String,models.users.Employee) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (pagename,emps) => (content) => apply(pagename,emps)(content)
+  def f:((String,models.users.Employees) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (pagename,emps) => (content) => apply(pagename,emps)(content)
 
   def ref: this.type = this
 
@@ -75,10 +75,10 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 10 21:30:04 GMT 2019
-                  SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/main.scala.html
-                  HASH: b11100f897de330ec1c55575901f99337acb6a3b
-                  MATRIX: 974->1|1130->64|1201->109|1229->117|1804->665|1819->671|1863->694|2016->820|2046->841|2085->842|2131->857|2169->868|2184->874|2229->897|2305->946|2339->971|2378->972|2424->987|2462->998|2477->1004|2529->1034|2614->1092|2645->1114|2684->1115|2730->1130|2768->1141|2783->1147|2829->1171|2962->1277|2990->1284|3022->1289|3075->1315|3090->1321|3151->1361
+                  DATE: Sun Mar 10 21:53:19 GMT 2019
+                  SOURCE: /home/wdd/Desktop/SDev_CA1/app/views/main.scala.html
+                  HASH: aaf0d417c9c9d2c994604ec8d9e987fd99294775
+                  MATRIX: 975->1|1132->65|1203->110|1231->118|1806->666|1821->672|1865->695|2018->821|2048->842|2087->843|2133->858|2171->869|2186->875|2231->898|2307->947|2341->972|2380->973|2426->988|2464->999|2479->1005|2531->1035|2616->1093|2647->1115|2686->1116|2732->1131|2770->1142|2785->1148|2831->1172|2964->1278|2992->1285|3024->1290|3077->1316|3092->1322|3153->1362
                   LINES: 28->1|33->2|36->5|36->5|50->19|50->19|50->19|53->22|53->22|53->22|53->22|53->22|53->22|53->22|54->23|54->23|54->23|54->23|54->23|54->23|54->23|55->24|55->24|55->24|55->24|55->24|55->24|55->24|59->28|59->28|60->29|61->30|61->30|61->30
                   -- GENERATED --
               */

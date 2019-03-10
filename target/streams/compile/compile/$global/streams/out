@@ -1,14 +1,13 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Employees.java:10:1: class Employee is public, should be declared in a file named Employee.java[0m
-[0m[[0m[31merror[0m] [0m[0mpublic class Employee {[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:32:1: reference to Employee is ambiguous[0m
-[0m[[0m[31merror[0m] [0m[0m  both class models.users.Employee in models.users and class models.Employee in models match[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(index.render(Employee.getEmployeeById(session().get("empId"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:36:1: reference to Employee is ambiguous[0m
-[0m[[0m[31merror[0m] [0m[0m  both class models.users.Employee in models.users and class models.Employee in models match[0m
-[0m[[0m[31merror[0m] [0m[0m        List<Employee> empList = Employee.findAll();[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:36:1: reference to Employee is ambiguous[0m
-[0m[[0m[31merror[0m] [0m[0m  both class models.users.Employee in models.users and class models.Employee in models match[0m
-[0m[[0m[31merror[0m] [0m[0m        List<Employee> empList = Employee.findAll();[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:37:1: reference to Employee is ambiguous[0m
-[0m[[0m[31merror[0m] [0m[0m  both class models.users.Employee in models.users and class models.Employee in models match[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(databaseTest.render(empList, Employee.getEmployeeById(session().get("empId"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/databaseTest.scala.html:7:17: value map is not a member of models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m        @for(i<-emps) {[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/index.scala.html:1:1: type Employee is not a member of package models.users[0m
+[0m[[0m[31merror[0m] [0m[0m@(emps: models.users.Employee)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/index.scala.html:1:22: type Employee is not a member of package models.users[0m
+[0m[[0m[31merror[0m] [0m[0m@(emps: models.users.Employee)[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/index.scala.html:4:2: type Employee is not a member of package models.users[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
