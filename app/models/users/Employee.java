@@ -1,4 +1,4 @@
-package models;
+package models.users;
 
 import java.util.*;
 import javax.persistence.*;
@@ -76,5 +76,19 @@ public class Employee extends Model {
     public static final List<Employee> findAll() {
         return Employee.find.all();
     }    
+
+    //Identification
+    public static Employee authenticate(String empId, String password) {
+        return find.query().where().eq("empId", empId).eq("password", password).findUnique();
+    }
+
+    //For the dynamic login, log out
+    public static Employee getEmployeeById(String id) {
+        if (id == null) {
+            return null;
+        } else {
+            return find.query().where().eq("empId", id).findUnique();
+        }
+    } 
 
 }

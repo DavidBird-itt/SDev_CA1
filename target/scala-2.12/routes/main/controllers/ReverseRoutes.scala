@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Sun Mar 10 20:53:07 GMT 2019
+// @DATE:Sun Mar 10 21:06:31 GMT 2019
 
 import play.api.mvc.Call
 
@@ -10,42 +10,6 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers {
-
-  // @LINE:11
-  class ReverseAsyncController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:11
-    def message(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "message")
-    }
-  
-  }
-
-  // @LINE:6
-  class ReverseHomeController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:17
-    def databaseTest(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "databaseTest")
-    }
-  
-    // @LINE:6
-    def index(): Call = {
-      
-      Call("GET", _prefix)
-    }
-  
-  }
 
   // @LINE:15
   class ReverseAssets(_prefix: => String) {
@@ -73,6 +37,69 @@ package controllers {
     def count(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "count")
+    }
+  
+  }
+
+  // @LINE:6
+  class ReverseHomeController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:17
+    def databaseTest(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "databaseTest")
+    }
+  
+    // @LINE:6
+    def index(): Call = {
+      
+      Call("GET", _prefix)
+    }
+  
+  }
+
+  // @LINE:11
+  class ReverseAsyncController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:11
+    def message(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "message")
+    }
+  
+  }
+
+  // @LINE:20
+  class ReverseLoginController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:21
+    def loginSubmit(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "loginSubmit")
+    }
+  
+    // @LINE:22
+    def logout(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "logout")
+    }
+  
+    // @LINE:20
+    def login(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "login")
     }
   
   }
