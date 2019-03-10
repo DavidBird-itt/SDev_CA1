@@ -17,19 +17,16 @@ public class Employee extends Model {
     @Constraints.Required
     private String lName;
     @Constraints.Required
-    private Date dob;
-    @Constraints.Required
     private double salary;
 
     public Employee() {
     }
 
-    public Employee(Long id, String type, String fName, String lName, Date dob, double salary) {
+    public Employee(Long id, String type, String fName, String lName, double salary) {
         this.id = id;
         this.type = type;
         this.fName = fName;
         this.lName = lName;
-        this.dob = dob;
         this.salary = salary;
     }
 
@@ -63,14 +60,6 @@ public class Employee extends Model {
 
     public void setlName(String lName) {
         this.lName = lName;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
     }
 
     public double getSalary() {

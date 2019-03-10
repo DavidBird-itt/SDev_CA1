@@ -1,3 +1,17 @@
+@(items: List[models.Employee])
 @main("Database") {
     <p>It works!</p>
+
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+        @for(i<-items) {
+            <tr>
+                <td>@i.getId</td>
+                <td>@i.getType</td>
+                <td>@i.getfName</td>
+                <td>@i.getlName</td>
+                <td>@i.getSalary</td>
+            </tr>    
+        }
+    </tbody>
 }
