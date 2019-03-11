@@ -6,6 +6,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.*;
+
 @Entity
 public class Employees {
     @Id
@@ -20,6 +22,9 @@ public class Employees {
     private double salary;
     @Constraints.Required
     private String password;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "emps")
+    private List<Project> projects;
 
     public Employees() {
     }

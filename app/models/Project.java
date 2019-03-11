@@ -6,6 +6,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.users.*;
+
 @Entity
 public class Project extends Model {
     @Id
@@ -16,6 +18,10 @@ public class Project extends Model {
     private String startDate;
     @Constraints.Required
     private int numMembers;
+
+    //Many Employees work on Many Projects
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Employees> emps;
 
     public Project() {
     }

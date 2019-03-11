@@ -1,10 +1,10 @@
-@(elist: List[models.users.Employees], emps: models.users.Employees)
+@(elist: List[models.users.Employees], plist: List[models.Project], 
+    alist: List[models.Address], emps: models.users.Employees)
 @main("Database", emps) {
-<p>It works!</p>
-
 <table class="table table-bordered table-hover table-condensed">
     <thead>
         <!--Header-->
+        <h2>Employee Table</h2>
         <tr>
             <th>ID</th>
             <th>Type</th>
@@ -25,8 +25,62 @@
                 <td>@i.getlName</td>
                 <td>&euro; @("%.2f".format(i.getSalary))</td>
             </tr>
-                }
+        }
        
 
+    </tbody>
+ 
+    <table class="table table-bordered table-hover table-condensed">
+    <thead>
+        <!--Header-->
+        <h2>Project Table</h2>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Start Date</th>
+            <th>Number of Members</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+        
+        @for(i<-plist) { 
+            <tr>
+                <td>@i.getId</td>
+                <td>@i.getName</td>
+                <td>@i.getStartDate</td>
+                <td>@i.getNumMembers</td>
+            </tr>
+        }
+       
+    </tbody>
+
+    <table class="table table-bordered table-hover table-condensed">
+    <thead>
+        <!--Header-->
+        <h2>Project Table</h2>
+        <tr>
+            <th>Eircode</th>
+            <th>Street 1</th>
+            <th>Street 2</th>
+            <th>Town</th>
+            <th>County</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+        
+        @for(i<-alist) { 
+            <tr>
+                <td>@i.getEircode</td>
+                <td>@i.getStreet1</td>
+                <td>@i.getStreet2</td>
+                <td>@i.getTown</td>
+                <td>@i.getCounty</td>
+            </tr>
+        }
+       
     </tbody>
     }

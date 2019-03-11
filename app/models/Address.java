@@ -27,21 +27,12 @@ public class  Address extends Model {
     public Address() {
     }
 
-    public Address(Long id, String street1, String street2, String town, String county, String Eircode) {
-        this.id = id;
+    public Address(String Eircode, String street1, String street2, String town, String county) {
+        this.Eircode = Eircode;
         this.street1 = street1;
         this.street2 = street2;
         this.town = town;
         this.county = county;
-        this.Eircode = Eircode;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getStreet1() {

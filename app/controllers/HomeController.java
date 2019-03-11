@@ -36,8 +36,10 @@ public class HomeController extends Controller {
     }
 
     public Result databaseTest() {
-        List<Employees> empList = Employees.findAll();
-        return ok(databaseTest.render(empList, Employees.getEmployeeById(session().get("empId"))));
+        List<Employees> elist = Employees.findAll();
+        List<Project> plist = Project.findAll();
+        List<Address> alist = Address.findAll();
+        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("empId"))));
     }
 
 /*

@@ -1,8 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:35:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method getEmployeesById(java.lang.String)[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(index.render(Employees.getEmployeesById(session().get("empId"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:40:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method getEmployeesById(java.lang.String)[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(databaseTest.render(empList, Employees.getEmployeesById(session().get("empId"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:42:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable alist[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(databaseTest.render(empList, plist, alist, Employees.getEmployeeById(session().get("empId"))));[0m
