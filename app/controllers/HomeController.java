@@ -77,4 +77,40 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 */
+
+/*
+    public Result addProject() {
+        Form<Projects> projectForm = formFactory.form(Project.class);
+        return ok(addProject.render(projectForm, Project.getProjectById(session().get("id"))));
+    }
+
+    @Transactional
+    public Result addProjectSubmit() {
+        Form<Projects> newProjectForm = formFactory.form(Project.class).bindFromRequest();
+
+        if (newProjectForm.hasErrors()) {
+            return badRequest(addProject.ender(newProjectForm, Project.getProjectById(session().get("id"))));
+        } else {
+            Project newProject = newProjectForm.get();
+
+            if(newProject.getId() == null) {
+                newProject.save();
+            } else {
+                newProject.update();
+            }
+
+            flash("success", "Project " + newProject.getName() + " has been added.");
+
+            return redirect(controllers.routes.HomeController.datebaseTest());
+        }
+    }
+
+    public Result deleteProject(Long id) {
+        Project.find.ref(id).delete();
+
+        flash("success", "Project has been removed successfully.");
+        return redirect(controllers.routes.HomeController.databaseTest());
+    }
+
+*/
 }
