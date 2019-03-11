@@ -4,9 +4,9 @@ public class Login {
     private String empId;
     private String password;
 
-    //Validate the email and password is in the DB
+    //Validate the id and password is in the DB
     public String validate() {
-        //Method called from User.java
+        //Method called from Employees.java
         if(Employees.authenticate(empId, password) == null) {
             return "Invalid user or password";
         }
