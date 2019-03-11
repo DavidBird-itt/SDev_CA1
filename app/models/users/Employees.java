@@ -19,10 +19,10 @@ public class Employees {
     @Constraints.Required
     private double salary;
 
-    public Employee() {
+    public Employees() {
     }
 
-    public Employee(Long id, String type, String fName, String lName, double salary) {
+    public Employees(Long id, String type, String fName, String lName, double salary) {
         this.id = id;
         this.type = type;
         this.fName = fName;
@@ -71,19 +71,19 @@ public class Employees {
     }
     
     //Finders
-    public static final Finder<Long, Employee> find = new Finder<>(Employee.class);
+    public static final Finder<Long, Employees> find = new Finder<>(Employees.class);
 
-    public static final List<Employee> findAll() {
-        return Employee.find.all();
+    public static final List<Employees> findAll() {
+        return Employees.find.all();
     }    
 
     //Identification
-    public static Employee authenticate(String empId, String password) {
+    public static Employees authenticate(String empId, String password) {
         return find.query().where().eq("empId", empId).eq("password", password).findUnique();
     }
 
     //For the dynamic login, log out
-    public static Employee getEmployeeById(String id) {
+    public static Employees getEmployeeById(String id) {
         if (id == null) {
             return null;
         } else {

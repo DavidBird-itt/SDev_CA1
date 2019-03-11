@@ -1,5 +1,3 @@
-# --- Created by Ebean DDL
-# To stop Ebean DDL generation, remove this comment and start using Evolutions
 
 # --- !Ups
 
@@ -19,13 +17,14 @@ create table department (
   constraint pk_department primary key (id)
 );
 
-create table employee (
+
+create table employees (
   id                            bigint auto_increment not null,
   type                          varchar(255),
-  f_name                        varchar(255),
-  l_name                        varchar(255),
+  fName                        varchar(255),
+  lName                        varchar(255),
   salary                        double not null,
-  constraint pk_employee primary key (id)
+  constraint pk_employees primary key (id)
 );
 
 create table project (
@@ -43,7 +42,7 @@ drop table if exists address;
 
 drop table if exists department;
 
-drop table if exists employee;
+drop table if exists employees;
 
 drop table if exists project;
 

@@ -1,13 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/databaseTest.scala.html:7:17: value map is not a member of models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m        @for(i<-emps) {[0m
-[0m[[0m[31merror[0m] [0m[0m                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/index.scala.html:1:1: type Employee is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m@(emps: models.users.Employee)[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/index.scala.html:1:22: type Employee is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m@(emps: models.users.Employee)[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/index.scala.html:4:2: type Employee is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Login.java:10:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable Employee[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Login[0m
+[0m[[0m[31merror[0m] [0m[0m        if(Employee.authenticate(empId, password) == null) {[0m

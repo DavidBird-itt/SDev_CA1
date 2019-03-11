@@ -7,7 +7,7 @@ public class Login {
     //Validate the email and password is in the DB
     public String validate() {
         //Method called from User.java
-        if(Employee.authenticate(empId, password) == null) {
+        if(Employees.authenticate(empId, password) == null) {
             return "Invalid user or password";
         }
         return null;

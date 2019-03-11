@@ -1,17 +1,20 @@
-@(emps: models.users.Employees)
+@(elist: List[models.users.Employees], emps: models.users.Employees)
 @main("Database", emps) {
-    <p>It works!</p>
+<p>It works!</p>
 
-    <tbody>
-        <!-- Loop for creating table rows from Employee data  -->
-        @for(i<-emps) {
-            <tr>
-                <td>@i.getId</td>
-                <td>@i.getType</td>
-                <td>@i.getfName</td>
-                <td>@i.getlName</td>
-                <td>@i.getSalary</td>
-            </tr>    
-        }
-    </tbody>
+<tbody>
+    <!-- Loop for creating table rows from Employee data  -->
+
+    <tr>
+        @for(i<-elist) {
+             <td>@i.getId</td>
+            <td>@i.getType</td>
+            <td>@i.getfName</td>
+            <td>@i.getlName</td>
+            <td>@i.getSalary</td>
+
+            } 
+        </tr>
+
+</tbody>
 }

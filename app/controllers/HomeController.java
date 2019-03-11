@@ -29,12 +29,12 @@ public class HomeController extends Controller {
     }
 
     public Result index() {
-        return ok(index.render(Employee.getEmployeeById(session().get("empId"))));
+        return ok(index.render(Employees.getEmployeeById(session().get("empId"))));
     }
 
     public Result databaseTest() {
-        List<Employee> empList = Employee.findAll();
-        return ok(databaseTest.render(empList, Employee.getEmployeeById(session().get("empId"))));
+        List<Employees> empList = Employees.findAll();
+        return ok(databaseTest.render(empList, Employees.getEmployeeById(session().get("empId"))));
     }
 
 }
