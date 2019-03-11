@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
-// @DATE:Mon Mar 11 21:38:50 GMT 2019
+// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
+// @DATE:Mon Mar 11 22:23:16 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -69,32 +69,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
-    def addEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.addEmployee",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addEmployee"})
-        }
-      """
-    )
-  
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.index",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-    // @LINE:25
-    def addEmployeeSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.addEmployeeSubmit",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addEmployeeSubmit"})
         }
       """
     )

@@ -32,15 +32,15 @@ public class HomeController extends Controller {
     public HomeController() {}
 
     public Result index() {
-        return ok(index.render(Employees.getEmployeesById(session().get("empId"))));
+        return ok(index.render(Employees.getEmployeeById(session().get("empId"))));
     }
 
     public Result databaseTest() {
         List<Employees> empList = Employees.findAll();
-        return ok(databaseTest.render(empList, Employees.getEmployeesById(session().get("empId"))));
+        return ok(databaseTest.render(empList, Employees.getEmployeeById(session().get("empId"))));
     }
 
-
+/*
     public Result addEmployee() {
         Form<Employees> employeeForm = formFactory.form(Employees.class);
         return ok(addEmployee.render(employeeForm, Employees.getEmployeesById(session().get("empId"))));
@@ -52,6 +52,7 @@ public class HomeController extends Controller {
 
         if (newEmployeeForm.hasErrors()) {
             return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeesById(session().get("empId"))));
+        
         } else {
             Employees newEmployees = newEmployeeForm.get();
 
@@ -63,7 +64,7 @@ public class HomeController extends Controller {
 
             flash("success", "Employee " + newEmployees.getfName() + " has been added/updated.");
 
-            return redirect(controllers.routes.HomeController.datebaseTest());
+            return redirect(controllers.routes.HomeController.databaseTest());
         }
     }
 
@@ -73,5 +74,5 @@ public class HomeController extends Controller {
         flash("success", "Employee has been removed successfully.");
         return redirect(controllers.routes.HomeController.databaseTest());
     }
-
+*/
 }

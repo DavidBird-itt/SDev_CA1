@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
-// @DATE:Mon Mar 11 21:38:50 GMT 2019
+// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
+// @DATE:Mon Mar 11 22:23:16 GMT 2019
 
 package router
 
@@ -59,8 +59,6 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.LoginController.login"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """loginSubmit""", """controllers.LoginController.loginSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.LoginController.logout"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addEmployee""", """controllers.HomeController.addEmployee"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addEmployeeSubmit""", """controllers.HomeController.addEmployeeSubmit"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -212,42 +210,6 @@ class Routes(
     )
   )
 
-  // @LINE:24
-  private[this] lazy val controllers_HomeController_addEmployee8_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addEmployee")))
-  )
-  private[this] lazy val controllers_HomeController_addEmployee8_invoker = createInvoker(
-    HomeController_1.addEmployee,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "addEmployee",
-      Nil,
-      "GET",
-      this.prefix + """addEmployee""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:25
-  private[this] lazy val controllers_HomeController_addEmployeeSubmit9_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addEmployeeSubmit")))
-  )
-  private[this] lazy val controllers_HomeController_addEmployeeSubmit9_invoker = createInvoker(
-    HomeController_1.addEmployeeSubmit,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "addEmployeeSubmit",
-      Nil,
-      "POST",
-      this.prefix + """addEmployeeSubmit""",
-      """""",
-      Seq()
-    )
-  )
-
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -297,18 +259,6 @@ class Routes(
     case controllers_LoginController_logout7_route(params@_) =>
       call { 
         controllers_LoginController_logout7_invoker.call(LoginController_4.logout)
-      }
-  
-    // @LINE:24
-    case controllers_HomeController_addEmployee8_route(params@_) =>
-      call { 
-        controllers_HomeController_addEmployee8_invoker.call(HomeController_1.addEmployee)
-      }
-  
-    // @LINE:25
-    case controllers_HomeController_addEmployeeSubmit9_route(params@_) =>
-      call { 
-        controllers_HomeController_addEmployeeSubmit9_invoker.call(HomeController_1.addEmployeeSubmit)
       }
   }
 }
