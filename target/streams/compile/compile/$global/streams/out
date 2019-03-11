@@ -1,4 +1,32 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/Project.java:48:1: incompatible types: java.util.Calendar cannot be converted to java.util.Date[0m
-[0m[[0m[31merror[0m] [0m[0m        return startDate;[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/Project.java:52:1: incompatible types: java.util.Date cannot be converted to @play.data.validation.Constraints.Required java.util.Calendar[0m
-[0m[[0m[31merror[0m] [0m[0m        this.startDate = startDate;[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:46:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable User[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(addEmplyee.render(employeeForm, User.getUserById(session().get("id"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:46:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addEmplyee[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(addEmplyee.render(employeeForm, User.getUserById(session().get("id"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:53:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable User[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m            return badRequest(addEmplyee.render(newEmployeeForm, User.getUserById(session().get("id"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:53:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addEmplyee[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m            return badRequest(addEmplyee.render(newEmployeeForm, User.getUserById(session().get("id"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:58:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method save()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployee of type models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m                newEmployee.save();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:60:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method update()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployee of type models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m                newEmployee.update();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:65:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method datebaseTest()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable HomeController of type controllers.ReverseHomeController[0m
+[0m[[0m[31merror[0m] [0m[0m            return redirect(controllers.routes.HomeController.datebaseTest());[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:70:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method delete()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m        Employees.find.ref(id).delete();[0m

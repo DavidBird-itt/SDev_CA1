@@ -7,7 +7,7 @@
 
     @form(action=routes.HomeController.addEmployeeSubmit, 'class -> "form-horizontal", 'role -> "form") {
         @* CSRF attack Prevention *@
-        @CSFF.formField
+        @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
         @inputText(employeeForm("type"), '_label -> "Type", 'class -> "form-control")
         @inputText(employeeForm("fName"), '_label -> "fName", 'class -> "form-control")
