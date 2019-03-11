@@ -94,7 +94,7 @@ public class Employees {
     }
 
     //For the dynamic login, log out
-    public static Employees getEmployeeById(String id) {
+    public static Employees getEmployeesById(String id) {
         if (id == null) {
             return null;
         } else {

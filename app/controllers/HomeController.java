@@ -32,35 +32,36 @@ public class HomeController extends Controller {
     public HomeController() {}
 
     public Result index() {
-        return ok(index.render(Employees.getEmployeeById(session().get("empId"))));
+        return ok(index.render(Employees.getEmployeesById(session().get("empId"))));
     }
 
     public Result databaseTest() {
-        List <Employees> empList = Employees.findAll();
-        return ok(databaseTest.render(empList, Employees.getEmployeeById(session().get("empId"))));
+        List<Employees> empList = Employees.findAll();
+        return ok(databaseTest.render(empList, Employees.getEmployeesById(session().get("empId"))));
     }
 
 
     public Result addEmployee() {
-        Form <Employees> employeeForm = formFactory.form(Employees.class);
-        return ok(addEmplyee.render(employeeForm, User.getUserById(session().get("id"))));
+        Form<Employees> employeeForm = formFactory.form(Employees.class);
+        return ok(addEmployee.render(employeeForm, Employees.getEmployeesById(session().get("empId"))));
     }
 
+    @Transactional
     public Result addEmployeeSubmit() {
-        Form <Employees> newEmployeeForm = formFactory.form(Employees.class).bindFromRequest();
+        Form<Employees> newEmployeeForm = formFactory.form(Employees.class).bindFromRequest();
 
         if (newEmployeeForm.hasErrors()) {
-            return badRequest(addEmplyee.render(newEmployeeForm, User.getUserById(session().get("id"))));
+            return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeesById(session().get("empId"))));
         } else {
-            Employees newEmployee = newEmployeeForm.get();
+            Employees newEmployees = newEmployeeForm.get();
 
-            if (newEmployee.getId() == null) {
-                newEmployee.save();
+            if (newEmployees.getId() == null) {
+                newEmployees.save();
             } else {
-                newEmployee.update();
+                newEmployees.update();
             }
 
-            flash("success", "Employee " + newEmployee.getfName() + " has been added/updated.");
+            flash("success", "Employee " + newEmployees.getfName() + " has been added/updated.");
 
             return redirect(controllers.routes.HomeController.datebaseTest());
         }

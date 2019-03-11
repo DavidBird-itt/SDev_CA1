@@ -1,32 +1,24 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:46:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable User[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addEmplyee.render(employeeForm, User.getUserById(session().get("id"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:46:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addEmplyee[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addEmplyee.render(employeeForm, User.getUserById(session().get("id"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:53:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable User[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m            return badRequest(addEmplyee.render(newEmployeeForm, User.getUserById(session().get("id"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:53:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addEmplyee[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m            return badRequest(addEmplyee.render(newEmployeeForm, User.getUserById(session().get("id"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:58:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:59:1: cannot find symbol[0m
 [0m[[0m[31merror[0m] [0m[0m  symbol:   method save()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployee of type models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m                newEmployee.save();[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:60:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployees of type models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m                newEmployees.save();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:61:1: cannot find symbol[0m
 [0m[[0m[31merror[0m] [0m[0m  symbol:   method update()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployee of type models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m                newEmployee.update();[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:65:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployees of type models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m                newEmployees.update();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:66:1: cannot find symbol[0m
 [0m[[0m[31merror[0m] [0m[0m  symbol:   method datebaseTest()[0m
 [0m[[0m[31merror[0m] [0m[0m  location: variable HomeController of type controllers.ReverseHomeController[0m
 [0m[[0m[31merror[0m] [0m[0m            return redirect(controllers.routes.HomeController.datebaseTest());[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:70:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:71:1: cannot find symbol[0m
 [0m[[0m[31merror[0m] [0m[0m  symbol:   method delete()[0m
 [0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
 [0m[[0m[31merror[0m] [0m[0m        Employees.find.ref(id).delete();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/LoginController.java:27:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method getEmployeeById(java.lang.String)[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(login.render(loginForm, Employees.getEmployeeById(session().get("empId"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/LoginController.java:34:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method getEmployeeById(java.lang.String)[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m            return badRequest(login.render(loginForm, Employees.getEmployeeById(session().get("empId"))));[0m
