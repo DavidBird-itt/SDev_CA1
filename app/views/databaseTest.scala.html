@@ -3,30 +3,30 @@
 <p>It works!</p>
 
 <table class="table table-bordered table-hover table-condensed">
-        <thead>
-            <!--Header-->
-            <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-<tbody>
-    <!-- Loop for creating table rows from Employee data  -->
-
-    
-    <tr>
-        @for(i<-elist) {
-             <td>@i.getId</td>
-            <td>@i.getType</td>
-            <td>@i.getfName</td>
-            <td>@i.getlName</td>
-            <td>&euro; @("%.2f".format(i.getSalary))</td>
-
-        } 
+    <thead>
+        <!--Header-->
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Salary</th>
         </tr>
+    </thead>
 
-</tbody>
-}
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+        
+        @for(i<-elist) { 
+            <tr>
+                <td>@i.getId</td>
+                <td>@i.getType</td>
+                <td>@i.getfName</td>
+                <td>@i.getlName</td>
+                <td>&euro; @("%.2f".format(i.getSalary))</td>
+            </tr>
+                }
+       
+
+    </tbody>
+    }

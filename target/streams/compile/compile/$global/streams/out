@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/databaseTest.scala.html:26:18: not found: value euro[0m
-[0m[[0m[31merror[0m] [0m[0m            <td>@euro; @("%.2f".format(i.getSalary))</td>[0m
-[0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/Project.java:48:1: incompatible types: java.util.Calendar cannot be converted to java.util.Date[0m
+[0m[[0m[31merror[0m] [0m[0m        return startDate;[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/Project.java:52:1: incompatible types: java.util.Date cannot be converted to @play.data.validation.Constraints.Required java.util.Calendar[0m
+[0m[[0m[31merror[0m] [0m[0m        this.startDate = startDate;[0m

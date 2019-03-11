@@ -13,17 +13,17 @@ public class Project extends Model {
     @Constraints.Required
     private String name;
     @Constraints.Required
-    private Date start_date;
+    private String startDate;
     @Constraints.Required
     private int numMembers;
 
     public Project() {
     }
 
-    public Project(Long id, String name, Date start_date, int numMembers) {
+    public Project(Long id, String name, String startDate, int numMembers) {
         this.id = id;
         this.name = name;
-        this.start_date = start_date;
+        this.startDate = startDate;
         this.numMembers = numMembers;
     }
 
@@ -43,12 +43,12 @@ public class Project extends Model {
         this.name = name;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public int getNumMembers() {

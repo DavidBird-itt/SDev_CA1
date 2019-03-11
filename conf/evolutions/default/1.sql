@@ -21,8 +21,8 @@ create table department (
 create table employees (
   id                            bigint auto_increment not null,
   type                          varchar(255),
-  fName                        varchar(255),
-  lName                        varchar(255),
+  f_name                        varchar(255),
+  l_name                        varchar(255),
   salary                        double not null,
   constraint pk_employees primary key (id)
 );
@@ -30,7 +30,7 @@ create table employees (
 create table project (
   id                            bigint auto_increment not null,
   name                          varchar(255),
-  start_date                    timestamp,
+  start_date                    varchar(255),
   num_members                   integer not null,
   constraint pk_project primary key (id)
 );
