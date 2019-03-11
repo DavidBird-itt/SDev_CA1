@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Login.java:10:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable Employee[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Login[0m
-[0m[[0m[31merror[0m] [0m[0m        if(Employee.authenticate(empId, password) == null) {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/databaseTest.scala.html:26:18: not found: value euro[0m
+[0m[[0m[31merror[0m] [0m[0m            <td>@euro; @("%.2f".format(i.getSalary))</td>[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
