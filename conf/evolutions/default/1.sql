@@ -24,6 +24,7 @@ create table employees (
   f_name                        varchar(255),
   l_name                        varchar(255),
   salary                        double not null,
+  password                      varchar(255),
   constraint pk_employees primary key (id)
 );
 
@@ -41,6 +42,8 @@ create table project (
 drop table if exists address;
 
 drop table if exists department;
+
+drop table if exists employee;
 
 drop table if exists employees;
 

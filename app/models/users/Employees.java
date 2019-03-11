@@ -18,16 +18,19 @@ public class Employees {
     private String lName;
     @Constraints.Required
     private double salary;
+    @Constraints.Required
+    private String password;
 
     public Employees() {
     }
 
-    public Employees(Long id, String type, String fName, String lName, double salary) {
+    public Employees(Long id, String type, String fName, String lName, double salary, String password) {
         this.id = id;
         this.type = type;
         this.fName = fName;
         this.lName = lName;
         this.salary = salary;
+        this.password = password;
     }
 
     public Long getId() {
@@ -68,6 +71,14 @@ public class Employees {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     //Finders
