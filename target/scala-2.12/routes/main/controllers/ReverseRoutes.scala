@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Mon Mar 11 22:23:16 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Tue Mar 12 09:43:26 GMT 2019
 
 import play.api.mvc.Call
 
@@ -48,10 +48,34 @@ package controllers {
     }
 
   
+    // @LINE:29
+    def addProject(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addProject")
+    }
+  
+    // @LINE:28
+    def addEmployeeSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "addEmployeeSubmit")
+    }
+  
     // @LINE:17
     def databaseTest(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "databaseTest")
+    }
+  
+    // @LINE:27
+    def addEmployee(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addEmployee")
+    }
+  
+    // @LINE:30
+    def addProjectSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "addProjectSubmit")
     }
   
     // @LINE:6
@@ -83,6 +107,18 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:25
+    def createAccountSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "createAccountSubmit")
+    }
+  
+    // @LINE:24
+    def createAccount(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "createAccount")
+    }
   
     // @LINE:21
     def loginSubmit(): Call = {

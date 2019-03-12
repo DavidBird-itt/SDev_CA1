@@ -3,25 +3,28 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index()
+GET     /                         controllers.HomeController.index()
 
 # An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
+GET     /count                    controllers.CountController.count
 # An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
+GET     /message                  controllers.AsyncController.message
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file             controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /databaseTest               controllers.HomeController.databaseTest
+GET     /databaseTest             controllers.HomeController.databaseTest
 
 #GET from LoginController
-GET     /login                      controllers.LoginController.login
-GET     /loginSubmit                controllers.LoginController.loginSubmit
-GET     /logout                     controllers.LoginController.logout
+GET     /login                    controllers.LoginController.login
+GET     /loginSubmit              controllers.LoginController.loginSubmit
+GET     /logout                   controllers.LoginController.logout
 
-# GET     /addEmployee               controllers.HomeController.addEmployee
-# POST    /addEmployeeSubmit          controllers.HomeController.addEmployeeSubmit
-GET       /addProject               controllers.HomeController.addProject
-POST      /addProjectSubmit         controllers.HomeController.addProjectSubmit
+GET     /createAccount            controllers.LoginController.createAccount
+POST    /createAccountSubmit      controllers.LoginController.createAccountSubmit
+
+GET     /addEmployee              controllers.HomeController.addEmployee
+POST    /addEmployeeSubmit        controllers.HomeController.addEmployeeSubmit
+GET     /addProject               controllers.HomeController.addProject
+POST    /addProjectSubmit         controllers.HomeController.addProjectSubmit

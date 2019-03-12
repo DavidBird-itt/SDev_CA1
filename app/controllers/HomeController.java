@@ -39,13 +39,12 @@ public class HomeController extends Controller {
         List<Employees> elist = Employees.findAll();
         List<Project> plist = Project.findAll();
         List<Address> alist = Address.findAll();
-        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("empId"))));
+        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("Id"))));
     }
 
-/*
     public Result addEmployee() {
         Form<Employees> employeeForm = formFactory.form(Employees.class);
-        return ok(addEmployee.render(employeeForm, Employees.getEmployeesById(session().get("empId"))));
+        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("Id"))));
     }
 
     @Transactional
@@ -76,9 +75,9 @@ public class HomeController extends Controller {
         flash("success", "Employee has been removed successfully.");
         return redirect(controllers.routes.HomeController.databaseTest());
     }
-*/
 
-/*
+
+
     public Result addProject() {
         Form<Projects> projectForm = formFactory.form(Project.class);
         return ok(addProject.render(projectForm, Project.getProjectById(session().get("id"))));
@@ -112,5 +111,5 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 
-*/
+
 }
