@@ -78,6 +78,21 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 
+    // public Result updateEmployee(Long id) {
+    //     Employees i;
+    //     Form<Employees> employeeForm;
+
+    //     try {
+    //         i = Employees.find.byId(id);
+
+    //         employeeForm = formFactory.form(Employees.class).fill(i);
+    //     } catch (Exception e) {
+    //         return badRequest("error");
+    //     }
+
+    //     return ok(addEmployee(employeeForm, Employees.getEmployeeById(session().get("empId"))));
+    // }
+
 
 
     public Result addProject() {
@@ -90,6 +105,7 @@ public class HomeController extends Controller {
         Form<Project> newProjectForm = formFactory.form(Project.class).bindFromRequest();
 
         if (newProjectForm.hasErrors()) {
+            //gives new form if an error has been input
             return badRequest(addProject.render(newProjectForm, Employees.getEmployeeById(session().get("empId"))));
         } else {
             Project newProject = newProjectForm.get();
@@ -112,6 +128,23 @@ public class HomeController extends Controller {
         flash("success", "Project has been removed successfully.");
         return redirect(controllers.routes.HomeController.databaseTest());
     }
+
+    // public Result updateProject(Long id) {
+    //     Project i;
+    //     Form<Project> projectForm;
+
+    //     try {
+    //         i = Project.find.byId(id);
+
+    //         projectForm = formFactory.form(Project.class).fill(i);
+    //     } catch (Exception e) {
+    //         return badRequest("error");
+    //     }
+
+    //     return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("empId"))));
+    // }
+
+    // public Result add
 
 
 }

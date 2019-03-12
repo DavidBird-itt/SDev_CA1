@@ -28,6 +28,12 @@
         }
        
 
+        <p>
+            <a href="@routes.HomeController.addEmployee()">
+                <button class="btn btn-primary">Add an Employee</button>
+            </a>
+        </p>
+
     </tbody>
  
     <table class="table table-bordered table-hover table-condensed">
@@ -43,7 +49,7 @@
     </thead>
 
     <tbody>
-        <!-- Loop for creating table rows from Employee data  -->
+        <!-- Loop for creating table rows from Project data  -->
         
         @for(i<-plist) { 
             <tr>
@@ -55,12 +61,16 @@
         }
        
     
-
+<!-- Button to add a new project -->
     <p>
         <a href="@routes.HomeController.addProject()">
             <button class="btn btn-primary">Add a Project</button>
         </a>
     </p>
+
+<!-- Button to update an existing project -->
+<!-- this was added but was giving errors even when commented -->
+
 </tbody>
     <table class="table table-bordered table-hover table-condensed">
     <thead>

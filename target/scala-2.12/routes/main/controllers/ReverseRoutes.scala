@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Tue Mar 12 10:30:15 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Tue Mar 12 15:32:15 GMT 2019
 
 import play.api.mvc.Call
 
@@ -48,7 +48,7 @@ package controllers {
     }
 
   
-    // @LINE:27
+    // @LINE:28
     def addProject(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addProject")
@@ -72,7 +72,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addEmployee")
     }
   
-    // @LINE:28
+    // @LINE:29
     def addProjectSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addProjectSubmit")

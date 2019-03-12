@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Tue Mar 12 10:30:15 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Tue Mar 12 15:32:15 GMT 2019
 
 package router
 
@@ -250,7 +250,7 @@ class Routes(
     )
   )
 
-  // @LINE:27
+  // @LINE:28
   private[this] lazy val controllers_HomeController_addProject10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addProject")))
   )
@@ -263,12 +263,12 @@ class Routes(
       Nil,
       "GET",
       this.prefix + """addProject""",
-      """""",
+      """ GET     /updateEmployee           controllers.HomeController.updateEmployee(id: Long)""",
       Seq()
     )
   )
 
-  // @LINE:28
+  // @LINE:29
   private[this] lazy val controllers_HomeController_addProjectSubmit11_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addProjectSubmit")))
   )
@@ -349,13 +349,13 @@ class Routes(
         controllers_HomeController_addEmployeeSubmit9_invoker.call(HomeController_1.addEmployeeSubmit)
       }
   
-    // @LINE:27
+    // @LINE:28
     case controllers_HomeController_addProject10_route(params@_) =>
       call { 
         controllers_HomeController_addProject10_invoker.call(HomeController_1.addProject)
       }
   
-    // @LINE:28
+    // @LINE:29
     case controllers_HomeController_addProjectSubmit11_route(params@_) =>
       call { 
         controllers_HomeController_addProjectSubmit11_invoker.call(HomeController_1.addProjectSubmit)
