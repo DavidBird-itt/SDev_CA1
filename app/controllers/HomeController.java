@@ -29,7 +29,9 @@ public class HomeController extends Controller {
         this.formFactory = f;
     }
 
-    public HomeController() {}
+    public HomeController() {
+
+    }
 
     public Result index() {
         return ok(index.render(Employees.getEmployeeById(session().get("empId"))));
@@ -39,12 +41,12 @@ public class HomeController extends Controller {
         List<Employees> elist = Employees.findAll();
         List<Project> plist = Project.findAll();
         List<Address> alist = Address.findAll();
-        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("Id"))));
+        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("empId"))));
     }
 
     public Result addEmployee() {
         Form<Employees> employeeForm = formFactory.form(Employees.class);
-        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("Id"))));
+        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("empId"))));
     }
 
     @Transactional
@@ -52,15 +54,15 @@ public class HomeController extends Controller {
         Form<Employees> newEmployeeForm = formFactory.form(Employees.class).bindFromRequest();
 
         if (newEmployeeForm.hasErrors()) {
-            return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeesById(session().get("empId"))));
+            return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeeById(session().get("empId"))));
         
         } else {
             Employees newEmployees = newEmployeeForm.get();
 
             if (newEmployees.getId() == null) {
-                newEmployees.save();
+                //newEmployees.save();
             } else {
-                newEmployees.update();
+                //newEmployees.update();
             }
 
             flash("success", "Employee " + newEmployees.getfName() + " has been added/updated.");
@@ -70,7 +72,7 @@ public class HomeController extends Controller {
     }
 
     public Result deleteEmployee(Long id) {
-        Employees.find.ref(id).delete();
+        //Employees.find.ref(id).delete();
 
         flash("success", "Employee has been removed successfully.");
         return redirect(controllers.routes.HomeController.databaseTest());
@@ -79,16 +81,16 @@ public class HomeController extends Controller {
 
 
     public Result addProject() {
-        Form<Projects> projectForm = formFactory.form(Project.class);
-        return ok(addProject.render(projectForm, Project.getProjectById(session().get("id"))));
+        Form<Project> projectForm = formFactory.form(Project.class);
+        return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("empId"))));
     }
 
     @Transactional
     public Result addProjectSubmit() {
-        Form<Projects> newProjectForm = formFactory.form(Project.class).bindFromRequest();
+        Form<Project> newProjectForm = formFactory.form(Project.class).bindFromRequest();
 
         if (newProjectForm.hasErrors()) {
-            return badRequest(addProject.ender(newProjectForm, Project.getProjectById(session().get("id"))));
+            return badRequest(addProject.render(newProjectForm, Employees.getEmployeeById(session().get("empId"))));
         } else {
             Project newProject = newProjectForm.get();
 
@@ -100,7 +102,7 @@ public class HomeController extends Controller {
 
             flash("success", "Project " + newProject.getName() + " has been added.");
 
-            return redirect(controllers.routes.HomeController.datebaseTest());
+            return redirect(controllers.routes.HomeController.databaseTest());
         }
     }
 

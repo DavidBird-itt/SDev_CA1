@@ -1,13 +1,16 @@
+# --- Created by Ebean DDL
+# To stop Ebean DDL generation, remove this comment and start using Evolutions
 
 # --- !Ups
 
 create table address (
-  eircode                       varchar(255),
+  id                            bigint auto_increment not null,
   street1                       varchar(255),
   street2                       varchar(255),
   town                          varchar(255),
   county                        varchar(255),
-  constraint pk_address primary key (eircode)
+  eircode                       varchar(255),
+  constraint pk_address primary key (id)
 );
 
 create table department (
@@ -16,6 +19,14 @@ create table department (
   constraint pk_department primary key (id)
 );
 
+create table employee (
+  id                            bigint auto_increment not null,
+  type                          varchar(255),
+  f_name                        varchar(255),
+  l_name                        varchar(255),
+  salary                        double not null,
+  constraint pk_employee primary key (id)
+);
 
 create table employees (
   id                            bigint auto_increment not null,
@@ -35,8 +46,26 @@ create table project (
   constraint pk_project primary key (id)
 );
 
+create table project_employees (
+  project_id                    bigint not null,
+  employees_id                  bigint not null,
+  constraint pk_project_employees primary key (project_id,employees_id)
+);
+
+alter table project_employees add constraint fk_project_employees_project foreign key (project_id) references project (id) on delete restrict on update restrict;
+create index ix_project_employees_project on project_employees (project_id);
+
+alter table project_employees add constraint fk_project_employees_employees foreign key (employees_id) references employees (id) on delete restrict on update restrict;
+create index ix_project_employees_employees on project_employees (employees_id);
+
 
 # --- !Downs
+
+alter table project_employees drop constraint if exists fk_project_employees_project;
+drop index if exists ix_project_employees_project;
+
+alter table project_employees drop constraint if exists fk_project_employees_employees;
+drop index if exists ix_project_employees_employees;
 
 drop table if exists address;
 
@@ -47,4 +76,6 @@ drop table if exists employee;
 drop table if exists employees;
 
 drop table if exists project;
+
+drop table if exists project_employees;
 

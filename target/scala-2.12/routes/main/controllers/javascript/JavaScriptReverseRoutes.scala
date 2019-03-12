@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
-// @DATE:Tue Mar 12 09:43:26 GMT 2019
+// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
+// @DATE:Tue Mar 12 10:30:15 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -59,7 +59,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:29
+    // @LINE:27
     def addProject: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProject",
       """
@@ -69,7 +69,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:26
     def addEmployeeSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addEmployeeSubmit",
       """
@@ -89,7 +89,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:25
     def addEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addEmployee",
       """
@@ -99,7 +99,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:28
     def addProjectSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProjectSubmit",
       """
@@ -148,26 +148,6 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:25
-    def createAccountSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.LoginController.createAccountSubmit",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "createAccountSubmit"})
-        }
-      """
-    )
-  
-    // @LINE:24
-    def createAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.LoginController.createAccount",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createAccount"})
-        }
-      """
-    )
   
     // @LINE:21
     def loginSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(

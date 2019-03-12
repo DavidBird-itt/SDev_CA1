@@ -1,0 +1,25 @@
+@(projectForm: Form[models.Project], user: models.users.Employees)
+
+@import helper._
+
+@main("Add Project", user) {
+    <p class = "lead"> Add a new Employee </p>
+
+    @form(action=routes.HomeController.addProjectSubmit, 'class -> "form-horizontal", 'role -> "form") {
+        @* CSRF attack Prevention *@
+        @CSRF.formField
+        <!-- Long id, String type, String fName, String lName, double salary -->
+        @inputText(projectForm("name"), '_label -> "name", 'class -> "form-control")
+        @inputText(projectForm("start_date"), '_label -> "start_date", 'class -> "form-control")
+        @inputText(projectForm("num_members"), '_label -> "num_members", 'class -> "form-control")
+
+        @inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")
+        
+        <div class="actions">
+            <input type="submit" value="Add Project" class="btn btn-primary">
+            <a href="@routes.HomeController.databaseTest()">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}

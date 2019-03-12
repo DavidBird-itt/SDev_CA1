@@ -54,16 +54,21 @@
             </tr>
         }
        
-    </tbody>
+    
 
+    <p>
+        <a href="@routes.HomeController.addProject()">
+            <button class="btn btn-primary">Add a Project</button>
+        </a>
+    </p>
+</tbody>
     <table class="table table-bordered table-hover table-condensed">
     <thead>
         <!--Header-->
-        <h2>Project Table</h2>
+        <h2>Address Table</h2>
         <tr>
             <th>Eircode</th>
             <th>Street 1</th>
-            <th>Street 2</th>
             <th>Town</th>
             <th>County</th>
         </tr>
@@ -76,7 +81,6 @@
             <tr>
                 <td>@i.getEircode</td>
                 <td>@i.getStreet1</td>
-                <td>@i.getStreet2</td>
                 <td>@i.getTown</td>
                 <td>@i.getCounty</td>
             </tr>
