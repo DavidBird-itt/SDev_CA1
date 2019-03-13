@@ -60,9 +60,9 @@ public class HomeController extends Controller {
             Employees newEmployees = newEmployeeForm.get();
 
             if (newEmployees.getId() == null) {
-                // newEmployees.save();
+                //newEmployees.save();
             } else {
-                // newEmployees.update();
+                //newEmployees.update();
             }
 
             flash("success", "Employee " + newEmployees.getfName() + " has been added/updated.");
@@ -74,6 +74,7 @@ public class HomeController extends Controller {
     public Result deleteEmployee(Long id) {
         //Employees.find.ref(id).delete();
 
+        //Shows the result
         flash("success", "Employee has been removed successfully.");
         return redirect(controllers.routes.HomeController.databaseTest());
     }
@@ -90,10 +91,8 @@ public class HomeController extends Controller {
             return badRequest("error");
         }
 
-        return ok(updateEmployee(employeeForm, Employees.getEmployeeById(session().get("empId"))));
+        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("empId"))));
     }
-
-
 
     public Result addProject() {
         Form<Project> projectForm = formFactory.form(Project.class);

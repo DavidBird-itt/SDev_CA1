@@ -31,23 +31,27 @@
                 <td>@i.getfName</td>
                 <td>@i.getlName</td>
                 <td>&euro; @("%.2f".format(i.getSalary))</td>
-            </tr>
+
+                <td>
+                    <a href="@routes.HomeController.updateEmployee(i.getId)" class="button-xs btn-danger">
+                        <span class="glyphicon-pencil"></span>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="@routes.HomeController.deleteEmployee(i.getId)" class="button-xs btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+        </tr>
         
-       
+        }
 
         <p>
             <a href="@routes.HomeController.addEmployee()">
                 <button class="btn btn-primary">Add an Employee</button>
             </a>
         </p>
-
-
-        <p>
-            <a href="@routes.HomeController.updateEmployee(i.getId)">
-                <button class="btn btn-primary">Update an Employee</button>
-            </a>
-        </p>
-    }
     </tbody>
  
     <table class="table table-bordered table-hover table-condensed">
