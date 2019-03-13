@@ -24,7 +24,7 @@ GET     /logout                   controllers.LoginController.logout
 
 GET     /addEmployee              controllers.HomeController.addEmployee
 POST    /addEmployeeSubmit        controllers.HomeController.addEmployeeSubmit
-# GET     /updateEmployee           controllers.HomeController.updateEmployee(id: Long)
+GET     /updateEmployee/:id       controllers.HomeController.updateEmployee(id: Long)           
 GET     /addProject               controllers.HomeController.addProject
 POST    /addProjectSubmit         controllers.HomeController.addProjectSubmit
 # GET     /updateProject/:id        controllers.HomeController.updateProject(id: Long)  

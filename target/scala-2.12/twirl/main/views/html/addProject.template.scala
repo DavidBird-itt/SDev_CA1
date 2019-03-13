@@ -41,8 +41,8 @@ Seq[Any](format.raw/*2.1*/("""
         """),_display_(/*10.10*/CSRF/*10.14*/.formField),format.raw/*10.24*/("""
         """),format.raw/*11.9*/("""<!-- Long id, String type, String fName, String lName, double salary -->
         """),_display_(/*12.10*/inputText(projectForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*12.85*/("""
-        """),_display_(/*13.10*/inputText(projectForm("start_date"), '_label -> "Start Date", 'class -> "form-control")),format.raw/*13.97*/("""
-        """),_display_(/*14.10*/inputText(projectForm("num_members"), '_label -> "Number Of Members", 'class -> "form-control")),format.raw/*14.105*/("""
+        """),_display_(/*13.10*/inputText(projectForm("startDate"), '_label -> "Start Date", 'class -> "form-control")),format.raw/*13.96*/("""
+        """),_display_(/*14.10*/inputText(projectForm("numMembers"), '_label -> "Number Of Members", 'class -> "form-control")),format.raw/*14.104*/("""
 
         """),_display_(/*16.10*/inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*16.74*/("""
         
@@ -69,10 +69,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 13 10:14:23 GMT 2019
-                  SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/addProject.scala.html
-                  HASH: ed116fc07f3ab9e625d5ddc33792cdbeb591e1f2
-                  MATRIX: 990->1|1128->69|1172->67|1199->85|1226->87|1259->112|1298->114|1329->119|1402->167|1510->266|1550->268|1586->305|1623->315|1636->319|1667->329|1703->338|1812->420|1908->495|1945->505|2053->592|2090->602|2207->697|2245->708|2330->772|2375->790|2524->912|2539->918|2590->948|2738->1066
+                  DATE: Wed Mar 13 14:03:42 GMT 2019
+                  SOURCE: /home/wdd/Desktop/SDev_CA1/app/views/addProject.scala.html
+                  HASH: a500527bc8a29b1e23527419d0387070ba7fb718
+                  MATRIX: 990->1|1128->69|1172->67|1199->85|1226->87|1259->112|1298->114|1329->119|1402->167|1510->266|1550->268|1586->305|1623->315|1636->319|1667->329|1703->338|1812->420|1908->495|1945->505|2052->591|2089->601|2205->695|2243->706|2328->770|2373->788|2522->910|2537->916|2588->946|2736->1064
                   LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|43->12|43->12|44->13|44->13|45->14|45->14|47->16|47->16|49->18|51->20|51->20|51->20|55->24
                   -- GENERATED --
               */

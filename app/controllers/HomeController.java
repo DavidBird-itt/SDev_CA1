@@ -60,9 +60,9 @@ public class HomeController extends Controller {
             Employees newEmployees = newEmployeeForm.get();
 
             if (newEmployees.getId() == null) {
-                //newEmployees.save();
+                // newEmployees.save();
             } else {
-                //newEmployees.update();
+                // newEmployees.update();
             }
 
             flash("success", "Employee " + newEmployees.getfName() + " has been added/updated.");
@@ -78,20 +78,20 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 
-    // public Result updateEmployee(Long id) {
-    //     Employees i;
-    //     Form<Employees> employeeForm;
+    public Result updateEmployee(Long id) {
+        Employees i;
+        Form<Employees> employeeForm;
 
-    //     try {
-    //         i = Employees.find.byId(id);
+        try {
+            i = Employees.find.byId(id);
 
-    //         employeeForm = formFactory.form(Employees.class).fill(i);
-    //     } catch (Exception e) {
-    //         return badRequest("error");
-    //     }
+            employeeForm = formFactory.form(Employees.class).fill(i);
+        } catch (Exception e) {
+            return badRequest("error");
+        }
 
-    //     return ok(addEmployee(employeeForm, Employees.getEmployeeById(session().get("empId"))));
-    // }
+        return ok(updateEmployee(employeeForm, Employees.getEmployeeById(session().get("empId"))));
+    }
 
 
 
