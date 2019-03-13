@@ -1,6 +1,13 @@
 @(elist: List[models.users.Employees], plist: List[models.Project], 
     alist: List[models.Address], emps: models.users.Employees)
 @main("Database", emps) {
+
+    @*Display the success*@
+    @if(flash.containsKey("success")) {
+        <div class="alert- alert-success">
+            @flash.get("success")
+        </div>
+    }
 <table class="table table-bordered table-hover table-condensed">
     <thead>
         <!--Header-->

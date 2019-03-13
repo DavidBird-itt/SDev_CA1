@@ -12,16 +12,15 @@ import models.users.*;
 public class Project extends Model {
     @Id
     private Long id;
+
     @Constraints.Required
     private String name;
+
     @Constraints.Required
     private String startDate;
+    
     @Constraints.Required
     private int numMembers;
-
-    //Many Employees work on Many Projects
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Employees> emps;
 
     public Project() {
     }

@@ -109,12 +109,8 @@ public class HomeController extends Controller {
             return badRequest(addProject.render(newProjectForm, Employees.getEmployeeById(session().get("empId"))));
         } else {
             Project newProject = newProjectForm.get();
-
-            if(newProject.getId() == null) {
                 newProject.save();
-            } else {
-                newProject.update();
-            }
+            
 
             flash("success", "Project " + newProject.getName() + " has been added.");
 

@@ -32,7 +32,14 @@ object databaseTest extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.a
 
 
 Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
-"""),format.raw/*4.1*/("""<table class="table table-bordered table-hover table-condensed">
+
+    """),format.raw/*5.28*/("""
+    """),_display_(/*6.6*/if(flash.containsKey("success"))/*6.38*/ {_display_(Seq[Any](format.raw/*6.40*/("""
+        """),format.raw/*7.9*/("""<div class="alert- alert-success">
+            """),_display_(/*8.14*/flash/*8.19*/.get("success")),format.raw/*8.34*/("""
+        """),format.raw/*9.9*/("""</div>
+    """)))}),format.raw/*10.6*/("""
+"""),format.raw/*11.1*/("""<table class="table table-bordered table-hover table-condensed">
     <thead>
         <!--Header-->
         <h2>Employee Table</h2>
@@ -48,19 +55,19 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
     <tbody>
         <!-- Loop for creating table rows from Employee data  -->
         
-        """),_display_(/*20.10*/for(i<-elist) yield /*20.23*/ {_display_(Seq[Any](format.raw/*20.25*/(""" 
-            """),format.raw/*21.13*/("""<tr>
-                <td>"""),_display_(/*22.22*/i/*22.23*/.getId),format.raw/*22.29*/("""</td>
-                <td>"""),_display_(/*23.22*/i/*23.23*/.getType),format.raw/*23.31*/("""</td>
-                <td>"""),_display_(/*24.22*/i/*24.23*/.getfName),format.raw/*24.32*/("""</td>
-                <td>"""),_display_(/*25.22*/i/*25.23*/.getlName),format.raw/*25.32*/("""</td>
-                <td>&euro; """),_display_(/*26.29*/("%.2f".format(i.getSalary))),format.raw/*26.57*/("""</td>
+        """),_display_(/*27.10*/for(i<-elist) yield /*27.23*/ {_display_(Seq[Any](format.raw/*27.25*/(""" 
+            """),format.raw/*28.13*/("""<tr>
+                <td>"""),_display_(/*29.22*/i/*29.23*/.getId),format.raw/*29.29*/("""</td>
+                <td>"""),_display_(/*30.22*/i/*30.23*/.getType),format.raw/*30.31*/("""</td>
+                <td>"""),_display_(/*31.22*/i/*31.23*/.getfName),format.raw/*31.32*/("""</td>
+                <td>"""),_display_(/*32.22*/i/*32.23*/.getlName),format.raw/*32.32*/("""</td>
+                <td>&euro; """),_display_(/*33.29*/("%.2f".format(i.getSalary))),format.raw/*33.57*/("""</td>
             </tr>
-        """)))}),format.raw/*28.10*/("""
+        """)))}),format.raw/*35.10*/("""
        
 
-        """),format.raw/*31.9*/("""<p>
-            <a href=""""),_display_(/*32.23*/routes/*32.29*/.HomeController.addEmployee()),format.raw/*32.58*/("""">
+        """),format.raw/*38.9*/("""<p>
+            <a href=""""),_display_(/*39.23*/routes/*39.29*/.HomeController.addEmployee()),format.raw/*39.58*/("""">
                 <button class="btn btn-primary">Add an Employee</button>
             </a>
         </p>
@@ -82,19 +89,19 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
     <tbody>
         <!-- Loop for creating table rows from Project data  -->
         
-        """),_display_(/*54.10*/for(i<-plist) yield /*54.23*/ {_display_(Seq[Any](format.raw/*54.25*/(""" 
-            """),format.raw/*55.13*/("""<tr>
-                <td>"""),_display_(/*56.22*/i/*56.23*/.getId),format.raw/*56.29*/("""</td>
-                <td>"""),_display_(/*57.22*/i/*57.23*/.getName),format.raw/*57.31*/("""</td>
-                <td>"""),_display_(/*58.22*/i/*58.23*/.getStartDate),format.raw/*58.36*/("""</td>
-                <td>"""),_display_(/*59.22*/i/*59.23*/.getNumMembers),format.raw/*59.37*/("""</td>
+        """),_display_(/*61.10*/for(i<-plist) yield /*61.23*/ {_display_(Seq[Any](format.raw/*61.25*/(""" 
+            """),format.raw/*62.13*/("""<tr>
+                <td>"""),_display_(/*63.22*/i/*63.23*/.getId),format.raw/*63.29*/("""</td>
+                <td>"""),_display_(/*64.22*/i/*64.23*/.getName),format.raw/*64.31*/("""</td>
+                <td>"""),_display_(/*65.22*/i/*65.23*/.getStartDate),format.raw/*65.36*/("""</td>
+                <td>"""),_display_(/*66.22*/i/*66.23*/.getNumMembers),format.raw/*66.37*/("""</td>
             </tr>
-        """)))}),format.raw/*61.10*/("""
+        """)))}),format.raw/*68.10*/("""
        
     
-"""),format.raw/*64.1*/("""<!-- Button to add a new project -->
+"""),format.raw/*71.1*/("""<!-- Button to add a new project -->
     <p>
-        <a href=""""),_display_(/*66.19*/routes/*66.25*/.HomeController.addProject()),format.raw/*66.53*/("""">
+        <a href=""""),_display_(/*73.19*/routes/*73.25*/.HomeController.addProject()),format.raw/*73.53*/("""">
             <button class="btn btn-primary">Add a Project</button>
         </a>
     </p>
@@ -118,16 +125,16 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
     <tbody>
         <!-- Loop for creating table rows from Employee data  -->
         
-        """),_display_(/*90.10*/for(i<-alist) yield /*90.23*/ {_display_(Seq[Any](format.raw/*90.25*/(""" 
-            """),format.raw/*91.13*/("""<tr>
-                <td>"""),_display_(/*92.22*/i/*92.23*/.getEircode),format.raw/*92.34*/("""</td>
-                <td>"""),_display_(/*93.22*/i/*93.23*/.getStreet1),format.raw/*93.34*/("""</td>
-                <td>"""),_display_(/*94.22*/i/*94.23*/.getTown),format.raw/*94.31*/("""</td>
-                <td>"""),_display_(/*95.22*/i/*95.23*/.getCounty),format.raw/*95.33*/("""</td>
+        """),_display_(/*97.10*/for(i<-alist) yield /*97.23*/ {_display_(Seq[Any](format.raw/*97.25*/(""" 
+            """),format.raw/*98.13*/("""<tr>
+                <td>"""),_display_(/*99.22*/i/*99.23*/.getEircode),format.raw/*99.34*/("""</td>
+                <td>"""),_display_(/*100.22*/i/*100.23*/.getStreet1),format.raw/*100.34*/("""</td>
+                <td>"""),_display_(/*101.22*/i/*101.23*/.getTown),format.raw/*101.31*/("""</td>
+                <td>"""),_display_(/*102.22*/i/*102.23*/.getCounty),format.raw/*102.33*/("""</td>
             </tr>
-        """)))}),format.raw/*97.10*/("""
+        """)))}),format.raw/*104.10*/("""
        
-    """),format.raw/*99.5*/("""</tbody>
+    """),format.raw/*106.5*/("""</tbody>
     """)))}))
       }
     }
@@ -144,11 +151,11 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
 
               /*
                   -- GENERATED --
-                  DATE: Tue Mar 12 15:23:46 GMT 2019
-                  SOURCE: /home/wdd/Desktop/SDev_CA1/app/views/databaseTest.scala.html
-                  HASH: 13f5a5bef8ff26e66a387282932b40fcd045f458
-                  MATRIX: 1042->1|1266->133|1296->155|1335->157|1362->158|1798->567|1827->580|1867->582|1909->596|1962->622|1972->623|1999->629|2053->656|2063->657|2092->665|2146->692|2156->693|2186->702|2240->729|2250->730|2280->739|2341->773|2390->801|2454->834|2499->852|2552->878|2567->884|2617->913|3157->1426|3186->1439|3226->1441|3268->1455|3321->1481|3331->1482|3358->1488|3412->1515|3422->1516|3451->1524|3505->1551|3515->1552|3549->1565|3603->1592|3613->1593|3648->1607|3712->1640|3753->1654|3843->1717|3858->1723|3907->1751|4533->2350|4562->2363|4602->2365|4644->2379|4697->2405|4707->2406|4739->2417|4793->2444|4803->2445|4835->2456|4889->2483|4899->2484|4928->2492|4982->2519|4992->2520|5023->2530|5087->2563|5127->2576
-                  LINES: 28->1|34->3|34->3|34->3|35->4|51->20|51->20|51->20|52->21|53->22|53->22|53->22|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|57->26|57->26|59->28|62->31|63->32|63->32|63->32|85->54|85->54|85->54|86->55|87->56|87->56|87->56|88->57|88->57|88->57|89->58|89->58|89->58|90->59|90->59|90->59|92->61|95->64|97->66|97->66|97->66|121->90|121->90|121->90|122->91|123->92|123->92|123->92|124->93|124->93|124->93|125->94|125->94|125->94|126->95|126->95|126->95|128->97|130->99
+                  DATE: Wed Mar 13 09:52:04 GMT 2019
+                  SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/databaseTest.scala.html
+                  HASH: e4a0b4db80cd932f88ce37aaf39b262783177bae
+                  MATRIX: 1042->1|1266->133|1296->155|1335->157|1368->186|1399->192|1439->224|1478->226|1513->235|1587->283|1600->288|1635->303|1670->312|1712->324|1740->325|2176->734|2205->747|2245->749|2287->763|2340->789|2350->790|2377->796|2431->823|2441->824|2470->832|2524->859|2534->860|2564->869|2618->896|2628->897|2658->906|2719->940|2768->968|2832->1001|2877->1019|2930->1045|2945->1051|2995->1080|3535->1593|3564->1606|3604->1608|3646->1622|3699->1648|3709->1649|3736->1655|3790->1682|3800->1683|3829->1691|3883->1718|3893->1719|3927->1732|3981->1759|3991->1760|4026->1774|4090->1807|4131->1821|4221->1884|4236->1890|4285->1918|4911->2517|4940->2530|4980->2532|5022->2546|5075->2572|5085->2573|5117->2584|5172->2611|5183->2612|5216->2623|5271->2650|5282->2651|5312->2659|5367->2686|5378->2687|5410->2697|5475->2730|5516->2743
+                  LINES: 28->1|34->3|34->3|34->3|36->5|37->6|37->6|37->6|38->7|39->8|39->8|39->8|40->9|41->10|42->11|58->27|58->27|58->27|59->28|60->29|60->29|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|63->32|63->32|64->33|64->33|66->35|69->38|70->39|70->39|70->39|92->61|92->61|92->61|93->62|94->63|94->63|94->63|95->64|95->64|95->64|96->65|96->65|96->65|97->66|97->66|97->66|99->68|102->71|104->73|104->73|104->73|128->97|128->97|128->97|129->98|130->99|130->99|130->99|131->100|131->100|131->100|132->101|132->101|132->101|133->102|133->102|133->102|135->104|137->106
                   -- GENERATED --
               */
           

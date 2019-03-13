@@ -3,15 +3,15 @@
 @import helper._
 
 @main("Add Project", user) {
-    <p class = "lead"> Add a new Employee </p>
+    <p class = "lead"> Add a new Project </p>
 
-    @form(action=routes.HomeController.addProjectSubmit, 'class -> "form-horizontal", 'role -> "form") {
+    @form(action=routes.HomeController.addProjectSubmit(), 'class -> "form-horizontal", 'role -> "form") {
         @* CSRF attack Prevention *@
         @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
-        @inputText(projectForm("name"), '_label -> "name", 'class -> "form-control")
-        @inputText(projectForm("start_date"), '_label -> "start_date", 'class -> "form-control")
-        @inputText(projectForm("num_members"), '_label -> "num_members", 'class -> "form-control")
+        @inputText(projectForm("name"), '_label -> "Name", 'class -> "form-control")
+        @inputText(projectForm("start_date"), '_label -> "Start Date", 'class -> "form-control")
+        @inputText(projectForm("num_members"), '_label -> "Number Of Members", 'class -> "form-control")
 
         @inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")
         

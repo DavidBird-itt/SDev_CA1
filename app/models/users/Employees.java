@@ -23,8 +23,6 @@ public class Employees {
     @Constraints.Required
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "emps")
-    private List<Project> projects;
 
     public Employees() {
     }

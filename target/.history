@@ -38,3 +38,9 @@ h2-browser
 run
 exit
 run
+clean
+compile
+run
+exit
+run
+exit
