@@ -25,7 +25,7 @@ public class Project extends Model {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Employees> emps;
 
-    private List<Long> empSelect = new ArrayList<Long>();
+    private List<String> empSelect = new ArrayList<String>();
 
     public Project() {
     }
@@ -83,10 +83,10 @@ public class Project extends Model {
     public void setEmps(List<Employees> emps) {
         this.emps = emps;
     }
-    public List<Long> getEmpSelect() {
+    public List<String> getEmpSelect() {
         return empSelect;
     }
-    public void setEmpSelect(List<Long> empSelect) {
+    public void setEmpSelect(List<String> empSelect) {
         this.empSelect = empSelect;
     }
 }

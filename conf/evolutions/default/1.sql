@@ -20,7 +20,7 @@ create table department (
 );
 
 create table employees (
-  id                            bigint auto_increment not null,
+  id                            varchar(255) not null,
   type                          varchar(255),
   f_name                        varchar(255),
   l_name                        varchar(255),
@@ -39,7 +39,7 @@ create table project (
 
 create table project_employees (
   project_id                    bigint not null,
-  employees_id                  bigint not null,
+  employees_id                  varchar(255) not null,
   constraint pk_project_employees primary key (project_id,employees_id)
 );
 

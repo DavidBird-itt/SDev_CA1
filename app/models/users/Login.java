@@ -14,11 +14,11 @@ public class Login {
     }
 
     //Getters and Setters
-    public String getId() {
+    public String getEmpId() {
         return this.id;
     }
 
-    public void setId(String empId) {
+    public void setEmpId(String empId) {
         this.id = empId;
     }
 

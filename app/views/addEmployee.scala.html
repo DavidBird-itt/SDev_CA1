@@ -9,6 +9,7 @@
         @* CSRF attack Prevention *@
         @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
+        @inputText(employeeForm("email"), '_label -> "Type", 'class -> "form-control")
         @inputText(employeeForm("type"), '_label -> "Type", 'class -> "form-control")
         @inputText(employeeForm("fName"), '_label -> "fName", 'class -> "form-control")
         @inputText(employeeForm("lName"), '_label -> "lName", 'class -> "form-control")

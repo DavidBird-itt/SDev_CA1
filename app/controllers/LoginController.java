@@ -37,7 +37,7 @@ public class LoginController extends Controller {
             session().clear();
 
             //Store in cookie
-            session("id", loginForm.get().getId());
+            session("id", loginForm.get().getEmpId());
 
             return redirect(controllers.routes.HomeController.index());
         }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Wed Mar 13 21:57:09 GMT 2019
+// @DATE:Thu Mar 14 18:52:24 GMT 2019
 
 package router
 
@@ -61,8 +61,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.LoginController.logout"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addEmployee""", """controllers.HomeController.addEmployee"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addEmployeeSubmit""", """controllers.HomeController.addEmployeeSubmit"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateEmployee/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateEmployee(id:Long)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteEmployee/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteEmployee(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateEmployee/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateEmployee(id:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteEmployee/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteEmployee(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProject""", """controllers.HomeController.addProject"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProjectSubmit""", """controllers.HomeController.addProjectSubmit"""),
     Nil
@@ -257,12 +257,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateEmployee/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_HomeController_updateEmployee10_invoker = createInvoker(
-    HomeController_1.updateEmployee(fakeValue[Long]),
+    HomeController_1.updateEmployee(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
       "updateEmployee",
-      Seq(classOf[Long]),
+      Seq(classOf[String]),
       "GET",
       this.prefix + """updateEmployee/""" + "$" + """id<[^/]+>""",
       """""",
@@ -275,12 +275,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteEmployee/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_HomeController_deleteEmployee11_invoker = createInvoker(
-    HomeController_1.deleteEmployee(fakeValue[Long]),
+    HomeController_1.deleteEmployee(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
       "deleteEmployee",
-      Seq(classOf[Long]),
+      Seq(classOf[String]),
       "GET",
       this.prefix + """deleteEmployee/""" + "$" + """id<[^/]+>""",
       """""",
@@ -389,13 +389,13 @@ class Routes(
   
     // @LINE:27
     case controllers_HomeController_updateEmployee10_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
         controllers_HomeController_updateEmployee10_invoker.call(HomeController_1.updateEmployee(id))
       }
   
     // @LINE:28
     case controllers_HomeController_deleteEmployee11_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
         controllers_HomeController_deleteEmployee11_invoker.call(HomeController_1.deleteEmployee(id))
       }
   

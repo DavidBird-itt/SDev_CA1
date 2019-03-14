@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Wed Mar 13 21:57:09 GMT 2019
+// @DATE:Thu Mar 14 18:52:24 GMT 2019
 
 import play.api.mvc.Call
 
@@ -54,16 +54,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addProject")
     }
   
-    // @LINE:27
-    def updateEmployee(id:Long): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "updateEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
-    }
-  
     // @LINE:26
     def addEmployeeSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addEmployeeSubmit")
+    }
+  
+    // @LINE:28
+    def deleteEmployee(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:17
@@ -72,10 +72,10 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "databaseTest")
     }
   
-    // @LINE:28
-    def deleteEmployee(id:Long): Call = {
+    // @LINE:27
+    def updateEmployee(id:String): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "deleteEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+      Call("GET", _prefix + { _defaultPrefix } + "updateEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:25

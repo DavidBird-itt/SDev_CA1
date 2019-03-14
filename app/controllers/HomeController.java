@@ -54,15 +54,22 @@ public class HomeController extends Controller {
         Form<Employees> newEmployeeForm = formFactory.form(Employees.class).bindFromRequest();
 
         if (newEmployeeForm.hasErrors()) {
+            System.out.println("Id: "+newEmployeeForm.field("id").getValue().get());
+            System.out.println("Type: "+newEmployeeForm.field("type").getValue().get());
+            System.out.println("fName: "+newEmployeeForm.field("fName").getValue().get());
+            System.out.println("lName: "+newEmployeeForm.field("lName").getValue().get());
+            System.out.println("salary: "+newEmployeeForm.field("salary").getValue().get());
             return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeeById(session().get("id"))));
         
         } else {
             Employees newEmployees = newEmployeeForm.get();
 
-            if (newEmployees.getId() == null) {
-                //newEmployees.save();
+            if (Employees.getEmployeeById(newEmployees.getId()) == null) {
+                System.out.println("Save");
+                newEmployees.save();
             } else {
-                //newEmployees.update();
+                System.out.println("Update");
+                newEmployees.update();
             }
 
             flash("success", "Employee " + newEmployees.getfName() + " has been added/updated.");
@@ -71,20 +78,25 @@ public class HomeController extends Controller {
         }
     }
 
-    public Result deleteEmployee(Long id) {
+    public Result deleteEmployee(String id) {
         //Employees.find.ref(id).delete();
+        Employees i;
 
+        i = Employees.getEmployeeById(id);
+        i.delete();
         //Shows the result
         flash("success", "Employee has been removed successfully.");
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 
-    public Result updateEmployee(Long id) {
+
+    public Result updateEmployee(String id) {
         Employees i;
         Form<Employees> employeeForm;
 
         try {
-            i = Employees.find.byId(id);
+            //i = Employees.find.byId(id);
+            i = Employees.getEmployeeById(id);
 
             employeeForm = formFactory.form(Employees.class).fill(i);
         } catch (Exception e) {
@@ -110,10 +122,10 @@ public class HomeController extends Controller {
             Project newProject = newProjectForm.get();
 
             List<Employees> newEmps = new ArrayList<Employees>();
-            for (Long emp : newProject.getEmpSelect()) {
-                newEmps.add(Employees.find.byId(emp));
+            for (String emp : newProject.getEmpSelect()) {
+               //newEmps.add(Employees.getId());
             }
-            newProject.setEmps(newEmps);
+            //newProject.setEmps(newEmps);
             newProject.save();
             
 

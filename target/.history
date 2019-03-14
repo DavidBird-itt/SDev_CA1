@@ -57,3 +57,8 @@ h2
 h2-browser
 run
 exit
+ run
+run
+h2-browser
+run
+exit

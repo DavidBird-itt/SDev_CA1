@@ -9,9 +9,9 @@ import play.data.validation.*;
 import models.*;
 
 @Entity
-public class Employees {
+public class Employees extends Model{
     @Id
-    private Long id;
+    private String id;
     @Constraints.Required
     private String type;
     @Constraints.Required
@@ -26,11 +26,10 @@ public class Employees {
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "emps")
     private List<Project> projects;
 
-
     public Employees() {
     }
 
-    public Employees(Long id, String type, String fName, String lName, double salary, String password) {
+    public Employees(String id, String type, String fName, String lName, double salary, String password) {
         this.id = id;
         this.type = type;
         this.fName = fName;
@@ -39,11 +38,11 @@ public class Employees {
         this.password = password;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -86,15 +85,6 @@ public class Employees {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    //Mapped getters and setters
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List<Project> projects){
-        this.projects = projects;
-    }
     
     //Finders
     public static final Finder<Long, Employees> find = new Finder<>(Employees.class);
@@ -105,7 +95,7 @@ public class Employees {
 
     //Identification
     public static Employees authenticate(String empId, String password) {
-        return find.query().where().eq("empId", empId).eq("password", password).findUnique();
+        return find.query().where().eq("id", empId).eq("password", password).findUnique();
     }
 
     //For the dynamic login, log out
@@ -113,26 +103,26 @@ public class Employees {
         if (id == null) {
             return null;
         } else {
-            return find.query().where().eq("empId", id).findUnique();
+            return find.query().where().eq("id", id).findUnique();
         }
     } 
 
-    //For many to many mapping 
-    public static Map<String,String> options() {
-        LinkedHashMap<String,String> options = new LinkedHashMap();
-
-        // Get all the Employees from the database and add them to the options hash map
-        for (Employees e: Employees.findAll()) {
-            options.put(e.getId().toString(), e.getfName());
+        //For many to many mapping 
+        public static Map<String,String> options() {
+            LinkedHashMap<String,String> options = new LinkedHashMap();
+    
+            // Get all the Employees from the database and add them to the options hash map
+            for (Employees e: Employees.findAll()) {
+                options.put(e.getId().toString(), e.getfName());
+            }
+            return options;
         }
-        return options;
-    }
-
-    public static boolean inEmployees(Long employee, Long product) {
-        return find.query().where().eq("prodect.id", product)
-                           .eq("id", employee)
-                           .findList().size() > 0;
-    }
-
+    
+        public static boolean inEmployees(String employee, Long product) {
+            return find.query().where().eq("prodect.id", product)
+                               .eq("id", employee)
+                               .findList().size() > 0;
+        }
+    
 
 }

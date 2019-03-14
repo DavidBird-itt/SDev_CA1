@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:116:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method setEmployees(java.util.List<models.users.Employees>)[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable newProject of type models.Project[0m
-[0m[[0m[31merror[0m] [0m[0m            newProject.setEmployees (newEmps);[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/Project.java:28:1: incompatible types: java.util.ArrayList<java.lang.Long> cannot be converted to java.util.List<java.lang.String>[0m
+[0m[[0m[31merror[0m] [0m[0m    private List<String> empSelect = new ArrayList<Long>();[0m

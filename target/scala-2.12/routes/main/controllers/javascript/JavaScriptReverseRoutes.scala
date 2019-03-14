@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Wed Mar 13 21:57:09 GMT 2019
+// @DATE:Thu Mar 14 18:52:24 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -69,22 +69,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
-    def updateEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.updateEmployee",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
     // @LINE:26
     def addEmployeeSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addEmployeeSubmit",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addEmployeeSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:28
+    def deleteEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteEmployee",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -99,12 +99,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
-    def deleteEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.deleteEmployee",
+    // @LINE:27
+    def updateEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateEmployee",
       """
         function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

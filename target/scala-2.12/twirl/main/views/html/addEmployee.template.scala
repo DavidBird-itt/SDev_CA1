@@ -40,20 +40,21 @@ Seq[Any](format.raw/*2.1*/("""
         """),format.raw/*9.37*/("""
         """),_display_(/*10.10*/CSRF/*10.14*/.formField),format.raw/*10.24*/("""
         """),format.raw/*11.9*/("""<!-- Long id, String type, String fName, String lName, double salary -->
-        """),_display_(/*12.10*/inputText(employeeForm("type"), '_label -> "Type", 'class -> "form-control")),format.raw/*12.86*/("""
-        """),_display_(/*13.10*/inputText(employeeForm("fName"), '_label -> "fName", 'class -> "form-control")),format.raw/*13.88*/("""
-        """),_display_(/*14.10*/inputText(employeeForm("lName"), '_label -> "lName", 'class -> "form-control")),format.raw/*14.88*/("""
-        """),_display_(/*15.10*/inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")),format.raw/*15.90*/("""
+        """),_display_(/*12.10*/inputText(employeeForm("email"), '_label -> "Type", 'class -> "form-control")),format.raw/*12.87*/("""
+        """),_display_(/*13.10*/inputText(employeeForm("type"), '_label -> "Type", 'class -> "form-control")),format.raw/*13.86*/("""
+        """),_display_(/*14.10*/inputText(employeeForm("fName"), '_label -> "fName", 'class -> "form-control")),format.raw/*14.88*/("""
+        """),_display_(/*15.10*/inputText(employeeForm("lName"), '_label -> "lName", 'class -> "form-control")),format.raw/*15.88*/("""
+        """),_display_(/*16.10*/inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")),format.raw/*16.90*/("""
 
-        """),_display_(/*17.10*/inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*17.75*/("""
+        """),_display_(/*18.10*/inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*18.75*/("""
         
-        """),format.raw/*19.9*/("""<div class="actions">
+        """),format.raw/*20.9*/("""<div class="actions">
             <input type="submit" value="Add Employee" class="btn btn-primary">
-            <a href=""""),_display_(/*21.23*/routes/*21.29*/.HomeController.databaseTest()),format.raw/*21.59*/("""">
+            <a href=""""),_display_(/*22.23*/routes/*22.29*/.HomeController.databaseTest()),format.raw/*22.59*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*25.6*/("""
+    """)))}),format.raw/*26.6*/("""
 """)))}))
       }
     }
@@ -70,11 +71,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 13 21:29:07 GMT 2019
+                  DATE: Thu Mar 14 18:32:49 GMT 2019
                   SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/addEmployee.scala.html
-                  HASH: 95f502b6b160b3317a6cf853da813230b2ca6b61
-                  MATRIX: 999->1|1146->78|1190->76|1217->94|1244->96|1278->122|1317->124|1348->129|1422->178|1529->276|1569->278|1605->315|1642->325|1655->329|1686->339|1722->348|1831->430|1928->506|1965->516|2064->594|2101->604|2200->682|2237->692|2338->772|2376->783|2462->848|2507->866|2657->989|2672->995|2723->1025|2871->1143
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|43->12|43->12|44->13|44->13|45->14|45->14|46->15|46->15|48->17|48->17|50->19|52->21|52->21|52->21|56->25
+                  HASH: 6666b2e7a94cc294e379f79249b5a565fe5263d8
+                  MATRIX: 999->1|1146->78|1190->76|1217->94|1244->96|1278->122|1317->124|1348->129|1422->178|1529->276|1569->278|1605->315|1642->325|1655->329|1686->339|1722->348|1831->430|1929->507|1966->517|2063->593|2100->603|2199->681|2236->691|2335->769|2372->779|2473->859|2511->870|2597->935|2642->953|2792->1076|2807->1082|2858->1112|3006->1230
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|43->12|43->12|44->13|44->13|45->14|45->14|46->15|46->15|47->16|47->16|49->18|49->18|51->20|53->22|53->22|53->22|57->26
                   -- GENERATED --
               */
           
