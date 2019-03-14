@@ -1,12 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:63:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method save()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployees of type models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m                newEmployees.save();[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:65:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method update()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable newEmployees of type models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m                newEmployees.update();[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:75:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method delete()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m        Employees.find.ref(id).delete();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:116:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method setEmployees(java.util.List<models.users.Employees>)[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable newProject of type models.Project[0m
+[0m[[0m[31merror[0m] [0m[0m            newProject.setEmployees (newEmps);[0m

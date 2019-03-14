@@ -23,6 +23,9 @@ public class Employees {
     @Constraints.Required
     private String password;
 
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "emps")
+    private List<Project> projects;
+
 
     public Employees() {
     }
@@ -83,6 +86,15 @@ public class Employees {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    //Mapped getters and setters
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects){
+        this.projects = projects;
+    }
     
     //Finders
     public static final Finder<Long, Employees> find = new Finder<>(Employees.class);
@@ -104,5 +116,23 @@ public class Employees {
             return find.query().where().eq("empId", id).findUnique();
         }
     } 
+
+    //For many to many mapping 
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap();
+
+        // Get all the Employees from the database and add them to the options hash map
+        for (Employees e: Employees.findAll()) {
+            options.put(e.getId().toString(), e.getfName());
+        }
+        return options;
+    }
+
+    public static boolean inEmployees(Long employee, Long product) {
+        return find.query().where().eq("prodect.id", product)
+                           .eq("id", employee)
+                           .findList().size() > 0;
+    }
+
 
 }

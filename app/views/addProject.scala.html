@@ -10,6 +10,18 @@
         @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
         @inputText(projectForm("name"), '_label -> "Name", 'class -> "form-control")
+
+        <p><strong>Employees</strong></p>
+        @for((value, name) <- users.Employees.options){
+            <input type="checkbox" name="empSelect[]" value="@value"
+                @if(projectForm("id").getValue.isPresent && projectForm("id").getValue.get != "") {
+                    @if(users.Employees.inEmployees(value.toLong, projectForm("id").getValue.get.toLong)) {
+                        checked
+                    }
+              }
+            /> @name </br>    
+        }
+        <p></p>
         @inputText(projectForm("startDate"), '_label -> "Start Date", 'class -> "form-control")
         @inputText(projectForm("numMembers"), '_label -> "Number Of Members", 'class -> "form-control")
 

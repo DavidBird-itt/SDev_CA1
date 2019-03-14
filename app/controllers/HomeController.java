@@ -34,19 +34,19 @@ public class HomeController extends Controller {
     }
 
     public Result index() {
-        return ok(index.render(Employees.getEmployeeById(session().get("empId"))));
+        return ok(index.render(Employees.getEmployeeById(session().get("id"))));
     }
 
     public Result databaseTest() {
         List<Employees> elist = Employees.findAll();
         List<Project> plist = Project.findAll();
         List<Address> alist = Address.findAll();
-        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("empId"))));
+        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("id"))));
     }
 
     public Result addEmployee() {
         Form<Employees> employeeForm = formFactory.form(Employees.class);
-        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("empId"))));
+        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("id"))));
     }
 
     @Transactional
@@ -54,7 +54,7 @@ public class HomeController extends Controller {
         Form<Employees> newEmployeeForm = formFactory.form(Employees.class).bindFromRequest();
 
         if (newEmployeeForm.hasErrors()) {
-            return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeeById(session().get("empId"))));
+            return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeeById(session().get("id"))));
         
         } else {
             Employees newEmployees = newEmployeeForm.get();
@@ -91,12 +91,12 @@ public class HomeController extends Controller {
             return badRequest("error");
         }
 
-        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("empId"))));
+        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("id"))));
     }
 
     public Result addProject() {
         Form<Project> projectForm = formFactory.form(Project.class);
-        return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("empId"))));
+        return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("id"))));
     }
 
     @Transactional
@@ -105,10 +105,16 @@ public class HomeController extends Controller {
 
         if (newProjectForm.hasErrors()) {
             //gives new form if an error has been input
-            return badRequest(addProject.render(newProjectForm, Employees.getEmployeeById(session().get("empId"))));
+            return badRequest(addProject.render(newProjectForm, Employees.getEmployeeById(session().get("id"))));
         } else {
             Project newProject = newProjectForm.get();
-                newProject.save();
+
+            List<Employees> newEmps = new ArrayList<Employees>();
+            for (Long emp : newProject.getEmpSelect()) {
+                newEmps.add(Employees.find.byId(emp));
+            }
+            newProject.setEmps(newEmps);
+            newProject.save();
             
 
             flash("success", "Project " + newProject.getName() + " has been added.");

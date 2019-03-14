@@ -22,6 +22,11 @@ public class Project extends Model {
     @Constraints.Required
     private int numMembers;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Employees> emps;
+
+    private List<Long> empSelect = new ArrayList<Long>();
+
     public Project() {
     }
 
@@ -69,5 +74,19 @@ public class Project extends Model {
 
     public static final List<Project> findAll() {
         return Project.find.all();
-    }     
+    } 
+    
+    //ManyToMany Mapping
+    public List<Employees> getEmps() {
+        return emps;
+    }
+    public void setEmps(List<Employees> emps) {
+        this.emps = emps;
+    }
+    public List<Long> getEmpSelect() {
+        return empSelect;
+    }
+    public void setEmpSelect(List<Long> empSelect) {
+        this.empSelect = empSelect;
+    }
 }
