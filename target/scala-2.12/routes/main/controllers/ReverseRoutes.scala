@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Thu Mar 14 18:52:24 GMT 2019
+// @DATE:Thu Mar 14 21:23:22 GMT 2019
 
 import play.api.mvc.Call
 
@@ -48,22 +48,28 @@ package controllers {
     }
 
   
+    // @LINE:27
+    def updateManager(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "updateManager/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
     // @LINE:30
     def addProject(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addProject")
     }
   
-    // @LINE:26
-    def addEmployeeSubmit(): Call = {
+    // @LINE:28
+    def deleteManager(id:String): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "addEmployeeSubmit")
+      Call("GET", _prefix + { _defaultPrefix } + "deleteManager/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:28
-    def deleteEmployee(id:String): Call = {
+    // @LINE:25
+    def addManager(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "deleteEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+      Call("GET", _prefix + { _defaultPrefix } + "addManager")
     }
   
     // @LINE:17
@@ -72,16 +78,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "databaseTest")
     }
   
-    // @LINE:27
-    def updateEmployee(id:String): Call = {
+    // @LINE:24
+    def employees(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "updateEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+      Call("GET", _prefix + { _defaultPrefix } + "employees")
     }
   
-    // @LINE:25
-    def addEmployee(): Call = {
+    // @LINE:26
+    def addManagerSubmit(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "addEmployee")
+      Call("POST", _prefix + { _defaultPrefix } + "addManagerSubmit")
     }
   
     // @LINE:31

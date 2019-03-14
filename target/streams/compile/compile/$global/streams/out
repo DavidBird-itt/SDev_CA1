@@ -1,2 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/Project.java:28:1: incompatible types: java.util.ArrayList<java.lang.Long> cannot be converted to java.util.List<java.lang.String>[0m
-[0m[[0m[31merror[0m] [0m[0m    private List<String> empSelect = new ArrayList<Long>();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Employees.java:119:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method findAll()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m        for (Employees e: Employees.findAll()) {[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Employees.java: /home/wdd/SDevProj/SDev_CA1/app/models/users/Employees.java uses unchecked or unsafe operations.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Employees.java: Recompile with -Xlint:unchecked for details.[0m

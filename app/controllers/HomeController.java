@@ -38,31 +38,38 @@ public class HomeController extends Controller {
     }
 
     public Result databaseTest() {
-        List<Employees> elist = Employees.findAll();
         List<Project> plist = Project.findAll();
         List<Address> alist = Address.findAll();
-        return ok(databaseTest.render(elist, plist, alist, Employees.getEmployeeById(session().get("id"))));
+        return ok(databaseTest.render(plist, alist, Employees.getEmployeeById(session().get("id"))));
     }
 
-    public Result addEmployee() {
-        Form<Employees> employeeForm = formFactory.form(Employees.class);
-        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("id"))));
+    public Result employees() {
+        List<Manager> empList = null;
+        empList = Manager.findAll();
+        return ok(employees.render(empList, Employees.getEmployeeById(session().get("id"))));
+    }
+
+    public Result addManager() {
+        Form<Manager> employeeForm = formFactory.form(Manager.class);
+        return ok(addManager.render(employeeForm, Manager.getEmployeeById(session().get("id"))));
     }
 
     @Transactional
-    public Result addEmployeeSubmit() {
-        Form<Employees> newEmployeeForm = formFactory.form(Employees.class).bindFromRequest();
+    public Result addManagerSubmit() {
+        Form<Manager> newEmployeeForm = formFactory.form(Manager.class).bindFromRequest();
 
         if (newEmployeeForm.hasErrors()) {
+
+            return badRequest(addManager.render(newEmployeeForm, Employees.getEmployeeById(session().get("id"))));
+        
+        } else {
+            Employees newEmployees = newEmployeeForm.get();
+
             System.out.println("Id: "+newEmployeeForm.field("id").getValue().get());
             System.out.println("Type: "+newEmployeeForm.field("type").getValue().get());
             System.out.println("fName: "+newEmployeeForm.field("fName").getValue().get());
             System.out.println("lName: "+newEmployeeForm.field("lName").getValue().get());
             System.out.println("salary: "+newEmployeeForm.field("salary").getValue().get());
-            return badRequest(addEmployee.render(newEmployeeForm, Employees.getEmployeeById(session().get("id"))));
-        
-        } else {
-            Employees newEmployees = newEmployeeForm.get();
 
             if (Employees.getEmployeeById(newEmployees.getId()) == null) {
                 System.out.println("Save");
@@ -74,36 +81,35 @@ public class HomeController extends Controller {
 
             flash("success", "Employee " + newEmployees.getfName() + " has been added/updated.");
 
-            return redirect(controllers.routes.HomeController.databaseTest());
+            return redirect(controllers.routes.HomeController.employees());
         }
     }
 
-    public Result deleteEmployee(String id) {
-        //Employees.find.ref(id).delete();
-        Employees i;
+    public Result deleteManager(String id) {
+        Manager emp = (Manager) Employees.getEmployeeById(id);
+        emp.delete();
 
-        i = Employees.getEmployeeById(id);
-        i.delete();
         //Shows the result
         flash("success", "Employee has been removed successfully.");
-        return redirect(controllers.routes.HomeController.databaseTest());
+        return redirect(controllers.routes.HomeController.employees());
     }
 
 
-    public Result updateEmployee(String id) {
-        Employees i;
-        Form<Employees> employeeForm;
+    public Result updateManager(String id) {
+        Manager emp;
+        Form<Manager> employeeForm;
 
         try {
             //i = Employees.find.byId(id);
-            i = Employees.getEmployeeById(id);
+            emp = (Manager) Employees.getEmployeeById(id);
+            emp.update();
 
-            employeeForm = formFactory.form(Employees.class).fill(i);
+            employeeForm = formFactory.form(Manager.class).fill(emp);
         } catch (Exception e) {
             return badRequest("error");
         }
 
-        return ok(addEmployee.render(employeeForm, Employees.getEmployeeById(session().get("id"))));
+        return ok(addManager.render(employeeForm, Employees.getEmployeeById(session().get("id"))));
     }
 
     public Result addProject() {

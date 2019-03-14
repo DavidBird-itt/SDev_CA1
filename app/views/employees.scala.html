@@ -1,0 +1,56 @@
+@(elist: List[models.users.Manager], emps: models.users.Employees)
+@main("Database", emps) {
+    <h1>Current Managers</h1>
+
+    @*Display the success*@
+@if(flash.containsKey("success")) {
+<div class="alert- alert-success">
+    @flash.get("success")
+</div>
+}
+<table class="table table-bordered table-hover table-condensed">
+
+    <thead>
+        <!--Header-->
+        <h2>Employee Table</h2>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+
+        @for(i<-elist) { <tr>
+            <td>@i.getId</td>
+            <td>@i.getType</td>
+            <td>@i.getfName</td>
+            <td>@i.getlName</td>
+            <td>&euro; @("%.2f".format(i.getSalary))</td>
+
+            <td>
+                <a href="@routes.HomeController.updateManager(i.getId)" class="button-xs btn-danger">
+                    <span class="glyphicon-pencil"></span>
+                </a>
+            </td>
+
+            <td>
+                <a href="@routes.HomeController.deleteManager(i.getId)" class="button-xs btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+            </tr>
+
+            }
+
+            <p>
+                <a href="@routes.HomeController.addManager()">
+                    <button class="btn btn-primary">Add a Manager</button>
+                </a>
+            </p>
+    </tbody>
+    }

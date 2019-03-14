@@ -15,14 +15,15 @@
         @for((value, name) <- users.Employees.options){
             <input type="checkbox" name="empSelect[]" value="@value"
                 @if(projectForm("id").getValue.isPresent && projectForm("id").getValue.get != "") {
-                    @if(users.Employees.inEmployees(value.toLong, projectForm("id").getValue.get.toLong)) {
+                    @if(users.Employees.inEmployees(value.toString, projectForm("id").getValue.get.toLong)) {
                         checked
                     }
               }
             /> @name </br>    
         }
         <p></p>
-        @inputText(projectForm("startDate"), '_label -> "Start Date", 'class -> "form-control")
+        @inputDate(projectForm("startDate"), args = 'size -> 10, '_label -> "Start Date", 'class -> "form-control")
+        @inputDate(projectForm("dueDate"), args = 'size -> 10, '_label -> "Due Date", 'class -> "form-control")
         @inputText(projectForm("numMembers"), '_label -> "Number Of Members", 'class -> "form-control")
 
         @inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")

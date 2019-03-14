@@ -9,7 +9,13 @@ import play.data.validation.*;
 import models.*;
 
 @Entity
-public class Employees extends Model{
+
+@Table(name="employees")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type")
+@DiscriminatorValue("e")
+
+public class Employees extends Model {
     @Id
     private String id;
     @Constraints.Required
@@ -24,10 +30,11 @@ public class Employees extends Model{
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "emps")
-    private List<Project> projects;
+    private List <Project> projects;
 
-    public Employees() {
-    }
+
+
+    public Employees() {}
 
     public Employees(String id, String type, String fName, String lName, double salary, String password) {
         this.id = id;
@@ -85,13 +92,10 @@ public class Employees extends Model{
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    //Finders
-    public static final Finder<Long, Employees> find = new Finder<>(Employees.class);
 
-    public static final List<Employees> findAll() {
-        return Employees.find.all();
-    }    
+    //Finders
+    public static final Finder < Long, Employees > find = new Finder < > (Employees.class);
+
 
     //Identification
     public static Employees authenticate(String empId, String password) {
@@ -105,24 +109,22 @@ public class Employees extends Model{
         } else {
             return find.query().where().eq("id", id).findUnique();
         }
-    } 
+    }
 
-        //For many to many mapping 
-        public static Map<String,String> options() {
-            LinkedHashMap<String,String> options = new LinkedHashMap();
-    
-            // Get all the Employees from the database and add them to the options hash map
-            for (Employees e: Employees.findAll()) {
-                options.put(e.getId().toString(), e.getfName());
-            }
-            return options;
-        }
-    
-        public static boolean inEmployees(String employee, Long product) {
-            return find.query().where().eq("prodect.id", product)
-                               .eq("id", employee)
-                               .findList().size() > 0;
-        }
-    
+    /*
+    //For many to many mapping
+    public static Map < String, String > options() {
+        LinkedHashMap < String, String > options = new LinkedHashMap();
 
+        // Get all the Employees from the database and add them to the options hash map
+        for (Employees e: Employees.findAll()) {
+            options.put(e.getId().toString(), e.getfName());
+        }
+        return options;
+    }
+
+    public static boolean inEmployees(String employee, Long product) {
+        return find.query().where().eq("prodect.id", product).eq("id", employee).findList().size() > 0;
+    }
+*/
 }

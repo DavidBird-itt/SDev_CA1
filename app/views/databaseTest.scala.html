@@ -1,5 +1,5 @@
-@(elist: List[models.users.Employees], plist: List[models.Project], 
-    alist: List[models.Address], emps: models.users.Employees)
+@(plist: List[models.Project], alist: List[models.Address], 
+        emps: models.users.Employees)
 @main("Database", emps) {
 
     @*Display the success*@
@@ -8,51 +8,7 @@
             @flash.get("success")
         </div>
     }
-<table class="table table-bordered table-hover table-condensed">
-    <thead>
-        <!--Header-->
-        <h2>Employee Table</h2>
-        <tr>
-            <th>ID</th>
-            <th>Type</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
 
-    <tbody>
-        <!-- Loop for creating table rows from Employee data  -->
-        
-        @for(i<-elist) { 
-            <tr>
-                <td>@i.getId</td>
-                <td>@i.getType</td>
-                <td>@i.getfName</td>
-                <td>@i.getlName</td>
-                <td>&euro; @("%.2f".format(i.getSalary))</td>
-
-                <td>
-                    <a href="@routes.HomeController.updateEmployee(i.getId)" class="button-xs btn-danger">
-                        <span class="glyphicon-pencil"></span>
-                    </a>
-                </td>
-
-                <td>
-                    <a href="@routes.HomeController.deleteEmployee(i.getId)" class="button-xs btn-danger">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
-                </td>
-        </tr>
-        
-        }
-
-        <p>
-            <a href="@routes.HomeController.addEmployee()">
-                <button class="btn btn-primary">Add an Employee</button>
-            </a>
-        </p>
-    </tbody>
  
     <table class="table table-bordered table-hover table-condensed">
     <thead>
@@ -62,6 +18,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Start Date</th>
+            <th>Due Date</th>
             <th>Number of Members</th>
         </tr>
     </thead>
@@ -74,6 +31,7 @@
                 <td>@i.getId</td>
                 <td>@i.getName</td>
                 <td>@i.getStartDate</td>
+                <td>@i.getDueDate</td>
                 <td>@i.getNumMembers</td>
             </tr>
         }

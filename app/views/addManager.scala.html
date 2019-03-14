@@ -1,11 +1,11 @@
-@(employeeForm: Form[models.users.Employees], user: models.users.Employees)
+@(employeeForm: Form[models.users.Manager], user: models.users.Employees)
 
 @import helper._
 
-@main("Add Employee", user) {
-    <p class = "lead"> Add a new Employee </p>
+@main("Add Manager", user) {
+    <p class = "lead"> Add a new Manager</p>
 
-    @form(action=routes.HomeController.addEmployeeSubmit, 'class -> "form-horizontal", 'role -> "form") {
+    @form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form") {
         @* CSRF attack Prevention *@
         @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
@@ -18,8 +18,8 @@
         @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
         
         <div class="actions">
-            <input type="submit" value="Add Employee" class="btn btn-primary">
-            <a href="@routes.HomeController.databaseTest()">
+            <input type="submit" value="Add Manager" class="btn btn-primary">
+            <a href="@routes.HomeController.employees()">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>

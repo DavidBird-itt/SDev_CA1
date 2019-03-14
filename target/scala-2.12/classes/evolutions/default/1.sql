@@ -20,8 +20,8 @@ create table department (
 );
 
 create table employees (
-  id                            varchar(255) not null,
   type                          varchar(255),
+  id                            varchar(255) not null,
   f_name                        varchar(255),
   l_name                        varchar(255),
   salary                        double not null,
@@ -32,7 +32,8 @@ create table employees (
 create table project (
   id                            bigint auto_increment not null,
   name                          varchar(255),
-  start_date                    varchar(255),
+  start_date                    date,
+  due_date                      date,
   num_members                   integer not null,
   constraint pk_project primary key (id)
 );

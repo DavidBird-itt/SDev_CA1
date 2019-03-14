@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Thu Mar 14 18:52:24 GMT 2019
+// @DATE:Thu Mar 14 21:23:22 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -59,6 +59,16 @@ package controllers.javascript {
     }
 
   
+    // @LINE:27
+    def updateManager: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateManager",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateManager/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:30
     def addProject: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProject",
@@ -69,22 +79,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
-    def addEmployeeSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.addEmployeeSubmit",
+    // @LINE:28
+    def deleteManager: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteManager",
       """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addEmployeeSubmit"})
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteManager/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
   
-    // @LINE:28
-    def deleteEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.deleteEmployee",
+    // @LINE:25
+    def addManager: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addManager",
       """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addManager"})
         }
       """
     )
@@ -99,22 +109,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
-    def updateEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.updateEmployee",
+    // @LINE:24
+    def employees: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.employees",
       """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "employees"})
         }
       """
     )
   
-    // @LINE:25
-    def addEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.addEmployee",
+    // @LINE:26
+    def addManagerSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addManagerSubmit",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addEmployee"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addManagerSubmit"})
         }
       """
     )

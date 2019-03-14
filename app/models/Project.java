@@ -17,7 +17,12 @@ public class Project extends Model {
     private String name;
 
     @Constraints.Required
-    private String startDate;
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+
+    @Constraints.Required
+    @Temporal(TemporalType.DATE)
+    private Date dueDate;
     
     @Constraints.Required
     private int numMembers;
@@ -30,7 +35,7 @@ public class Project extends Model {
     public Project() {
     }
 
-    public Project(Long id, String name, String startDate, int numMembers) {
+    public Project(Long id, String name, Date startDate, Date dueDate, int numMembers) {
         this.id = id;
         this.name = name;
         this.startDate = startDate;
@@ -54,11 +59,19 @@ public class Project extends Model {
     }
 
     public String getStartDate() {
-        return startDate;
+        return String.format("%1$td %1$tB %1$tY", startDate);
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public String getDueDate() {
+        return String.format("%1$td %1$tB %1$tY", dueDate);
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 
     public int getNumMembers() {
