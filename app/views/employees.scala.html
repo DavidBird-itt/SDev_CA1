@@ -1,4 +1,4 @@
-@(mlist: List[models.users.Manager], wlist: List[models.users.Worker], emps: models.users.Employees)
+@(mlist: List[models.users.Manager], wlist: List[models.users.Worker], emps: models.users.Employees, env: play.api.Environment)
 @main("Employees", emps) {
 
     @*Display the success*@
@@ -13,6 +13,7 @@
         <!--Header-->
         <h2>Manager Table</h2>
         <tr>
+            <th>Image</th>
             <th>ID</th>
             <th>Role</th>
             <th>First Name</th>
@@ -25,6 +26,13 @@
         <!-- Loop for creating table rows from Employee data  -->
 
         @for(i<-mlist) { <tr>
+
+            @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
+                <td><img src="/assets/images/workerImages@(i.getId + "thumb.jpg")"/></td>
+            } else {
+                <td><img src="/assets/images/workerImages/noImage/jpg"/></td>
+            }
+
             <td>@i.getId</td>
             <td>@i.getRole</td>
             <td>@i.getfName</td>

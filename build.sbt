@@ -25,3 +25,5 @@ libraryDependencies += "com.h2database" % "h2" % "1.4.197"
 libraryDependencies ++= Seq(evolutions, jdbc)
 
 libraryDependencies += evolutions
+
+libraryDependencies += "org.imgscalr" % "imgscalr-lib" % "4.2"

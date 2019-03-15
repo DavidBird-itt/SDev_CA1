@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/views/databaseTest.scala.html:51:53: value getid is not a member of models.Project[0m
-[0m[[0m[31merror[0m] [0m[0m    <a href="@routes.HomeController.updateProject(i.getid)" class="button-xs btn-danger">[0m
-[0m[[0m[31merror[0m] [0m[0m                                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:292:2: `}' expected but eof found.[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
