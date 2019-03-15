@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/addManager.scala.html:19:20: not found: value projectForm[0m
-[0m[[0m[31merror[0m] [0m[0m        @inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:155:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable newItem[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m            String saveImageMessage = saveFile(newItem.getId(), image);[0m

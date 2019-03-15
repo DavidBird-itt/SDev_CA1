@@ -5,7 +5,8 @@
 @main("Add Worker", user) {
     <p class = "lead"> Add a new Worker</p>
 
-    @form(action=routes.HomeController.addWorkerSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+    @form(action=routes.HomeController.addWorkerSubmit(), 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data") {
         @* CSRF attack Prevention *@
         @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
@@ -15,7 +16,11 @@
         @inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")
         @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
 
-        @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")    
+        @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
+        
+        <label> Image Upload</label>
+        <input class="btn-sm btn-default" type="file" name="upload">
+
         @inputText(employeeForm("role").copy(value=Some("worker")), '_label -> "", 'hidden -> "hidden")
 
         
