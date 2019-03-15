@@ -11,16 +11,7 @@
         <!-- Long id, String type, String fName, String lName, double salary -->
         @inputText(projectForm("name"), '_label -> "Name", 'class -> "form-control")
 
-        <p><strong>Employees</strong></p>
-        @for((value, name) <- users.Employees.options){
-            <input type="checkbox" name="empSelect[]" value="@value"
-                @if(projectForm("id").getValue.isPresent && projectForm("id").getValue.get != "") {
-                    @if(users.Employees.inEmployees(value.toString, projectForm("id").getValue.get.toLong)) {
-                        checked
-                    }
-              }
-            /> @name </br>    
-        }
+
         <p></p>
         @inputDate(projectForm("startDate"), args = 'size -> 10, '_label -> "Start Date", 'class -> "form-control")
         @inputDate(projectForm("dueDate"), args = 'size -> 10, '_label -> "Due Date", 'class -> "form-control")

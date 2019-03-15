@@ -116,7 +116,7 @@ public class HomeController extends Controller {
 
     public Result addWorker() {
         Form<Worker> employeeForm = formFactory.form(Worker.class);
-        return ok(addWorker.render(employeeForm, Worker.getEmployeeById(session().get("id"))));
+        return ok(addWorker.render(employeeForm, Employees.getEmployeeById(session().get("id"))));
     }
 
     @Transactional
@@ -131,10 +131,12 @@ public class HomeController extends Controller {
             Employees newEmployees = newEmployeeForm.get();
 
             System.out.println("Id: "+newEmployeeForm.field("id").getValue().get());
-            System.out.println("Type: "+newEmployeeForm.field("type").getValue().get());
+            System.out.println("Role: "+newEmployeeForm.field("role").getValue().get());
             System.out.println("fName: "+newEmployeeForm.field("fName").getValue().get());
             System.out.println("lName: "+newEmployeeForm.field("lName").getValue().get());
             System.out.println("salary: "+newEmployeeForm.field("salary").getValue().get());
+            System.out.println("password: "+newEmployeeForm.field("password").getValue().get());
+
 
             if (Employees.getEmployeeById(newEmployees.getId()) == null) {
                 System.out.println("Save");
