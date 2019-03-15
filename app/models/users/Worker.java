@@ -43,7 +43,7 @@ public class Worker extends Employees {
         return options;
     }
 
-    public static boolean inWorkers(String employee, Long product) {
+    public static boolean inWorkers(Long employee, Long product) {
         return find.query().where().eq("prodect.id", product).eq("id", employee).findList().size() > 0;
     }
 

@@ -1,16 +1,16 @@
-@(plist: List[models.Project], alist: List[models.Address], 
-        emps: models.users.Employees)
+@(plist: List[models.Project], alist: List[models.Address],
+emps: models.users.Employees)
 @main("Database", emps) {
 
-    @*Display the success*@
-    @if(flash.containsKey("success")) {
-        <div class="alert- alert-success">
-            @flash.get("success")
-        </div>
-    }
+@*Display the success*@
+@if(flash.containsKey("success")) {
+<div class="alert- alert-success">
+    @flash.get("success")
+</div>
+}
 
- 
-    <table class="table table-bordered table-hover table-condensed">
+
+<table class="table table-bordered table-hover table-condensed">
     <thead>
         <!--Header-->
         <h2>Project Table</h2>
@@ -25,67 +25,64 @@
 
     <tbody>
         <!-- Loop for creating table rows from Project data  -->
-        
-        @for(i<-plist) { 
-            <tr>
-                <td>@i.getId</td>
-                <td>@i.getName</td>
-                <td>@i.getStartDate</td>
-                <td>@i.getDueDate</td>
-                <td>@i.getNumMembers</td>
-            </tr>
-        
-       
-    
-<!-- Button to add a new project -->
-    <p>
-        <a href="@routes.HomeController.addProject()">
-            <button class="btn btn-primary">Add a Project</button>
-        </a>
-    </p>
+
+        @for(i<-plist) { <tr>
+            <td>@i.getId</td>
+            <td>@i.getName</td>
+            <td>@i.getStartDate</td>
+            <td>@i.getDueDate</td>
+            <td>@i.getNumMembers</td>
+
+            <!-- Button to update an existing project -->
+            <td>
+                <a href="@routes.HomeController.updateProject(i.getId)" class="button-xs btn-danger">
+                    <span class="glyphicon-pencil"></span>
+                </a>
+            </td>
 
 
-
-<!-- Button to update an existing project -->
-<td>
-    <a href="@routes.HomeController.updateProject(i.getId)" class="button-xs btn-danger">
-        <span class="glyphicon-pencil"></span>
-    </a>
-</td>
-
-
-<!-- Button to delete an existing project -->
-<td>
-    <a href="@routes.HomeController.deleteProject(i.getId)" class="button-xs btn-danger">
-        <span class="glyphicon glyphicon-trash"></span>
-    </a>
-</td>
-
-        }
-</tbody>
-    <table class="table table-bordered table-hover table-condensed">
-    <thead>
-        <!--Header-->
-        <h2>Address Table</h2>
-        <tr>
-            <th>Eircode</th>
-            <th>Street 1</th>
-            <th>Town</th>
-            <th>County</th>
+            <!-- Button to delete an existing project -->
+            <td>
+                <a href="@routes.HomeController.deleteProject(i.getId)" class="button-xs btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
         </tr>
-    </thead>
-
-    <tbody>
-        <!-- Loop for creating table rows from Employee data  -->
-        
-        @for(i<-alist) { 
-            <tr>
-                <td>@i.getEircode</td>
-                <td>@i.getStreet1</td>
-                <td>@i.getTown</td>
-                <td>@i.getCounty</td>
-            </tr>
         }
-       
+
+            <!-- Button to add a new project -->
+            <p>
+                <a href="@routes.HomeController.addProject()">
+                    <button class="btn btn-primary">Add a Project</button>
+                </a>
+            </p>
     </tbody>
-    }
+
+    
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <!--Header-->
+            <h2>Address Table</h2>
+            <tr>
+                <th>Street 1</th>
+                <th>Street 2</th>
+                <th>Town</th>
+                <th>Post Code</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Loop for creating table rows from Employee data  -->
+
+            @for(i<-alist) { 
+                <tr>
+                <td>@i.getStreet1</td>
+                <td>@i.getStreet2</td>
+                <td>@i.getTown</td>
+                <td>@i.getEircode</td>
+                
+                </tr>
+                }
+
+        </tbody>
+        }

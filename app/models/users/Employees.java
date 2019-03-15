@@ -36,7 +36,9 @@ public class Employees extends Model {
     private Address address;
 
 
-    public Employees() {}
+    public Employees() {
+        
+    }
 
     public Employees(Long id, String email, String role, String fName, String lName, double salary, String password) {
         this.id = id;

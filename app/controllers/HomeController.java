@@ -35,7 +35,8 @@ public class HomeController extends Controller {
 
     private Environment e;
 
-    @Inject public HomeController(FormFactory f, Environment env) {
+    @Inject 
+    public HomeController(FormFactory f, Environment env) {
         this.formFactory=f;
         this.e=env;
     }
@@ -63,10 +64,12 @@ public class HomeController extends Controller {
 
     public Result addManager() {
         Form < Manager>employeeForm=formFactory.form(Manager.class);
+        Form<Address> aForm = formFactory.form(Address.class);
         return ok(addManager.render(employeeForm, Manager.getEmployeeById(session().get("email"))));
     }
 
-    @Transactional public Result addManagerSubmit() {
+    @Transactional 
+    public Result addManagerSubmit() {
         Form < Manager>newEmployeeForm=formFactory.form(Manager.class).bindFromRequest();
 
         if (newEmployeeForm.hasErrors()) {
@@ -133,7 +136,8 @@ public class HomeController extends Controller {
         return ok(addWorker.render(employeeForm, Employees.getEmployeeById(session().get("email"))));
     }
 
-    @Transactional public Result addWorkerSubmit() {
+    @Transactional 
+    public Result addWorkerSubmit() {
         Form < Worker>newEmployeeForm=formFactory.form(Worker.class).bindFromRequest(); 
         if (newEmployeeForm.hasErrors()) {
             System.out.println("Email: "+ newEmployeeForm.field("email").getValue().get());
@@ -199,7 +203,8 @@ public class HomeController extends Controller {
         return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("email"))));
     }
 
-    @Transactional public Result addProjectSubmit() {
+    @Transactional 
+    public Result addProjectSubmit() {
         Form < Project>newProjectForm=formFactory.form(Project.class).bindFromRequest();
 
         if (newProjectForm.hasErrors()) {
@@ -211,14 +216,16 @@ public class HomeController extends Controller {
             Project newProject=newProjectForm.get();
 
             List < Worker>newWorker=new ArrayList < Worker>();
-
-            for (String worker: newProject.getWorkerSelect()) {
-                //newEmps.add(Employees.getId());
+            for (Long worker: newProject.getWorkerSelect()) {
+                newWorker.add(Worker.find.byId(worker));
             }
+            newProject.setWorkers(newWorker);
 
-            //newProject.setEmps(newEmps);
-            newProject.save();
-
+            if(newProject.getId() == null){
+                newProject.save();
+            } else {
+                newProject.update();
+            }
 
             flash("success", "Project "+ newProject.getName() + " has been added.");
 
@@ -241,9 +248,7 @@ public class HomeController extends Controller {
             i=Project.find.byId(id);
 
             projectForm=formFactory.form(Project.class).fill(i);
-        }
-
-        catch (Exception e) {
+        }catch (Exception e) {
             return badRequest("error");
         }
 
