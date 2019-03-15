@@ -1,5 +1,4 @@
-# --- Created by Ebean DDL
-# To stop Ebean DDL generation, remove this comment and start using Evolutions
+
 
 # --- !Ups
 
@@ -39,26 +38,9 @@ create table project (
   constraint pk_project primary key (id)
 );
 
-create table project_employees (
-  project_id                    bigint not null,
-  employees_id                  varchar(255) not null,
-  constraint pk_project_employees primary key (project_id,employees_id)
-);
-
-alter table project_employees add constraint fk_project_employees_project foreign key (project_id) references project (id) on delete restrict on update restrict;
-create index ix_project_employees_project on project_employees (project_id);
-
-alter table project_employees add constraint fk_project_employees_employees foreign key (employees_id) references employees (id) on delete restrict on update restrict;
-create index ix_project_employees_employees on project_employees (employees_id);
-
 
 # --- !Downs
 
-alter table project_employees drop constraint if exists fk_project_employees_project;
-drop index if exists ix_project_employees_project;
-
-alter table project_employees drop constraint if exists fk_project_employees_employees;
-drop index if exists ix_project_employees_employees;
 
 drop table if exists address;
 
@@ -68,5 +50,4 @@ drop table if exists employees;
 
 drop table if exists project;
 
-drop table if exists project_employees;
 

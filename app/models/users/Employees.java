@@ -29,9 +29,6 @@ public class Employees extends Model {
     @Constraints.Required
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "emps")
-    private List <Project> projects;
-
 
 
     public Employees() {}
@@ -72,7 +69,7 @@ public class Employees extends Model {
     public String getlName() {
         return lName;
     }
-    
+
     public void setlName(String lName) {
         this.lName = lName;
     }

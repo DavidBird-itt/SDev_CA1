@@ -13,6 +13,10 @@ import models.*;
 
 @Entity
 public class Worker extends Employees {
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "workers")
+    private List <Project> projects;
+
     public Worker(){
 
     }
@@ -26,4 +30,23 @@ public class Worker extends Employees {
     public static final List<Worker> findAll(){
         return Worker.find.all();
     }
+
+        
+    //For many to many mapping
+    public static Map < String, String > options() {
+        LinkedHashMap < String, String > options = new LinkedHashMap();
+
+        // Get all the Employees from the database and add them to the options hash map
+        for (Worker w: Worker.findAll()) {
+            options.put(w.getId().toString(), w.getfName());
+        }
+        return options;
+    }
+
+    public static boolean inWorkers(String employee, Long product) {
+        return find.query().where().eq("prodect.id", product).eq("id", employee).findList().size() > 0;
+    }
+
+
+
 }

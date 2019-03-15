@@ -28,9 +28,9 @@ public class Project extends Model {
     private int numMembers;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Employees> emps;
+    private List<Worker> workers;
 
-    private List<String> empSelect = new ArrayList<String>();
+    private List<String> workerSelect = new ArrayList<String>();
 
     public Project() {
     }
@@ -90,16 +90,16 @@ public class Project extends Model {
     } 
     
     //ManyToMany Mapping
-    public List<Employees> getEmps() {
-        return emps;
+    public List<Worker> getWorkers() {
+        return workers;
     }
-    public void setEmps(List<Employees> emps) {
-        this.emps = emps;
+    public void setWorkers(List<Worker> emps) {
+        this.workers = workers;
     }
-    public List<String> getEmpSelect() {
-        return empSelect;
+    public List<String> getWorkerSelect() {
+        return workerSelect;
     }
-    public void setEmpSelect(List<String> empSelect) {
-        this.empSelect = empSelect;
+    public void setWokrerSelect(List<String> workerSelect) {
+        this.workerSelect = workerSelect;
     }
 }

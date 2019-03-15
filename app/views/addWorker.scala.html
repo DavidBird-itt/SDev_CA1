@@ -1,0 +1,28 @@
+@(employeeForm: Form[models.users.Worker], user: models.users.Employees)
+
+@import helper._
+
+@main("Add Worker", user) {
+    <p class = "lead"> Add a new Worker</p>
+
+    @form(action=routes.HomeController.addWorkerSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+        @* CSRF attack Prevention *@
+        @CSRF.formField
+        <!-- Long id, String type, String fName, String lName, double salary -->
+        @inputText(employeeForm("id"), '_label -> "ID", 'class -> "form-control")
+        @inputText(employeeForm("role").copy(value=Some("worker")), '_label -> "", 'hidden -> "hidden")
+        @inputText(employeeForm("fName"), '_label -> "fName", 'class -> "form-control")
+        @inputText(employeeForm("lName"), '_label -> "lName", 'class -> "form-control")
+        @inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")
+        @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
+        
+
+        
+        <div class="actions">
+            <input type="submit" value="Add Worker" class="btn btn-primary">
+            <a href="@routes.HomeController.employees()">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}
