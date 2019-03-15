@@ -1,25 +1,25 @@
 package models.users;
 
 public class Login {
-    private String id;
+    private String email;
     private String password;
 
     //Validate the id and password is in the DB
     public String validate() {
         //Method called from Employees.java
-        if(Employees.authenticate(id, password) == null) {
+        if(Employees.authenticate(email, password) == null) {
             return "Invalid user or password";
         }
         return null;
     }
 
     //Getters and Setters
-    public String getEmpId() {
-        return this.id;
+    public String getEmail() {
+        return this.email;
     }
 
-    public void setEmpId(String empId) {
-        this.id = empId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

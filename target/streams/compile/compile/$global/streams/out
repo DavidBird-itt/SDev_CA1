@@ -1,2 +1,4 @@
-[0m[[0m[0minfo[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Worker.java: /home/wdd/SDevProj/SDev_CA1/app/models/users/Worker.java uses unchecked or unsafe operations.[0m
-[0m[[0m[0minfo[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/models/users/Worker.java: Recompile with -Xlint:unchecked for details.[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/addManager.scala.html:19:20: not found: value projectForm[0m
+[0m[[0m[31merror[0m] [0m[0m        @inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

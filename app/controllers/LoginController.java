@@ -24,20 +24,20 @@ public class LoginController extends Controller {
 
     public Result login() {
         Form<Login> loginForm = formFactory.form(Login.class);
-        return ok(login.render(loginForm, Employees.getEmployeeById(session().get("id"))));
+        return ok(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));
     }
 
     public Result loginSubmit() {
         Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
         if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm, Employees.getEmployeeById(session().get("id"))));
+            return badRequest(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));
         } else {
             //Clear sessions
             session().clear();
 
             //Store in cookie
-            session("id", loginForm.get().getEmpId());
+            session("email", loginForm.get().getEmail());
 
             return redirect(controllers.routes.HomeController.index());
         }

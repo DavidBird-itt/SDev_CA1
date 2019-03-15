@@ -7,8 +7,8 @@ delete from employees;
 delete from address;
 
 
-INSERT into employees (type,id,role,f_name,l_name,salary,password) values ( 'm',101,'manager', 'David', 'Bird', 25000.00, 'password');
-INSERT into employees (type,id,role,f_name,l_name,salary,password) values ( 'w',102,'worker', 'Karl', 'Blair', 12500.00, 'password');
+INSERT into employees (type,id,email,role,f_name,l_name,salary,password) values ( 'm',1, 'manager@emp.com','manager', 'David', 'Bird', 25000.00, 'password');
+INSERT into employees (type,id,email,role,f_name,l_name,salary,password) values ( 'w',2, 'worker@emp.com', 'worker', 'Karl', 'Blair', 12500.00, 'password');
 
 INSERT into address (eircode,street1,town,county) values ( 'W91X87', '125 Sommerville', 'Blessington', 'Wicklow');
 INSERT into address (eircode,street1,town,county) values ( 'D12X44', '12 Hillstreet', 'Drimnagh', 'Dublin');

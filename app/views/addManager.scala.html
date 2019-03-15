@@ -9,14 +9,15 @@
         @* CSRF attack Prevention *@
         @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
-        @inputText(employeeForm("id"), '_label -> "ID", 'class -> "form-control")
-        @inputText(employeeForm("role").copy(value=Some("manager")), '_label -> "", 'hidden -> "hidden")
+        @inputText(employeeForm("email"), '_label -> "Email", 'class -> "form-control")
         @inputText(employeeForm("fName"), '_label -> "First Name", 'class -> "form-control")
         @inputText(employeeForm("lName"), '_label -> "Last Name", 'class -> "form-control")
         @inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")
         @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
 
-        
+        @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
+        @inputText(employeeForm("role").copy(value=Some("manager")), '_label -> "", 'hidden -> "hidden")
+
         <div class="actions">
             <input type="submit" value="Add Manager" class="btn btn-primary">
             <a href="@routes.HomeController.employees()">

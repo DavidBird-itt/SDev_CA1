@@ -32,13 +32,13 @@
             <td>&euro; @("%.2f".format(i.getSalary))</td>
 
             <td>
-                <a href="@routes.HomeController.updateManager(i.getId)" class="button-xs btn-danger">
+                <a href="@routes.HomeController.updateManager(i.getEmail)" class="button-xs btn-danger">
                     <span class="glyphicon-pencil"></span>
                 </a>
             </td>
 
             <td>
-                <a href="@routes.HomeController.deleteManager(i.getId)" class="button-xs btn-danger">
+                <a href="@routes.HomeController.deleteManager(i.getEmail)" class="button-xs btn-danger">
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </td>
@@ -79,13 +79,13 @@
             <td>&euro; @("%.2f".format(i.getSalary))</td>
 
             <td>
-                <a href="@routes.HomeController.updateWorker(i.getId)" class="button-xs btn-danger">
+                <a href="@routes.HomeController.updateWorker(i.getEmail)" class="button-xs btn-danger">
                     <span class="glyphicon-pencil"></span>
                 </a>
             </td>
 
             <td>
-                <a href="@routes.HomeController.deleteWorker(i.getId)" class="button-xs btn-danger">
+                <a href="@routes.HomeController.deleteWorker(i.getEmail)" class="button-xs btn-danger">
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </td>

@@ -17,7 +17,9 @@ import models.*;
 
 public class Employees extends Model {
     @Id
-    private String id;
+    private Long id;
+    @Constraints.Required
+    private String email;
     @Constraints.Required
     private String role;
     @Constraints.Required
@@ -29,12 +31,16 @@ public class Employees extends Model {
     @Constraints.Required
     private String password;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="AID")
+    private Address address;
 
 
     public Employees() {}
 
-    public Employees(String id, String role, String fName, String lName, double salary, String password) {
+    public Employees(Long id, String email, String role, String fName, String lName, double salary, String password) {
         this.id = id;
+        this.email = email;
         this.role = role;
         this.fName = fName;
         this.lName = lName;
@@ -42,12 +48,20 @@ public class Employees extends Model {
         this.password = password;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getRole() {
@@ -90,38 +104,33 @@ public class Employees extends Model {
         this.password = password;
     }
 
+    //Mapping gettes and setters
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address=address;
+    }
+
     //Finders
     public static final Finder < Long, Employees > find = new Finder < > (Employees.class);
 
 
     //Identification
-    public static Employees authenticate(String empId, String password) {
-        return find.query().where().eq("id", empId).eq("password", password).findUnique();
+    public static Employees authenticate(String email, String password) {
+        return find.query().where().eq("email", email).eq("password", password).findUnique();
     }
 
     //For the dynamic login, log out
-    public static Employees getEmployeeById(String id) {
-        if (id == null) {
+    public static Employees getEmployeeById(String email) {
+        if (email == null) {
             return null;
         } else {
-            return find.query().where().eq("id", id).findUnique();
+            return find.query().where().eq("email", email).findUnique();
         }
     }
 
-    /*
-    //For many to many mapping
-    public static Map < String, String > options() {
-        LinkedHashMap < String, String > options = new LinkedHashMap();
 
-        // Get all the Employees from the database and add them to the options hash map
-        for (Employees e: Employees.findAll()) {
-            options.put(e.getId().toString(), e.getfName());
-        }
-        return options;
-    }
 
-    public static boolean inEmployees(String employee, Long product) {
-        return find.query().where().eq("prodect.id", product).eq("id", employee).findList().size() > 0;
-    }
-*/
 }
