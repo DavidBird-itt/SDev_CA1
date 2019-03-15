@@ -17,8 +17,8 @@ public class Worker extends Employees {
 
     }
 
-    public Worker(String id, String type, String fName, String lName, double salary, String password) {
-        super(id,type,fName,lName,salary,password);
+    public Worker(String id, String role, String fName, String lName, double salary, String password) {
+        super(id,role,fName,lName,salary,password);
     }
 
     public static final Finder<Long, Worker> find = new Finder<>(Worker.class);

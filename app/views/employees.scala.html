@@ -1,6 +1,5 @@
-@(elist: List[models.users.Manager], emps: models.users.Employees)
-@main("Database", emps) {
-    <h1>Current Managers</h1>
+@(mlist: List[models.users.Manager], wlist: List[models.users.Worker], emps: models.users.Employees)
+@main("Employees", emps) {
 
     @*Display the success*@
 @if(flash.containsKey("success")) {
@@ -12,10 +11,10 @@
 
     <thead>
         <!--Header-->
-        <h2>Employee Table</h2>
+        <h2>Manager Table</h2>
         <tr>
             <th>ID</th>
-            <th>Type</th>
+            <th>Role</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Salary</th>
@@ -25,9 +24,9 @@
     <tbody>
         <!-- Loop for creating table rows from Employee data  -->
 
-        @for(i<-elist) { <tr>
+        @for(i<-mlist) { <tr>
             <td>@i.getId</td>
-            <td>@i.getType</td>
+            <td>@i.getRole</td>
             <td>@i.getfName</td>
             <td>@i.getlName</td>
             <td>&euro; @("%.2f".format(i.getSalary))</td>
@@ -50,6 +49,53 @@
             <p>
                 <a href="@routes.HomeController.addManager()">
                     <button class="btn btn-primary">Add a Manager</button>
+                </a>
+            </p>
+    </tbody>
+
+
+<table class="table table-bordered table-hover table-condensed">
+
+    <thead>
+        <!--Header-->
+        <h2>Worker Table</h2>
+        <tr>
+            <th>ID</th>
+            <th>Role</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+
+        @for(i<-wlist) { <tr>
+            <td>@i.getId</td>
+            <td>@i.getRole</td>
+            <td>@i.getfName</td>
+            <td>@i.getlName</td>
+            <td>&euro; @("%.2f".format(i.getSalary))</td>
+
+            <td>
+                <a href="@routes.HomeController.updateWorker(i.getId)" class="button-xs btn-danger">
+                    <span class="glyphicon-pencil"></span>
+                </a>
+            </td>
+
+            <td>
+                <a href="@routes.HomeController.deleteWorker(i.getId)" class="button-xs btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+            </tr>
+
+            }
+
+            <p>
+                <a href="@routes.HomeController.addWorker()">
+                    <button class="btn btn-primary">Add a Worker</button>
                 </a>
             </p>
     </tbody>

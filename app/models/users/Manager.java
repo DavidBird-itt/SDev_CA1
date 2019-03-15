@@ -17,8 +17,8 @@ public class Manager extends Employees {
 
     }
 
-    public Manager(String id, String type, String fName, String lName, double salary, String password) {
-        super(id,type,fName,lName,salary,password);
+    public Manager(String id, String role, String fName, String lName, double salary, String password) {
+        super(id,role,fName,lName,salary,password);
     }
 
     public static final Finder<Long, Manager> find = new Finder<>(Manager.class);

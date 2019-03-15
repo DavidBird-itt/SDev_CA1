@@ -19,7 +19,7 @@ public class Employees extends Model {
     @Id
     private String id;
     @Constraints.Required
-    private String type;
+    private String role;
     @Constraints.Required
     private String fName;
     @Constraints.Required
@@ -36,9 +36,9 @@ public class Employees extends Model {
 
     public Employees() {}
 
-    public Employees(String id, String type, String fName, String lName, double salary, String password) {
+    public Employees(String id, String role, String fName, String lName, double salary, String password) {
         this.id = id;
-        this.type = type;
+        this.role = role;
         this.fName = fName;
         this.lName = lName;
         this.salary = salary;
@@ -53,12 +53,12 @@ public class Employees extends Model {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getRole() {
+        return role;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getfName() {

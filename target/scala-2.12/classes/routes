@@ -22,10 +22,16 @@ GET     /loginSubmit              controllers.LoginController.loginSubmit
 GET     /logout                   controllers.LoginController.logout
 
 GET     /employees               controllers.HomeController.employees
+
 GET     /addManager              controllers.HomeController.addManager
 POST    /addManagerSubmit        controllers.HomeController.addManagerSubmit
 GET     /updateManager/:id       controllers.HomeController.updateManager(id: String)  
 GET     /deleteManager/:id       controllers.HomeController.deleteManager(id: String)
+
+GET     /addWorker              controllers.HomeController.addWorker
+POST    /addWorkerSubmit        controllers.HomeController.addWorkerSubmit
+GET     /updateWorker/:id       controllers.HomeController.updateWorker(id: String)  
+GET     /deleteWorker/:id       controllers.HomeController.deleteWorker(id: String)
 
 GET     /addProject               controllers.HomeController.addProject
 POST    /addProjectSubmit         controllers.HomeController.addProjectSubmit

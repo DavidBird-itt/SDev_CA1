@@ -20,8 +20,9 @@ create table department (
 );
 
 create table employees (
-  type                          varchar(255),
+  type                          varchar(31) not null,
   id                            varchar(255) not null,
+  role                          varchar(255),
   f_name                        varchar(255),
   l_name                        varchar(255),
   salary                        double not null,
