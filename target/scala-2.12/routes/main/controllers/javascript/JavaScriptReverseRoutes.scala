@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
-// @DATE:Fri Mar 15 11:11:29 GMT 2019
+// @DATE:Fri Mar 15 11:44:13 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -99,12 +99,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:39
+    def deleteProject: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteProject",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteProject/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:31
     def addWorker: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addWorker",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addWorker"})
+        }
+      """
+    )
+  
+    // @LINE:38
+    def updateProject: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateProject",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateProject/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

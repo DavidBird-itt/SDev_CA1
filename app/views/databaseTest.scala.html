@@ -34,7 +34,7 @@
                 <td>@i.getDueDate</td>
                 <td>@i.getNumMembers</td>
             </tr>
-        }
+        
        
     
 <!-- Button to add a new project -->
@@ -44,9 +44,24 @@
         </a>
     </p>
 
-<!-- Button to update an existing project -->
-<!-- this was added but was giving errors even when commented -->
 
+
+<!-- Button to update an existing project -->
+<td>
+    <a href="@routes.HomeController.updateProject(i.getId)" class="button-xs btn-danger">
+        <span class="glyphicon-pencil"></span>
+    </a>
+</td>
+
+
+<!-- Button to delete an existing project -->
+<td>
+    <a href="@routes.HomeController.deleteProject(i.getId)" class="button-xs btn-danger">
+        <span class="glyphicon glyphicon-trash"></span>
+    </a>
+</td>
+
+        }
 </tbody>
     <table class="table table-bordered table-hover table-condensed">
     <thead>

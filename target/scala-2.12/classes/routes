@@ -35,4 +35,5 @@ GET     /deleteWorker/:id       controllers.HomeController.deleteWorker(id: Stri
 
 GET     /addProject               controllers.HomeController.addProject
 POST    /addProjectSubmit         controllers.HomeController.addProjectSubmit
-# GET     /updateProject/:id        controllers.HomeController.updateProject(id: Long)  
+GET     /updateProject/:id        controllers.HomeController.updateProject(id: Long)
+GET     /deleteProject/:id      controllers.HomeController.deleteProject(id: Long)

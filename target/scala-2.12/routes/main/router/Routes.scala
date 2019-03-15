@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
-// @DATE:Fri Mar 15 11:11:29 GMT 2019
+// @DATE:Fri Mar 15 11:44:13 GMT 2019
 
 package router
 
@@ -70,6 +70,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteWorker/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteWorker(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProject""", """controllers.HomeController.addProject"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProjectSubmit""", """controllers.HomeController.addProjectSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateProject/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateProject(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteProject/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteProject(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -419,6 +421,42 @@ class Routes(
     )
   )
 
+  // @LINE:38
+  private[this] lazy val controllers_HomeController_updateProject19_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateProject/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_updateProject19_invoker = createInvoker(
+    HomeController_1.updateProject(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "updateProject",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """updateProject/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:39
+  private[this] lazy val controllers_HomeController_deleteProject20_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteProject/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_deleteProject20_invoker = createInvoker(
+    HomeController_1.deleteProject(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "deleteProject",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """deleteProject/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -534,6 +572,18 @@ class Routes(
     case controllers_HomeController_addProjectSubmit18_route(params@_) =>
       call { 
         controllers_HomeController_addProjectSubmit18_invoker.call(HomeController_1.addProjectSubmit)
+      }
+  
+    // @LINE:38
+    case controllers_HomeController_updateProject19_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_updateProject19_invoker.call(HomeController_1.updateProject(id))
+      }
+  
+    // @LINE:39
+    case controllers_HomeController_deleteProject20_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_deleteProject20_invoker.call(HomeController_1.deleteProject(id))
       }
   }
 }

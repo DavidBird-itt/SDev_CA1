@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
-// @DATE:Fri Mar 15 11:11:29 GMT 2019
+// @DATE:Fri Mar 15 11:44:13 GMT 2019
 
 import play.api.mvc.Call
 
@@ -72,10 +72,22 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "deleteManager/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
+    // @LINE:39
+    def deleteProject(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteProject/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
     // @LINE:31
     def addWorker(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addWorker")
+    }
+  
+    // @LINE:38
+    def updateProject(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "updateProject/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:26

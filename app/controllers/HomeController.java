@@ -148,13 +148,6 @@ public class HomeController extends Controller {
                 newEmployees.update();
             }
 
-            MultipartFormData<File> data = request().body().asMultipartFormData();
-
-            FilePart<File> image = data.getFile("upload");
-
-            String saveImageMessage = saveFile(newItem.getId(), image);
-            flash("success", "Employee " + newEmployees.getfName() + " has been added/updated" + saveImageMessage);
-
             return redirect(controllers.routes.HomeController.employees());
         }
     }
@@ -222,51 +215,19 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 
-    // public Result updateProject(Long id) {
-    //     Project i;
-    //     Form<Project> projectForm;
+    public Result updateProject(Long id) {
+        Project i;
+        Form<Project> projectForm;
 
-    //     try {
-    //         i = Project.find.byId(id);
+        try {
+            i = Project.find.byId(id);
 
-    //         projectForm = formFactory.form(Project.class).fill(i);
-    //     } catch (Exception e) {
-    //         return badRequest("error");
-    //     }
-
-    //     return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("empId"))));
-    // }
-
-    // public Result add
-
-
-
-    public String saveFile(Long id, FilePart<File> uploaded) {
-        if (uploaded != null) {
-            String mimeType = uploaded.getContentType();
-            if (mimeType.startsWith("image/")) {
-                String fileName = uploaded.getFilename();
-
-                String extension = "";
-                int i = fileName.lastIndexOf('.');
-                if (i >=0) {
-                    extension = fileName.substring(i +1);
-                }
-
-                File file = uploaded.getFile();
-
-                File dir = new File("public/images/workerImages");
-                if (!dir.exists()) {
-                    dir.mkdirs();
-                }
-
-                File newFile = new File("public/images/workerImages/", id + "." + extension);
-                if (file.renameTo(newFile)) {
-                    return "/ file uploaded.";
-                } else {
-                    return "/file upload failed.";
-                }
-            }
+            projectForm = formFactory.form(Project.class).fill(i);
+        } catch (Exception e) {
+            return badRequest("error");
         }
+
+        return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("empId"))));
     }
+
 }
