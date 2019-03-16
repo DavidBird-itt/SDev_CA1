@@ -1,18 +1,1 @@
-[0m[[0m[0mdebug[0m] [0m[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	removed:Set(/home/wdd/Desktop/SDev_CA1/app/controllers/CountController.java, /home/wdd/Desktop/SDev_CA1/app/models/users/Login.java, /home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java, /home/wdd/Desktop/SDev_CA1/app/services/ApplicationTimer.java, /home/wdd/Desktop/SDev_CA1/app/Module.java, /home/wdd/Desktop/SDev_CA1/app/filters/ExampleFilter.java, /home/wdd/Desktop/SDev_CA1/app/controllers/AsyncController.java, /home/wdd/Desktop/SDev_CA1/app/controllers/LoginController.java, /home/wdd/Desktop/SDev_CA1/app/models/Project.java, /home/wdd/Desktop/SDev_CA1/app/models/Address.java, /home/wdd/Desktop/SDev_CA1/app/services/Counter.java, /home/wdd/Desktop/SDev_CA1/app/controllers/AuthManager.java, /home/wdd/Desktop/SDev_CA1/app/controllers/Secured.java, /home/wdd/Desktop/SDev_CA1/target/scala-2.12/routes/main/controllers/routes.java, /home/wdd/Desktop/SDev_CA1/app/services/AtomicCounter.java, /home/wdd/Desktop/SDev_CA1/app/models/users/Employees.java, /home/wdd/Desktop/SDev_CA1/app/models/Department.java)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(/home/wdd/SDevProj/SDev_CA1/app/models/users/Employees.java, /home/wdd/SDevProj/SDev_CA1/app/models/Address.java, /home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(models.users.Address)[0m
-[0m[[0m[0mdebug[0m] [0m[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(models.users.Address)[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(/home/wdd/SDevProj/SDev_CA1/app/models/users/Employees.java, /home/wdd/SDevProj/SDev_CA1/app/models/Address.java, /home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java)[0m
-[0m[[0m[0minfo[0m] [0m[0mCompiling 3 Java sources to /home/wdd/SDevProj/SDev_CA1/target/scala-2.12/classes ...[0m
-[0m[[0m[0mdebug[0m] [0m[0mAttempting to call com.sun.tools.javac.api.JavacTool@3e3c257d directly...[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m

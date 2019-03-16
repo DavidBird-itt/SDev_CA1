@@ -1,5 +1,5 @@
   
-package models.users;
+package models;
 
 
 import java.util.*;
@@ -79,6 +79,13 @@ public class Address extends Model {
 
     public void setEircode(String eircode) {
         this.eircode = eircode;
+    }
+
+    //Finders
+    public static final Finder<Long, Address> find = new Finder<>(Address.class);
+
+    public static final List<Address> findAll() {
+        return Address.find.all();
     }
 
 }

@@ -8,8 +8,8 @@ create table address (
   street1                       varchar(255),
   street2                       varchar(255),
   town                          varchar(255),
-  county                        varchar(255),
   eircode                       varchar(255),
+  county                        varchar(255),
   constraint pk_address primary key (id)
 );
 
