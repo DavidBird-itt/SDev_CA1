@@ -62,12 +62,16 @@ public class HomeController extends Controller {
         return ok(employees.render(mList, wList, Employees.getEmployeeById(session().get("email")), e));
     }
 
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthManager.class)
     public Result addManager() {
         Form < Manager>employeeForm=formFactory.form(Manager.class);
         Form<Address> aForm = formFactory.form(Address.class);
         return ok(addManager.render(employeeForm, Manager.getEmployeeById(session().get("email")), e));
     }
 
+    @Security.Authenticated(Secured.class)
     @Transactional 
     public Result addManagerSubmit() {
         Form < Manager>newEmployeeForm=formFactory.form(Manager.class).bindFromRequest();
@@ -102,6 +106,9 @@ public class HomeController extends Controller {
         }
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result deleteManager(String email) {
         Manager emp=(Manager) Employees.getEmployeeById(email);
         emp.delete();
@@ -111,7 +118,9 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.employees());
     }
 
-
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result updateManager(String email) {
         Manager emp;
         Form < Manager>employeeForm;
@@ -131,12 +140,14 @@ public class HomeController extends Controller {
         return ok(addManager.render(employeeForm, Employees.getEmployeeById(session().get("email")), e));
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthManager.class)
     public Result addWorker() {
         Form < Worker>employeeForm=formFactory.form(Worker.class);
         return ok(addWorker.render(employeeForm, Employees.getEmployeeById(session().get("email"))));
     }
-
-    @Transactional 
+    @Security.Authenticated(Secured.class)
+    @Transactional
     public Result addWorkerSubmit() {
         Form < Worker>newEmployeeForm=formFactory.form(Worker.class).bindFromRequest(); 
         if (newEmployeeForm.hasErrors()) {
@@ -170,6 +181,9 @@ public class HomeController extends Controller {
         }
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result deleteWorker(String email) {
         Worker emp=(Worker) Employees.getEmployeeById(email);
         emp.delete();
@@ -179,6 +193,9 @@ public class HomeController extends Controller {
     }
 
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result updateWorker(String email) {
         Worker emp;
         Form < Worker>employeeForm;
@@ -198,11 +215,14 @@ public class HomeController extends Controller {
         return ok(addWorker.render(employeeForm, Employees.getEmployeeById(session().get("email"))));
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthManager.class)
     public Result addProject() {
         Form < Project>projectForm=formFactory.form(Project.class);
         return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("email"))));
     }
 
+    @Security.Authenticated(Secured.class)
     @Transactional 
     public Result addProjectSubmit() {
         Form < Project>newProjectForm=formFactory.form(Project.class).bindFromRequest();
@@ -233,6 +253,10 @@ public class HomeController extends Controller {
         }
     }
 
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result deleteProject(Long id) {
         Project.find.ref(id).delete();
 
@@ -240,6 +264,9 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result updateProject(Long id) {
         Project i;
         Form < Project>projectForm;

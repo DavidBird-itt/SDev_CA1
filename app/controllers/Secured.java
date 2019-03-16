@@ -8,7 +8,7 @@ public class Secured extends Security.Authenticator {
 
     @Override
     public String getUsername(Context ctx) {
-        return ctx.session().get("empId");
+        return ctx.session().get("email");
     }
 
     //If the user enters a location that they need to be logged into to reach

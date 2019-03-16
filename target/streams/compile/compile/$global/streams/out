@@ -1,5 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:131:1: method render in class views.html.addManager cannot be applied to given types;[0m
-[0m[[0m[31merror[0m] [0m[0m  required: play.data.Form<models.users.Manager>,models.users.Employees,play.api.Environment[0m
-[0m[[0m[31merror[0m] [0m[0m  found: play.data.Form<models.users.Manager>,models.users.Employees[0m
-[0m[[0m[31merror[0m] [0m[0m  reason: actual and formal argument lists differ in length[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addManager.render(employeeForm, Employees.getEmployeeById(session().get("email"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/models/users/Login.java:4:1: package play.data.validation.Constaints does not exist[0m
+[0m[[0m[31merror[0m] [0m[0mimport play.data.validation.Constaints.Validatable;[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/models/users/Login.java:12:1: method does not override or implement a method from a supertype[0m
+[0m[[0m[31merror[0m] [0m[0m    @Override[0m
