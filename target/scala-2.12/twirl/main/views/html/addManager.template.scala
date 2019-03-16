@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addManager extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.users.Manager],models.users.Employees,play.twirl.api.HtmlFormat.Appendable] {
+object addManager extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Form[models.users.Manager],models.users.Employees,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(employeeForm: Form[models.users.Manager], user: models.users.Employees):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(employeeForm: Form[models.users.Manager], user: models.users.Employees, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*3.2*/import helper._
@@ -36,34 +36,39 @@ Seq[Any](format.raw/*2.1*/("""
 """),_display_(/*5.2*/main("Add Manager", user)/*5.27*/ {_display_(Seq[Any](format.raw/*5.29*/("""
     """),format.raw/*6.5*/("""<p class = "lead"> Add a new Manager</p>
 
-    """),_display_(/*8.6*/form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form")/*8.105*/ {_display_(Seq[Any](format.raw/*8.107*/("""
-        """),format.raw/*9.37*/("""
-        """),_display_(/*10.10*/CSRF/*10.14*/.formField),format.raw/*10.24*/("""
-        """),format.raw/*11.9*/("""<!-- Long id, String type, String fName, String lName, double salary -->
-        """),_display_(/*12.10*/inputText(employeeForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*12.88*/("""
-        """),_display_(/*13.10*/inputText(employeeForm("fName"), '_label -> "First Name", 'class -> "form-control")),format.raw/*13.93*/("""
-        """),_display_(/*14.10*/inputText(employeeForm("lName"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*14.92*/("""
-        """),_display_(/*15.10*/inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")),format.raw/*15.90*/("""
-        """),_display_(/*16.10*/inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*16.94*/("""
+    """),_display_(/*8.6*/form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data")/*9.58*/ {_display_(Seq[Any](format.raw/*9.60*/("""
+        """),format.raw/*10.37*/("""
+        """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
+        """),format.raw/*12.9*/("""<!-- Long id, String type, String fName, String lName, double salary -->
+        """),_display_(/*13.10*/inputText(employeeForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*13.88*/("""
+        """),_display_(/*14.10*/inputText(employeeForm("fName"), '_label -> "First Name", 'class -> "form-control")),format.raw/*14.93*/("""
+        """),_display_(/*15.10*/inputText(employeeForm("lName"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*15.92*/("""
+        """),_display_(/*16.10*/inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")),format.raw/*16.90*/("""
+        """),_display_(/*17.10*/inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*17.94*/("""
 
-        """),_display_(/*18.10*/inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*18.75*/("""
-        """),_display_(/*19.10*/inputText(employeeForm("role").copy(value=Some("manager")), '_label -> "", 'hidden -> "hidden")),format.raw/*19.105*/("""
 
-        """),format.raw/*21.9*/("""<div class="actions">
+        """),format.raw/*20.9*/("""<label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
+
+        """),_display_(/*23.10*/inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*23.75*/("""
+        """),_display_(/*24.10*/inputText(employeeForm("role").copy(value=Some("manager")), '_label -> "", 'hidden -> "hidden")),format.raw/*24.105*/("""
+
+        """),format.raw/*26.9*/("""<div class="actions">
             <input type="submit" value="Add Manager" class="btn btn-primary">
-            <a href=""""),_display_(/*23.23*/routes/*23.29*/.HomeController.employees()),format.raw/*23.56*/("""">
+            <a href=""""),_display_(/*28.23*/routes/*28.29*/.HomeController.employees()),format.raw/*28.56*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*27.6*/("""
+    """)))}),format.raw/*32.6*/("""
 """)))}))
       }
     }
   }
 
-  def render(employeeForm:Form[models.users.Manager],user:models.users.Employees): play.twirl.api.HtmlFormat.Appendable = apply(employeeForm,user)
+  def render(employeeForm:Form[models.users.Manager],user:models.users.Employees,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(employeeForm,user,env)
 
-  def f:((Form[models.users.Manager],models.users.Employees) => play.twirl.api.HtmlFormat.Appendable) = (employeeForm,user) => apply(employeeForm,user)
+  def f:((Form[models.users.Manager],models.users.Employees,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (employeeForm,user,env) => apply(employeeForm,user,env)
 
   def ref: this.type = this
 
@@ -72,11 +77,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 15 14:00:43 GMT 2019
-                  SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/addManager.scala.html
-                  HASH: 9d9eb59a1f80d46571dc9b0b55f2f681fd66ba09
-                  MATRIX: 996->1|1141->76|1185->74|1212->92|1239->94|1272->119|1311->121|1342->126|1414->173|1522->272|1562->274|1598->311|1635->321|1648->325|1679->335|1715->344|1824->426|1923->504|1960->514|2064->597|2101->607|2204->689|2241->699|2342->779|2379->789|2484->873|2522->884|2608->949|2645->959|2762->1054|2799->1064|2948->1186|2963->1192|3011->1219|3159->1337
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|43->12|43->12|44->13|44->13|45->14|45->14|46->15|46->15|47->16|47->16|49->18|49->18|50->19|50->19|52->21|54->23|54->23|54->23|58->27
+                  DATE: Sat Mar 16 11:57:21 GMT 2019
+                  SOURCE: /home/wdd/Desktop/SDev_CA1/app/views/addManager.scala.html
+                  HASH: 50b1a987af48d0d2eaa532b76842468f6f6bbcfa
+                  MATRIX: 1017->1|1189->103|1233->101|1260->119|1287->121|1320->146|1359->148|1390->153|1462->200|1627->357|1666->359|1703->396|1740->406|1753->410|1784->420|1820->429|1929->511|2028->589|2065->599|2169->682|2206->692|2309->774|2346->784|2447->864|2484->874|2589->958|2627->969|2763->1078|2849->1143|2886->1153|3003->1248|3040->1258|3189->1380|3204->1386|3252->1413|3400->1531
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|43->12|44->13|44->13|45->14|45->14|46->15|46->15|47->16|47->16|48->17|48->17|51->20|54->23|54->23|55->24|55->24|57->26|59->28|59->28|59->28|63->32
                   -- GENERATED --
               */
           

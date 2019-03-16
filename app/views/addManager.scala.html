@@ -1,11 +1,12 @@
-@(employeeForm: Form[models.users.Manager], user: models.users.Employees)
+@(employeeForm: Form[models.users.Manager], user: models.users.Employees, env: play.api.Environment)
 
 @import helper._
 
 @main("Add Manager", user) {
     <p class = "lead"> Add a new Manager</p>
 
-    @form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+    @form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data") {
         @* CSRF attack Prevention *@
         @CSRF.formField
         <!-- Long id, String type, String fName, String lName, double salary -->
@@ -14,6 +15,10 @@
         @inputText(employeeForm("lName"), '_label -> "Last Name", 'class -> "form-control")
         @inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")
         @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
+
+
+        <label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
 
         @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
         @inputText(employeeForm("role").copy(value=Some("manager")), '_label -> "", 'hidden -> "hidden")

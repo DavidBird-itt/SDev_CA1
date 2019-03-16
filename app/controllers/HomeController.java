@@ -65,7 +65,7 @@ public class HomeController extends Controller {
     public Result addManager() {
         Form < Manager>employeeForm=formFactory.form(Manager.class);
         Form<Address> aForm = formFactory.form(Address.class);
-        return ok(addManager.render(employeeForm, Manager.getEmployeeById(session().get("email"))));
+        return ok(addManager.render(employeeForm, Manager.getEmployeeById(session().get("email")), e));
     }
 
     @Transactional 
@@ -79,7 +79,7 @@ public class HomeController extends Controller {
             System.out.println("Last Name: "+ newEmployeeForm.field("lName").getValue().get());
             System.out.println("Salary: "+ newEmployeeForm.field("salary").getValue().get());
             System.out.println("Password: "+ newEmployeeForm.field("password").getValue().get());
-            return badRequest(addManager.render(newEmployeeForm, Employees.getEmployeeById(session().get("email"))));
+            return badRequest(addManager.render(newEmployeeForm, Employees.getEmployeeById(session().get("email")), e));
 
         }
 
@@ -128,7 +128,7 @@ public class HomeController extends Controller {
             return badRequest("error");
         }
 
-        return ok(addManager.render(employeeForm, Employees.getEmployeeById(session().get("email"))));
+        return ok(addManager.render(employeeForm, Employees.getEmployeeById(session().get("email")), e));
     }
 
     public Result addWorker() {

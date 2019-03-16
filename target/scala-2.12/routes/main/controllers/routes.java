@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Fri Mar 15 14:00:42 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Sat Mar 16 11:48:53 GMT 2019
 
 package controllers;
 

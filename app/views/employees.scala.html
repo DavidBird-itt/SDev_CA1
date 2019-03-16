@@ -30,7 +30,7 @@
             @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
                 <td><img src="/assets/images/workerImages@(i.getId + "thumb.jpg")"/></td>
             } else {
-                <td><img src="/assets/images/workerImages/noImage/jpg"/></td>
+                <td><img src="/assets/images/workerImages/noImage.jpg"/></td>
             }
 
             <td>@i.getId</td>
@@ -80,6 +80,13 @@
         <!-- Loop for creating table rows from Employee data  -->
 
         @for(i<-wlist) { <tr>
+
+            @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
+                <td><img src="/assets/images/workerImages/@(i.getId + "thumb.jpg")"/></td>
+            } else {
+                <td><img src="/assets/images/workerImages/noImage.jpg"/></td>
+            }
+
             <td>@i.getId</td>
             <td>@i.getRole</td>
             <td>@i.getfName</td>
