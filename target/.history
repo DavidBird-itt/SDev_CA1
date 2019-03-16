@@ -109,3 +109,15 @@ run
 exit
 run
 exit
+run
+clean
+compile
+run
+exit
+run
+clean
+compile
+run
+exit
+run
+exit

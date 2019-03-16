@@ -68,14 +68,14 @@ public class HomeController extends Controller {
     public Result addManager() {
         Form < Manager>employeeForm=formFactory.form(Manager.class);
         Form<Address> aForm = formFactory.form(Address.class);
-        return ok(addManager.render(employeeForm, Manager.getEmployeeById(session().get("email")), e));
+        return ok(addManager.render(employeeForm, aForm,Manager.getEmployeeById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)
     @Transactional 
     public Result addManagerSubmit() {
         Form < Manager>newEmployeeForm=formFactory.form(Manager.class).bindFromRequest();
-
+        Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
         if (newEmployeeForm.hasErrors()) {
             System.out.println("Email: "+ newEmployeeForm.field("email").getValue().get());
             System.out.println("Role: "+ newEmployeeForm.field("role").getValue().get());
@@ -83,24 +83,32 @@ public class HomeController extends Controller {
             System.out.println("Last Name: "+ newEmployeeForm.field("lName").getValue().get());
             System.out.println("Salary: "+ newEmployeeForm.field("salary").getValue().get());
             System.out.println("Password: "+ newEmployeeForm.field("password").getValue().get());
-            return badRequest(addManager.render(newEmployeeForm, Employees.getEmployeeById(session().get("email")), e));
+            
+            System.out.println("Street 1: "+ newAddressForm.field("street1").getValue().get());
+            System.out.println("Street 2: "+ newAddressForm.field("street2").getValue().get());
+            System.out.println("Town: "+ newAddressForm.field("town").getValue().get());
+            System.out.println("County: "+ newAddressForm.field("County").getValue().get());
+            System.out.println("Eircode: "+ newAddressForm.field("eircode").getValue().get());
+            return badRequest(addManager.render(newEmployeeForm, newAddressForm, Employees.getEmployeeById(session().get("email")), e));
 
         }
 
         else {
-            Employees newEmployees=newEmployeeForm.get();
+            Employees newEmployee=newEmployeeForm.get();
+            Address address = newAddressForm.get();
+            newEmployee.setAddress(address);
 
-            if (Employees.getEmployeeById(newEmployees.getEmail())==null) {
+            if (Employees.getEmployeeById(newEmployee.getEmail())==null) {
                 System.out.println("Save");
-                newEmployees.save();
+                newEmployee.save();
             }
 
             else {
                 System.out.println("Update");
-                newEmployees.update();
+                newEmployee.update();
             }
 
-            flash("success", "Employee "+ newEmployees.getfName() + " has been added/updated.");
+            flash("success", "Employee "+ newEmployee.getfName() + " has been added/updated.");
 
             return redirect(controllers.routes.HomeController.employees());
         }
@@ -123,21 +131,26 @@ public class HomeController extends Controller {
     @With(AuthManager.class)
     public Result updateManager(String email) {
         Manager emp;
+        Address a;
         Form < Manager>employeeForm;
+        Form<Address> aForm;
 
         try {
             //i = Employees.find.byId(id);
             emp=(Manager) Employees.getEmployeeById(email);
             emp.update();
 
+            a= emp.getAddress();
+
             employeeForm=formFactory.form(Manager.class).fill(emp);
+            aForm=formFactory.form(Address.class).fill(a);
         }
 
         catch (Exception e) {
             return badRequest("error");
         }
 
-        return ok(addManager.render(employeeForm, Employees.getEmployeeById(session().get("email")), e));
+        return ok(addManager.render(employeeForm,aForm, Employees.getEmployeeById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)

@@ -73,6 +73,14 @@ public class Address extends Model {
         this.town = town;
     }
 
+
+    public String getCounty(){
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
     public String getEircode() {
         return eircode;
     }
