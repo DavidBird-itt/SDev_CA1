@@ -6,6 +6,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.users.*;
+
 @Entity
 public class Department extends Model {
 
@@ -13,6 +15,10 @@ public class Department extends Model {
     private Long id;
     @Constraints.Required
     String name; 
+
+    @OneToMany(mappedBy="department", cascade = CascadeType.ALL)
+    private List<Employees> employees;
+
 
     public Department() {
     }
@@ -36,6 +42,15 @@ public class Department extends Model {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    //Mapped Getters and setters
+    public List<Employees> getEmployees() {
+        return this.employees;
+    }
+
+    public void setEmployees(List<Employees> e) {
+        this.employees = e;
     }
 
     //Finders

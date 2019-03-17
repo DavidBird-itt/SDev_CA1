@@ -8,7 +8,7 @@ delete from address;
 delete from project;
 
 
-INSERT into employees (type,id,email,role,f_name,l_name,salary,password) values ( 'm',1, 'manager@emp.com','manager', 'David', 'Bird', 25000.00, 'password');
+INSERT into employees (type,id,email,role,f_name,l_name,salary,password) values ( 'm',1, 'manager@emp.com','Manager', 'David', 'Bird', 25000.00, 'password');
 INSERT into employees (type,id,email,role,f_name,l_name,salary,password) values ( 'w',2, 'worker@emp.com', 'worker', 'Karl', 'Blair', 12500.00, 'password');
 
 INSERT into address (id,street1,street2,town,county,eircode) values (1,'125 Sommerville','Chrisdale', 'Blessington', 'Wicklow','W91X87');

@@ -31,10 +31,13 @@ public class Employees extends Model {
     @Constraints.Required
     private String password;
 
+    //Mappings
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="AID")
     private Address address;
 
+    @ManyToOne
+    private Department department;
 
     public Employees() {
         
@@ -115,6 +118,14 @@ public class Employees extends Model {
         this.address=address;
     }
 
+    public Department getDepartment() {
+        return this.department;
+    }
+
+    public void setDepartment(Department d) {
+        this.department = d;
+    }
+    
     //Finders
     public static final Finder < Long, Employees > find = new Finder < > (Employees.class);
 

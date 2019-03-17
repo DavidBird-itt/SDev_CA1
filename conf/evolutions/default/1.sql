@@ -29,6 +29,7 @@ create table employees (
   salary                        double not null,
   password                      varchar(255),
   aid                           bigint,
+  department_id                 bigint,
   constraint uq_employees_aid unique (aid),
   constraint pk_employees primary key (id)
 );
@@ -50,6 +51,9 @@ create table project_employees (
 
 alter table employees add constraint fk_employees_aid foreign key (aid) references address (id) on delete restrict on update restrict;
 
+alter table employees add constraint fk_employees_department_id foreign key (department_id) references department (id) on delete restrict on update restrict;
+create index ix_employees_department_id on employees (department_id);
+
 alter table project_employees add constraint fk_project_employees_project foreign key (project_id) references project (id) on delete restrict on update restrict;
 create index ix_project_employees_project on project_employees (project_id);
 
@@ -60,6 +64,9 @@ create index ix_project_employees_employees on project_employees (employees_id);
 # --- !Downs
 
 alter table employees drop constraint if exists fk_employees_aid;
+
+alter table employees drop constraint if exists fk_employees_department_id;
+drop index if exists ix_employees_department_id;
 
 alter table project_employees drop constraint if exists fk_project_employees_project;
 drop index if exists ix_project_employees_project;

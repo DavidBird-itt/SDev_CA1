@@ -1,4 +1,4 @@
-@(employeeForm: Form[models.users.Manager], aForm: Form[models.Address],user: models.users.Employees, env: play.api.Environment)
+@(employeeForm: Form[models.users.Manager], aForm: Form[models.Address], dForm: Form[models.Department], user: models.users.Employees, env: play.api.Environment)
 
 @import helper._
 
@@ -16,6 +16,8 @@
         @inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")
         @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
 
+        @inputText(dForm("name"), '_label -> "Department Name", 'class -> "form-control")
+        
         @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
         @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
         @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")

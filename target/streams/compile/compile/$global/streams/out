@@ -1,20 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:87:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable getValue[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class play.data.Form.Field[0m
-[0m[[0m[31merror[0m] [0m[0m            System.out.println("Street 1: "+ newAddressForm.field("street1").getValue.get());[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:88:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable getValue[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class play.data.Form.Field[0m
-[0m[[0m[31merror[0m] [0m[0m            System.out.println("Street 2: "+ newAddressForm.field("street2").getValue.get());[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:89:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable getValue[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class play.data.Form.Field[0m
-[0m[[0m[31merror[0m] [0m[0m            System.out.println("Town: "+ newAddressForm.field("town").getValue.get());[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:90:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable getValue[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class play.data.Form.Field[0m
-[0m[[0m[31merror[0m] [0m[0m            System.out.println("County: "+ newAddressForm.field("County").getValue.get());[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:91:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable getValue[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class play.data.Form.Field[0m
-[0m[[0m[31merror[0m] [0m[0m            System.out.println("Eircode: "+ newAddressForm.field("eircode").getValue.get());[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/main.scala.html:22:33: not found: value user[0m
+[0m[[0m[31merror[0m] [0m[0m                            @if(user != null) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

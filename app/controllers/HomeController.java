@@ -43,10 +43,15 @@ public class HomeController extends Controller {
 
     public HomeController() {}
 
-    public Result index() {
-        return ok(index.render(Employees.getEmployeeById(session().get("email"))));
+    public Result index() { 
+        if(Employees.getEmployeeById(session().get("email")) != null){
+            return ok(index.render(Employees.getEmployeeById(session().get("email"))));
+        } else {
+            Form<Login> loginForm = formFactory.form(Login.class);
+            return ok(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));
+        }
     }
-
+    
     public Result databaseTest() {
         List < Project>plist=Project.findAll();
         List < Address>alist=Address.findAll();
@@ -68,7 +73,8 @@ public class HomeController extends Controller {
     public Result addManager() {
         Form < Manager>employeeForm=formFactory.form(Manager.class);
         Form<Address> aForm = formFactory.form(Address.class);
-        return ok(addManager.render(employeeForm, aForm,Manager.getEmployeeById(session().get("email")), e));
+        Form<Department> dForm = formFactory.form(Department.class);
+        return ok(addManager.render(employeeForm, aForm, dForm, Manager.getEmployeeById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)
@@ -76,6 +82,7 @@ public class HomeController extends Controller {
     public Result addManagerSubmit() {
         Form < Manager>newEmployeeForm=formFactory.form(Manager.class).bindFromRequest();
         Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
+        Form<Department> newDepartmentForm=formFactory.form(Department.class).bindFromRequest();
         if (newEmployeeForm.hasErrors()) {
             System.out.println("Email: "+ newEmployeeForm.field("email").getValue().get());
             System.out.println("Role: "+ newEmployeeForm.field("role").getValue().get());
@@ -89,14 +96,17 @@ public class HomeController extends Controller {
             System.out.println("Town: "+ newAddressForm.field("town").getValue().get());
             System.out.println("County: "+ newAddressForm.field("County").getValue().get());
             System.out.println("Eircode: "+ newAddressForm.field("eircode").getValue().get());
-            return badRequest(addManager.render(newEmployeeForm, newAddressForm, Employees.getEmployeeById(session().get("email")), e));
+            return badRequest(addManager.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
 
         }
 
         else {
             Employees newEmployee=newEmployeeForm.get();
             Address address = newAddressForm.get();
+            Department dep = newDepartmentForm.get();
+            
             newEmployee.setAddress(address);
+            newEmployee.setDepartment(dep);
 
             if (Employees.getEmployeeById(newEmployee.getEmail())==null) {
                 System.out.println("Save");
@@ -132,8 +142,11 @@ public class HomeController extends Controller {
     public Result updateManager(String email) {
         Manager emp;
         Address a;
-        Form < Manager>employeeForm;
+        Department d;
+
+        Form <Manager> employeeForm;
         Form<Address> aForm;
+        Form<Department> dForm;
 
         try {
             //i = Employees.find.byId(id);
@@ -141,16 +154,18 @@ public class HomeController extends Controller {
             emp.update();
 
             a= emp.getAddress();
+            d= emp.getDepartment();
 
             employeeForm=formFactory.form(Manager.class).fill(emp);
             aForm=formFactory.form(Address.class).fill(a);
+            dForm=formFactory.form(Department.class).fill(d);
         }
 
         catch (Exception e) {
             return badRequest("error");
         }
 
-        return ok(addManager.render(employeeForm,aForm, Employees.getEmployeeById(session().get("email")), e));
+        return ok(addManager.render(employeeForm,aForm,dForm,Employees.getEmployeeById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)
