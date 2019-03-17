@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/main.scala.html:22:33: not found: value user[0m
-[0m[[0m[31merror[0m] [0m[0m                            @if(user != null) {[0m
-[0m[[0m[31merror[0m] [0m[0m                                ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:203:1: incompatible types: models.users.Manager cannot be converted to models.users.Worker[0m
+[0m[[0m[31merror[0m] [0m[0m            Worker newEmployees = newEmployeeForm.get(); [0m

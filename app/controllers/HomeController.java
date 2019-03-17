@@ -171,13 +171,18 @@ public class HomeController extends Controller {
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
     public Result addWorker() {
-        Form < Worker>employeeForm=formFactory.form(Worker.class);
-        return ok(addWorker.render(employeeForm, Employees.getEmployeeById(session().get("email"))));
+        Form < Manager> employeeForm=formFactory.form(Manager.class);
+        Form<Address> aForm = formFactory.form(Address.class);
+        Form<Department> dForm = formFactory.form(Department.class);
+        return ok(addManager.render(employeeForm, aForm, dForm, Manager.getEmployeeById(session().get("email")), e));
     }
+    
     @Security.Authenticated(Secured.class)
     @Transactional
     public Result addWorkerSubmit() {
-        Form < Worker>newEmployeeForm=formFactory.form(Worker.class).bindFromRequest(); 
+        Form < Manager>newEmployeeForm=formFactory.form(Manager.class).bindFromRequest();
+        Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
+        Form<Department> newDepartmentForm=formFactory.form(Department.class).bindFromRequest(); 
         if (newEmployeeForm.hasErrors()) {
             System.out.println("Email: "+ newEmployeeForm.field("email").getValue().get());
             System.out.println("Role: "+ newEmployeeForm.field("role").getValue().get());
@@ -185,11 +190,17 @@ public class HomeController extends Controller {
             System.out.println("Last Name: "+ newEmployeeForm.field("lName").getValue().get());
             System.out.println("Salary: "+ newEmployeeForm.field("salary").getValue().get());
             System.out.println("Password: "+ newEmployeeForm.field("password").getValue().get());
-            return badRequest(addWorker.render(newEmployeeForm, Employees.getEmployeeById(session().get("email"))));
+
+            System.out.println("Street 1: "+ newAddressForm.field("street1").getValue().get());
+            System.out.println("Street 2: "+ newAddressForm.field("street2").getValue().get());
+            System.out.println("Town: "+ newAddressForm.field("town").getValue().get());
+            System.out.println("County: "+ newAddressForm.field("County").getValue().get());
+            System.out.println("Eircode: "+ newAddressForm.field("eircode").getValue().get());
+            return badRequest(addManager.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
         }
 
         else {
-            Worker newEmployees=newEmployeeForm.get(); 
+            Worker newEmployees = newEmployeeForm.get(); 
             if (Employees.getEmployeeById(newEmployees.getEmail())==null) {
                 System.out.println("Save");
                 newEmployees.save();
