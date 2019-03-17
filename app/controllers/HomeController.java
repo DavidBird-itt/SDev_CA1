@@ -171,16 +171,16 @@ public class HomeController extends Controller {
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
     public Result addWorker() {
-        Form < Manager> employeeForm=formFactory.form(Manager.class);
+        Form <Worker> employeeForm=formFactory.form(Worker.class);
         Form<Address> aForm = formFactory.form(Address.class);
         Form<Department> dForm = formFactory.form(Department.class);
-        return ok(addManager.render(employeeForm, aForm, dForm, Manager.getEmployeeById(session().get("email")), e));
+        return ok(addWorker.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")), e));
     }
     
     @Security.Authenticated(Secured.class)
     @Transactional
     public Result addWorkerSubmit() {
-        Form < Manager>newEmployeeForm=formFactory.form(Manager.class).bindFromRequest();
+        Form < Worker>newEmployeeForm=formFactory.form(Worker.class).bindFromRequest();
         Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
         Form<Department> newDepartmentForm=formFactory.form(Department.class).bindFromRequest(); 
         if (newEmployeeForm.hasErrors()) {
@@ -196,11 +196,11 @@ public class HomeController extends Controller {
             System.out.println("Town: "+ newAddressForm.field("town").getValue().get());
             System.out.println("County: "+ newAddressForm.field("County").getValue().get());
             System.out.println("Eircode: "+ newAddressForm.field("eircode").getValue().get());
-            return badRequest(addManager.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
+            return badRequest(addWorker.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
         }
 
         else {
-            Worker newEmployees = newEmployeeForm.get(); 
+            Employees newEmployees = newEmployeeForm.get(); 
             if (Employees.getEmployeeById(newEmployees.getEmail())==null) {
                 System.out.println("Save");
                 newEmployees.save();
@@ -237,21 +237,31 @@ public class HomeController extends Controller {
     @With(AuthManager.class)
     public Result updateWorker(String email) {
         Worker emp;
-        Form < Worker>employeeForm;
+        Address a;
+        Department d;
+
+        Form <Worker> employeeForm;
+        Form<Address> aForm;
+        Form<Department> dForm;
 
         try {
             //i = Employees.find.byId(id);
             emp=(Worker) Employees.getEmployeeById(email);
             emp.update();
 
+            a= emp.getAddress();
+            d= emp.getDepartment();
+
             employeeForm=formFactory.form(Worker.class).fill(emp);
+            aForm=formFactory.form(Address.class).fill(a);
+            dForm=formFactory.form(Department.class).fill(d);
         }
 
         catch (Exception e) {
             return badRequest("error");
         }
 
-        return ok(addWorker.render(employeeForm, Employees.getEmployeeById(session().get("email"))));
+        return ok(addWorker.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")),e));
     }
 
     @Security.Authenticated(Secured.class)

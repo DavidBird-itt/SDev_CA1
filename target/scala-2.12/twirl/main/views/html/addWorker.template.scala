@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addWorker extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.users.Worker],models.users.Employees,play.twirl.api.HtmlFormat.Appendable] {
+object addWorker extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template5[Form[models.users.Worker],Form[models.Address],Form[models.Department],models.users.Employees,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(employeeForm: Form[models.users.Worker], user: models.users.Employees):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(employeeForm: Form[models.users.Worker], aForm: Form[models.Address], dForm: Form[models.Department], user: models.users.Employees, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*3.2*/import helper._
@@ -69,9 +69,9 @@ Seq[Any](format.raw/*2.1*/("""
     }
   }
 
-  def render(employeeForm:Form[models.users.Worker],user:models.users.Employees): play.twirl.api.HtmlFormat.Appendable = apply(employeeForm,user)
+  def render(employeeForm:Form[models.users.Worker],aForm:Form[models.Address],dForm:Form[models.Department],user:models.users.Employees,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(employeeForm,aForm,dForm,user,env)
 
-  def f:((Form[models.users.Worker],models.users.Employees) => play.twirl.api.HtmlFormat.Appendable) = (employeeForm,user) => apply(employeeForm,user)
+  def f:((Form[models.users.Worker],Form[models.Address],Form[models.Department],models.users.Employees,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (employeeForm,aForm,dForm,user,env) => apply(employeeForm,aForm,dForm,user,env)
 
   def ref: this.type = this
 
@@ -80,10 +80,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 17 12:16:51 GMT 2019
-                  SOURCE: /home/wdd/Desktop/SDev_CA1/app/views/addWorker.scala.html
-                  HASH: 2e42402497d221c7c3fa75938145680b1c4e084e
-                  MATRIX: 994->1|1138->75|1182->73|1209->91|1236->93|1268->117|1307->119|1338->124|1409->170|1573->326|1612->328|1649->365|1686->375|1699->379|1730->389|1766->398|1875->480|1974->558|2011->568|2110->646|2147->656|2246->734|2283->744|2384->824|2421->834|2526->918|2564->929|2650->994|2695->1012|2830->1120|2946->1214|3002->1243|3150->1364|3165->1370|3213->1397|3361->1515
+                  DATE: Sun Mar 17 14:20:23 GMT 2019
+                  SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/addWorker.scala.html
+                  HASH: 1251bdb953c13508fd4d9d13d58e37d34eb2eaac
+                  MATRIX: 1060->1|1292->163|1336->161|1363->179|1390->181|1422->205|1461->207|1492->212|1563->258|1727->414|1766->416|1803->453|1840->463|1853->467|1884->477|1920->486|2029->568|2128->646|2165->656|2264->734|2301->744|2400->822|2437->832|2538->912|2575->922|2680->1006|2718->1017|2804->1082|2849->1100|2984->1208|3100->1302|3156->1331|3304->1452|3319->1458|3367->1485|3515->1603
                   LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|43->12|44->13|44->13|45->14|45->14|46->15|46->15|47->16|47->16|48->17|48->17|50->19|50->19|52->21|55->24|55->24|60->29|62->31|62->31|62->31|66->35
                   -- GENERATED --
               */

@@ -1,0 +1,1 @@
+insert into PROJECT_EMPLOYEES(project_id, employees_id) values(1,1);

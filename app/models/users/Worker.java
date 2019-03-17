@@ -33,6 +33,14 @@ public class Worker extends Employees {
 
         
     //For many to many mapping
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> p) {
+        this.projects = p;
+    }
+
     public static Map < String, String > options() {
         LinkedHashMap < String, String > options = new LinkedHashMap();
 

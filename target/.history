@@ -129,3 +129,7 @@ h2-browser
 run
 exit
 run
+h2-browser
+run
+h2-browser
+exit
