@@ -1,1 +1,47 @@
 @(wlist: List[models.users.Worker],employeeForm: Form[models.users.Worker], emp: models.users.Employees, env: play.api.Environment)
+@main("Raise", emp) {
+
+    @*Display the success*@
+@if(flash.containsKey("success")) {
+<div class="alert- alert-success">
+    @flash.get("success")
+</div>
+}
+
+
+<table class="table table-bordered table-hover table-condensed">
+
+    <thead>
+        <!--Header-->
+        <h2>Worker Table</h2>
+        <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>Role</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+
+        @for(i<-wlist) { <tr>
+
+            @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
+                <td><img src="/assets/images/workerImages/@(i.getId + "thumb.jpg")"/></td>
+            } else {
+                <td><img src="/assets/images/workerImages/noImage.jpg"/></td>
+            }
+
+            <td>@i.getId</td>
+            <td>@i.getRole</td>
+            <td>@i.getfName</td>
+            <td>@i.getlName</td>
+            <td>&euro; @("%.2f".format(i.getSalary))</td>
+
+            
+    </tbody>
+    }
+}

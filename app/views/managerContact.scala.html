@@ -1,1 +1,41 @@
 @(mlist: List[models.users.Manager] , emp: models.users.Employees, env: play.api.Environment)
+@main("Contact", emp) {
+
+    @*Display the success*@
+@if(flash.containsKey("success")) {
+<div class="alert- alert-success">
+    @flash.get("success")
+</div>
+}
+<table class="table table-bordered table-hover table-condensed">
+
+    <thead>
+        <!--Header-->
+        <h2>Manager Contact Info</h2>
+        <tr>
+            <th>Image</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Loop for creating table rows from Employee data  -->
+
+        @for(i<-mlist) { <tr>
+
+            @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
+                <td><img src="/assets/images/workerImages@(i.getId + "thumb.jpg")"/></td>
+            } else {
+                <td><img src="/assets/images/workerImages/noImage.jpg"/></td>
+            }
+
+            <td>@i.getEmail</td>
+            <td>@i.getfName</td>
+            <td>@i.getlName</td>
+
+    </tbody>
+    }
+    
+}

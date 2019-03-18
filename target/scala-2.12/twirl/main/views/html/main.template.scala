@@ -52,16 +52,22 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                         <ul class="nav navbar-nav">
                             """),_display_(/*22.30*/if(emps != null)/*22.46*/ {_display_(Seq[Any](format.raw/*22.48*/("""
                             """),format.raw/*23.29*/("""<li """),_display_(/*23.34*/if(pagename== "Home")/*23.55*/{_display_(Seq[Any](format.raw/*23.56*/("""class="active"""")))}),format.raw/*23.71*/("""><a href=""""),_display_(/*23.82*/routes/*23.88*/.HomeController.index()),format.raw/*23.111*/("""">Home</a></li>
-                            <li """),_display_(/*24.34*/if(pagename== "Database")/*24.59*/{_display_(Seq[Any](format.raw/*24.60*/("""class="active"""")))}),format.raw/*24.75*/("""><a href=""""),_display_(/*24.86*/routes/*24.92*/.HomeController.databaseTest()),format.raw/*24.122*/("""">Database Test</a></li>
-                            <li """),_display_(/*25.34*/if(pagename== "Employees")/*25.60*/{_display_(Seq[Any](format.raw/*25.61*/("""class="active"""")))}),format.raw/*25.76*/("""><a href=""""),_display_(/*25.87*/routes/*25.93*/.HomeController.employees()),format.raw/*25.120*/("""">Employees</a></li>
-                            <li """),_display_(/*26.34*/if(pagename== "Login")/*26.56*/{_display_(Seq[Any](format.raw/*26.57*/("""class="active"""")))}),format.raw/*26.72*/("""><a href=""""),_display_(/*26.83*/routes/*26.89*/.LoginController.logout()),format.raw/*26.114*/("""">Logout</a></li>  
-                            """)))}),format.raw/*27.30*/("""
-                        """),format.raw/*28.25*/("""</ul>
+                            """),_display_(/*24.30*/if("Manager".equals(emps.getRole()))/*24.66*/{_display_(Seq[Any](format.raw/*24.67*/("""
+                            """),format.raw/*25.29*/("""<li """),_display_(/*25.34*/if(pagename== "Database")/*25.59*/{_display_(Seq[Any](format.raw/*25.60*/("""class="active"""")))}),format.raw/*25.75*/("""><a href=""""),_display_(/*25.86*/routes/*25.92*/.HomeController.databaseTest()),format.raw/*25.122*/("""">Database Test</a></li>
+                            <li """),_display_(/*26.34*/if(pagename== "Employees")/*26.60*/{_display_(Seq[Any](format.raw/*26.61*/("""class="active"""")))}),format.raw/*26.76*/("""><a href=""""),_display_(/*26.87*/routes/*26.93*/.HomeController.employees()),format.raw/*26.120*/("""">Employees</a></li>
+                            <li """),_display_(/*27.34*/if(pagename== "Raise")/*27.56*/{_display_(Seq[Any](format.raw/*27.57*/("""class="active"""")))}),format.raw/*27.72*/("""><a href=""""),_display_(/*27.83*/routes/*27.89*/.HomeController.giveRaise()),format.raw/*27.116*/("""">Raise</a></li>
+                        """)))}),format.raw/*28.26*/("""
+                        """),format.raw/*29.25*/("""<li """),_display_(/*29.30*/if(pagename== "Contact")/*29.54*/{_display_(Seq[Any](format.raw/*29.55*/("""class="active"""")))}),format.raw/*29.70*/("""><a href=""""),_display_(/*29.81*/routes/*29.87*/.HomeController.managerContact()),format.raw/*29.119*/("""">Contact</a></li>
+
+                            
+                            <li """),_display_(/*32.34*/if(pagename== "Login")/*32.56*/{_display_(Seq[Any](format.raw/*32.57*/("""class="active"""")))}),format.raw/*32.72*/("""><a href=""""),_display_(/*32.83*/routes/*32.89*/.LoginController.logout()),format.raw/*32.114*/("""">Logout</a></li>  
+                            """)))}),format.raw/*33.30*/("""
+                        """),format.raw/*34.25*/("""</ul>
                     </div>
                 </nav>
-        """),_display_(/*31.10*/content),format.raw/*31.17*/("""
-    """),format.raw/*32.5*/("""</body>
-    <script src=""""),_display_(/*33.19*/routes/*33.25*/.Assets.versioned("javascripts/main.js")),format.raw/*33.65*/(""""></script>
+        """),_display_(/*37.10*/content),format.raw/*37.17*/("""
+    """),format.raw/*38.5*/("""</body>
+    <script src=""""),_display_(/*39.19*/routes/*39.25*/.Assets.versioned("javascripts/main.js")),format.raw/*39.65*/(""""></script>
 </html>"""))
       }
     }
@@ -78,11 +84,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 18 17:51:44 GMT 2019
+                  DATE: Mon Mar 18 18:18:33 GMT 2019
                   SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/main.scala.html
-                  HASH: 10f408e0dac611b80f6059e18329926837734d71
-                  MATRIX: 975->1|1132->65|1203->110|1231->118|1806->666|1821->672|1865->695|2014->817|2039->833|2079->835|2136->864|2168->869|2198->890|2237->891|2283->906|2321->917|2336->923|2381->946|2457->995|2491->1020|2530->1021|2576->1036|2614->1047|2629->1053|2681->1083|2766->1141|2801->1167|2840->1168|2886->1183|2924->1194|2939->1200|2988->1227|3069->1281|3100->1303|3139->1304|3185->1319|3223->1330|3238->1336|3285->1361|3365->1410|3418->1435|3510->1500|3538->1507|3570->1512|3623->1538|3638->1544|3699->1584
-                  LINES: 28->1|33->2|36->5|36->5|50->19|50->19|50->19|53->22|53->22|53->22|54->23|54->23|54->23|54->23|54->23|54->23|54->23|54->23|55->24|55->24|55->24|55->24|55->24|55->24|55->24|56->25|56->25|56->25|56->25|56->25|56->25|56->25|57->26|57->26|57->26|57->26|57->26|57->26|57->26|58->27|59->28|62->31|62->31|63->32|64->33|64->33|64->33
+                  HASH: bd3b6e831abdcf61ff41c775b588de706d34bb31
+                  MATRIX: 975->1|1132->65|1203->110|1231->118|1806->666|1821->672|1865->695|2014->817|2039->833|2079->835|2136->864|2168->869|2198->890|2237->891|2283->906|2321->917|2336->923|2381->946|2453->991|2498->1027|2537->1028|2594->1057|2626->1062|2660->1087|2699->1088|2745->1103|2783->1114|2798->1120|2850->1150|2935->1208|2970->1234|3009->1235|3055->1250|3093->1261|3108->1267|3157->1294|3238->1348|3269->1370|3308->1371|3354->1386|3392->1397|3407->1403|3456->1430|3529->1472|3582->1497|3614->1502|3647->1526|3686->1527|3732->1542|3770->1553|3785->1559|3839->1591|3948->1673|3979->1695|4018->1696|4064->1711|4102->1722|4117->1728|4164->1753|4244->1802|4297->1827|4389->1892|4417->1899|4449->1904|4502->1930|4517->1936|4578->1976
+                  LINES: 28->1|33->2|36->5|36->5|50->19|50->19|50->19|53->22|53->22|53->22|54->23|54->23|54->23|54->23|54->23|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|56->25|56->25|56->25|56->25|56->25|57->26|57->26|57->26|57->26|57->26|57->26|57->26|58->27|58->27|58->27|58->27|58->27|58->27|58->27|59->28|60->29|60->29|60->29|60->29|60->29|60->29|60->29|60->29|63->32|63->32|63->32|63->32|63->32|63->32|63->32|64->33|65->34|68->37|68->37|69->38|70->39|70->39|70->39
                   -- GENERATED --
               */
           

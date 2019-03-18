@@ -21,8 +21,14 @@
                         <ul class="nav navbar-nav">
                             @if(emps != null) {
                             <li @if(pagename== "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
+                            @if("Manager".equals(emps.getRole())){
                             <li @if(pagename== "Database"){class="active"}><a href="@routes.HomeController.databaseTest()">Database Test</a></li>
                             <li @if(pagename== "Employees"){class="active"}><a href="@routes.HomeController.employees()">Employees</a></li>
+                            <li @if(pagename== "Raise"){class="active"}><a href="@routes.HomeController.giveRaise()">Raise</a></li>
+                        }
+                        <li @if(pagename== "Contact"){class="active"}><a href="@routes.HomeController.managerContact()">Contact</a></li>
+
+                            
                             <li @if(pagename== "Login"){class="active"}><a href="@routes.LoginController.logout()">Logout</a></li>  
                             }
                         </ul>
