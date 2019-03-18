@@ -1,4 +1,4 @@
-@(plist: List[models.Project], alist: List[models.Address],
+@(plist: List[models.Project], alist: List[models.Address], dlist: List[models.Department],
 emps: models.users.Employees)
 @main("Database", emps) {
 
@@ -47,8 +47,8 @@ emps: models.users.Employees)
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </td>
-        </tr>
-        }
+            </tr>
+            }
 
             <!-- Button to add a new project -->
             <p>
@@ -58,7 +58,7 @@ emps: models.users.Employees)
             </p>
     </tbody>
 
-    
+
     <table class="table table-bordered table-hover table-condensed">
         <thead>
             <!--Header-->
@@ -74,15 +74,53 @@ emps: models.users.Employees)
         <tbody>
             <!-- Loop for creating table rows from Employee data  -->
 
-            @for(i<-alist) { 
-                <tr>
+            @for(i<-alist) { <tr>
                 <td>@i.getStreet1</td>
                 <td>@i.getStreet2</td>
                 <td>@i.getTown</td>
                 <td>@i.getEircode</td>
-                
+
                 </tr>
                 }
 
+                <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <h2>Department Table</h2>
+                        <tr>
+                            <th> ID </th>
+                            <th> Name </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @for(i<-dlist) { <tr>
+                            <td>@i.getId</td>
+                            <td>@i.getName</td>
+
+                            </tr>
+
+
+                            <td>
+                                <a href="@routes.HomeController.updateDepartment(i.getId)" class="button-xs btn-danger">
+                                    <span class="glyphicon-pencil"></span>
+                                </a>
+                            </td>
+
+
+                            <!-- Button to delete an existing project -->
+                            <td>
+                                <a href="@routes.HomeController.deleteDepartment(i.getId)" class="button-xs btn-danger">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </td>
+                            }
+
+                            <p>
+                                <a href="@routes.HomeController.addDepartment()">
+                                    <button class="btn btn-primary">Add a Department</button>
+                                </a>
+                            </p>
+                    </tbody>
         </tbody>
         }

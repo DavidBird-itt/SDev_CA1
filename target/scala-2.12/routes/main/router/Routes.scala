@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Mon Mar 18 18:01:56 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Mon Mar 18 19:16:25 GMT 2019
 
 package router
 
@@ -76,6 +76,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteProject/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteProject(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addDepartment""", """controllers.HomeController.addDepartment"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addDepartmentSubmit""", """controllers.HomeController.addDepartmentSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateDepartment/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateDepartment(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteDepartment/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteDepartment(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -534,11 +535,29 @@ class Routes(
     )
   )
 
+  // @LINE:47
+  private[this] lazy val controllers_HomeController_updateDepartment25_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateDepartment/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_updateDepartment25_invoker = createInvoker(
+    HomeController_1.updateDepartment(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "updateDepartment",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """updateDepartment/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:48
-  private[this] lazy val controllers_HomeController_deleteDepartment25_route = Route("GET",
+  private[this] lazy val controllers_HomeController_deleteDepartment26_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteDepartment/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_deleteDepartment25_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_deleteDepartment26_invoker = createInvoker(
     HomeController_1.deleteDepartment(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -547,7 +566,7 @@ class Routes(
       Seq(classOf[Long]),
       "GET",
       this.prefix + """deleteDepartment/""" + "$" + """id<[^/]+>""",
-      """ GET     /updateDepartment /:id      controllers.HomeController.updateDepartment(id: Long)""",
+      """""",
       Seq()
     )
   )
@@ -705,10 +724,16 @@ class Routes(
         controllers_HomeController_addDepartmentSubmit24_invoker.call(HomeController_1.addDepartmentSubmit)
       }
   
-    // @LINE:48
-    case controllers_HomeController_deleteDepartment25_route(params@_) =>
+    // @LINE:47
+    case controllers_HomeController_updateDepartment25_route(params@_) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_HomeController_deleteDepartment25_invoker.call(HomeController_1.deleteDepartment(id))
+        controllers_HomeController_updateDepartment25_invoker.call(HomeController_1.updateDepartment(id))
+      }
+  
+    // @LINE:48
+    case controllers_HomeController_deleteDepartment26_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_deleteDepartment26_invoker.call(HomeController_1.deleteDepartment(id))
       }
   }
 }

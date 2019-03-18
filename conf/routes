@@ -44,5 +44,5 @@ GET     /deleteProject/:id      controllers.HomeController.deleteProject(id: Lon
 
 GET     /addDepartment          controllers.HomeController.addDepartment
 POST    /addDepartmentSubmit    controllers.HomeController.addDepartmentSubmit
-# GET     /updateDepartment /:id      controllers.HomeController.updateDepartment(id: Long)
+GET     /updateDepartment/:id   controllers.HomeController.updateDepartment(id: Long)
 GET     /deleteDepartment/:id   controllers.HomeController.deleteDepartment(id: Long)

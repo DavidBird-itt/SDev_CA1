@@ -17,6 +17,12 @@
         @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
 
         @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
+
+        @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
+        @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
+        @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
+        @inputText(aForm("county"), '_label -> "County", 'class -> "form-control")
+        @inputText(aForm("eircode"), '_label -> "Eircode",'class -> "form-control")
         
         <label> Image Upload</label>
         <input class="btn-sm btn-default" type="file" name="upload">

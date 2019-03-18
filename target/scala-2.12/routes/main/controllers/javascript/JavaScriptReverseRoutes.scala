@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Mon Mar 18 18:01:56 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Mon Mar 18 19:16:25 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -85,6 +85,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "managerContact"})
+        }
+      """
+    )
+  
+    // @LINE:47
+    def updateDepartment: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateDepartment",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateDepartment/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

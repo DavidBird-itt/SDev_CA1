@@ -1,7 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/giveRaise.scala.html:45:49: value raiseSubmit is not a member of controllers.ReverseHomeController[0m
-[0m[[0m[31merror[0m] [0m[0m                <a href="@routes.HomeController.raiseSubmit(i.getEmail)" class="button-xs btn-danger">[0m
-[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/views/giveRaise.scala.html:54:49: value raiseSubmit is not a member of controllers.ReverseHomeController[0m
-[0m[[0m[31merror[0m] [0m[0m                <a href="@routes.HomeController.raiseSubmit()">[0m
-[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/models/users/Worker.java: /home/wdd/Desktop/SDev_CA1/app/models/users/Worker.java uses unchecked or unsafe operations.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/models/users/Worker.java: Recompile with -Xlint:unchecked for details.[0m

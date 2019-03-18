@@ -55,7 +55,8 @@ public class HomeController extends Controller {
     public Result databaseTest() {
         List < Project>plist=Project.findAll();
         List < Address>alist=Address.findAll();
-        return ok(databaseTest.render(plist, alist, Employees.getEmployeeById(session().get("email"))));
+        List <Department>dlist=Department.findAll();
+        return ok(databaseTest.render(plist, alist,dlist, Employees.getEmployeeById(session().get("email"))));
     }
 
     public Result employees() {
@@ -347,12 +348,16 @@ public class HomeController extends Controller {
         return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("email"))));
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthManager.class)
     public Result addDepartment() {
         Form < Department>departmentForm=formFactory.form(Department.class);
        
         return ok(addDepartment.render(departmentForm, Employees.getEmployeeById(session().get("email"))));
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional 
     public Result addDepartmentSubmit() {
         Form<Department> newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
 
@@ -375,6 +380,9 @@ public class HomeController extends Controller {
         }
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result deleteDepartment(Long id) {
         Department.find.ref(id).delete();
 
@@ -382,6 +390,9 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.databaseTest());
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthManager.class)
     public Result updateDepartment(Long id) {
         Department i;
         Form < Department>departmentForm;

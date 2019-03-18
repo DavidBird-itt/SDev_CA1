@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Mon Mar 18 18:01:56 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Mon Mar 18 19:16:25 GMT 2019
 
 import play.api.mvc.Call
 
@@ -64,6 +64,12 @@ package controllers {
     def managerContact(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "managerContact")
+    }
+  
+    // @LINE:47
+    def updateDepartment(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "updateDepartment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:36
