@@ -67,6 +67,22 @@ public class HomeController extends Controller {
         return ok(employees.render(mList, wList, Employees.getEmployeeById(session().get("email")), e));
     }
 
+    public Result managerContact() {
+        List<Manager> mList=null;
+        mList=Manager.findAll();
+
+        return ok(managerContact.render(mList, Employees.getEmployeeById(session().get("email")), e));
+    }
+
+    public Result giveRaise() {
+        List<Worker> wList=null;
+        wList=Worker.findAll();
+
+        Form <Worker>wForm=formFactory.form(Worker.class);
+        
+        return ok(giveRaise.render(wList, wForm, Employees.getEmployeeById(session().get("email")), e));
+    }
+
 
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
@@ -333,20 +349,17 @@ public class HomeController extends Controller {
 
     public Result addDepartment() {
         Form < Department>departmentForm=formFactory.form(Department.class);
-        // Form <Worker> employeeForm=formFactory.form(Worker.class);
-        Form <Address> aForm = formFactory.form(Address.class);
-        Form <Department> dForm = formFactory.form(Department.class);
-        return ok(addDepartment.render(departmentForm, aForm, dForm ,  Employees.getEmployeeById(session().get("email")), e));
+       
+        return ok(addDepartment.render(departmentForm, Employees.getEmployeeById(session().get("email"))));
     }
 
     public Result addDepartmentSubmit() {
         Form<Department> newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
-        Form< Worker> newEmployeeForm=formFactory.form(Worker.class).bindFromRequest();
-        Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
+
 
         if (newDepartmentForm.hasErrors()) {
             //gives new form if an error has been input
-            return badRequest(addDepartment.render(newDepartmentForm,newAddressForm,newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
+            return badRequest(addDepartment.render(newDepartmentForm, Employees.getEmployeeById(session().get("email"))));
         } else {
             Department newDepartment=newDepartmentForm.get();
 

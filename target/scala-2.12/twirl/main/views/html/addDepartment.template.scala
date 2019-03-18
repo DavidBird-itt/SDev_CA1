@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addDepartment extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template5[Form[models.Department],Form[models.Address],Form[models.Department],models.users.Employees,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
+object addDepartment extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.Department],models.users.Employees,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(departmentForm: Form[models.Department], aForm: Form[models.Address], dForm: Form[models.Department], user: models.users.Employees, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(departmentForm: Form[models.Department],  user: models.users.Employees):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*3.2*/import helper._
@@ -64,9 +64,9 @@ Seq[Any](format.raw/*2.1*/("""
     }
   }
 
-  def render(departmentForm:Form[models.Department],aForm:Form[models.Address],dForm:Form[models.Department],user:models.users.Employees,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(departmentForm,aForm,dForm,user,env)
+  def render(departmentForm:Form[models.Department],user:models.users.Employees): play.twirl.api.HtmlFormat.Appendable = apply(departmentForm,user)
 
-  def f:((Form[models.Department],Form[models.Address],Form[models.Department],models.users.Employees,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (departmentForm,aForm,dForm,user,env) => apply(departmentForm,aForm,dForm,user,env)
+  def f:((Form[models.Department],models.users.Employees) => play.twirl.api.HtmlFormat.Appendable) = (departmentForm,user) => apply(departmentForm,user)
 
   def ref: this.type = this
 
@@ -75,10 +75,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 18 17:51:17 GMT 2019
-                  SOURCE: /home/wdd/Desktop/SDev_CA1/app/views/addDepartment.scala.html
-                  HASH: 2e45a5835f6744edb890af04d44ec451bbd76735
-                  MATRIX: 1062->1|1294->163|1338->161|1365->179|1392->181|1428->209|1467->211|1498->216|1573->266|1738->423|1777->425|1814->462|1851->472|1864->476|1895->486|1931->495|2040->577|2139->655|2187->676|2323->785|2411->852|2448->862|2566->958|2603->968|2755->1093|2770->1099|2818->1126|2966->1244
+                  DATE: Mon Mar 18 18:06:41 GMT 2019
+                  SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/addDepartment.scala.html
+                  HASH: 86b0f6848c6ffbfabd3102a2770d0de8167e83d5
+                  MATRIX: 996->1|1141->76|1185->74|1212->92|1239->94|1275->122|1314->124|1345->129|1420->179|1585->336|1624->338|1661->375|1698->385|1711->389|1742->399|1778->408|1887->490|1986->568|2034->589|2170->698|2258->765|2295->775|2413->871|2450->881|2602->1006|2617->1012|2665->1039|2813->1157
                   LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|43->12|44->13|44->13|49->18|52->21|52->21|53->22|53->22|55->24|57->26|57->26|57->26|61->30
                   -- GENERATED --
               */
