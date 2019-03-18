@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Sun Mar 17 18:03:04 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Mon Mar 18 17:01:18 GMT 2019
 
 package router
 
@@ -72,6 +72,9 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProjectSubmit""", """controllers.HomeController.addProjectSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateProject/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateProject(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteProject/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteProject(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addDepartment""", """controllers.HomeController.addDepartment"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addDepartmentSubmit""", """controllers.HomeController.addDepartmentSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteDepartment/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteDepartment(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -457,6 +460,60 @@ class Routes(
     )
   )
 
+  // @LINE:41
+  private[this] lazy val controllers_HomeController_addDepartment21_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addDepartment")))
+  )
+  private[this] lazy val controllers_HomeController_addDepartment21_invoker = createInvoker(
+    HomeController_1.addDepartment,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addDepartment",
+      Nil,
+      "GET",
+      this.prefix + """addDepartment""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:42
+  private[this] lazy val controllers_HomeController_addDepartmentSubmit22_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addDepartmentSubmit")))
+  )
+  private[this] lazy val controllers_HomeController_addDepartmentSubmit22_invoker = createInvoker(
+    HomeController_1.addDepartmentSubmit,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addDepartmentSubmit",
+      Nil,
+      "POST",
+      this.prefix + """addDepartmentSubmit""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:44
+  private[this] lazy val controllers_HomeController_deleteDepartment23_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteDepartment/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_deleteDepartment23_invoker = createInvoker(
+    HomeController_1.deleteDepartment(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "deleteDepartment",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """deleteDepartment/""" + "$" + """id<[^/]+>""",
+      """ GET     /updateDepartment /:id      controllers.HomeController.updateDepartment(id: Long)""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -584,6 +641,24 @@ class Routes(
     case controllers_HomeController_deleteProject20_route(params@_) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_HomeController_deleteProject20_invoker.call(HomeController_1.deleteProject(id))
+      }
+  
+    // @LINE:41
+    case controllers_HomeController_addDepartment21_route(params@_) =>
+      call { 
+        controllers_HomeController_addDepartment21_invoker.call(HomeController_1.addDepartment)
+      }
+  
+    // @LINE:42
+    case controllers_HomeController_addDepartmentSubmit22_route(params@_) =>
+      call { 
+        controllers_HomeController_addDepartmentSubmit22_invoker.call(HomeController_1.addDepartmentSubmit)
+      }
+  
+    // @LINE:44
+    case controllers_HomeController_deleteDepartment23_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_deleteDepartment23_invoker.call(HomeController_1.deleteDepartment(id))
       }
   }
 }

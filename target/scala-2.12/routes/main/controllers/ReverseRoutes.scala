@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Sun Mar 17 18:03:04 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Mon Mar 18 17:01:18 GMT 2019
 
 import play.api.mvc.Call
 
@@ -96,10 +96,22 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addManager")
     }
   
+    // @LINE:42
+    def addDepartmentSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "addDepartmentSubmit")
+    }
+  
     // @LINE:17
     def databaseTest(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "databaseTest")
+    }
+  
+    // @LINE:44
+    def deleteDepartment(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteDepartment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:24
@@ -124,6 +136,12 @@ package controllers {
     def addProjectSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addProjectSubmit")
+    }
+  
+    // @LINE:41
+    def addDepartment(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addDepartment")
     }
   
     // @LINE:6

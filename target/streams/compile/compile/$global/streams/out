@@ -1,33 +1,5 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:47:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        if(Employees.getEmployeeById(session().get("email")) != null){[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:48:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m            return ok(index.render(Employees.getEmployeeById(session().get("email")), e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:51:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m            return ok(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:58:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(databaseTest.render(plist, alist, Employees.getEmployeeById(session().get("email"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:67:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(employees.render(mList, wList, Employees.getEmployeeById(session().get("email")), e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:77:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addManager.render(employeeForm, aForm, dForm, Manager.getEmployeeById(session().get("email")), e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:99:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m            return badRequest(addManager.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:111:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m            if (Employees.getEmployeeById(newEmployee.getEmail())==null) {[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:168:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addManager.render(employeeForm,aForm,dForm,Employees.getEmployeeById(session().get("email")), e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:177:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addWorker.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")), e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:199:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m            return badRequest(addWorker.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:204:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m            if (Employees.getEmployeeById(newEmployees.getEmail())==null) {[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:263:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addWorker.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")),e));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:270:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("email"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:280:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m            return badRequest(addProject.render(newProjectForm, Employees.getEmployeeById(session().get("email"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/SDevProj/SDev_CA1/app/controllers/HomeController.java:330:1: incompatible types: java.lang.String cannot be converted to java.lang.Long[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("email"))));[0m
-[0m[[0m[0minfo[0m] [0m[0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/SDev_CA1/app/controllers/HomeController.java:384:1: method render in class views.html.addDepartment cannot be applied to given types;[0m
+[0m[[0m[31merror[0m] [0m[0m  required: play.data.Form<models.Department>,play.data.Form<models.Address>,play.data.Form<models.Department>,models.users.Employees,play.api.Environment[0m
+[0m[[0m[31merror[0m] [0m[0m  found: play.data.Form<models.Department>,models.users.Employees[0m
+[0m[[0m[31merror[0m] [0m[0m  reason: actual and formal argument lists differ in length[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(addDepartment.render(departmentForm, Employees.getEmployeeById(session().get("email"))));[0m

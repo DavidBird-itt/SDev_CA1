@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
-// @DATE:Sun Mar 17 18:03:04 GMT 2019
+// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
+// @DATE:Mon Mar 18 17:01:18 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -139,12 +139,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:42
+    def addDepartmentSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addDepartmentSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addDepartmentSubmit"})
+        }
+      """
+    )
+  
     // @LINE:17
     def databaseTest: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.databaseTest",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "databaseTest"})
+        }
+      """
+    )
+  
+    // @LINE:44
+    def deleteDepartment: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteDepartment",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteDepartment/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -185,6 +205,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addProjectSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:41
+    def addDepartment: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addDepartment",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addDepartment"})
         }
       """
     )

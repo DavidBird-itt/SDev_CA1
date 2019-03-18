@@ -331,6 +331,59 @@ public class HomeController extends Controller {
         return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("email"))));
     }
 
+    public Result addDepartment() {
+        Form < Department>departmentForm=formFactory.form(Department.class);
+        // Form <Worker> employeeForm=formFactory.form(Worker.class);
+        Form <Address> aForm = formFactory.form(Address.class);
+        Form <Department> dForm = formFactory.form(Department.class);
+        return ok(addDepartment.render(departmentForm, aForm, dForm ,  Employees.getEmployeeById(session().get("email")), e));
+    }
+
+    public Result addDepartmentSubmit() {
+        Form<Department> newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
+        Form< Worker> newEmployeeForm=formFactory.form(Worker.class).bindFromRequest();
+        Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
+
+        if (newDepartmentForm.hasErrors()) {
+            //gives new form if an error has been input
+            return badRequest(addDepartment.render(newDepartmentForm,newAddressForm,newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
+        } else {
+            Department newDepartment=newDepartmentForm.get();
+
+            if(newDepartment.getId() == null){
+                newDepartment.save();
+            } else {
+                newDepartment.update();
+            }
+
+            flash("success", "Department "+ newDepartment.getName() + " has been added.");
+
+            return redirect(controllers.routes.HomeController.databaseTest());
+        }
+    }
+
+    public Result deleteDepartment(Long id) {
+        Department.find.ref(id).delete();
+
+        flash("success", "Department has been removed successfully.");
+        return redirect(controllers.routes.HomeController.databaseTest());
+    }
+
+    public Result updateDepartment(Long id) {
+        Department i;
+        Form < Department>departmentForm;
+
+        try {
+            i=Department.find.byId(id);
+
+            departmentForm=formFactory.form(Department.class).fill(i);
+        }catch (Exception e) {
+            return badRequest("error");
+        }
+
+        return ok(addDepartment.render(departmentForm, Employees.getEmployeeById(session().get("email"))));
+    }
+
     public String saveFile(Long id, FilePart < File > uploaded) {
         if (uploaded !=null) {
             String mimeType=uploaded.getContentType();
