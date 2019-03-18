@@ -5,9 +5,8 @@
 		<title>EMP @pagename</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<style>
-
 		</style>
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -21,13 +20,12 @@
                         <ul class="nav navbar-nav">
                             @if(emps != null) {
                             <li @if(pagename== "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
+                            <li @if(pagename== "Projects"){class="active"}><a href="@routes.HomeController.databaseTest()">Projects</a></li>
+                            <li @if(pagename== "Contact"){class="active"}><a href="@routes.HomeController.managerContact()">Contact</a></li>
                             @if("Manager".equals(emps.getRole())){
-                            <li @if(pagename== "Database"){class="active"}><a href="@routes.HomeController.databaseTest()">Database Test</a></li>
-                            <li @if(pagename== "Employees"){class="active"}><a href="@routes.HomeController.employees()">Employees</a></li>
-                            <li @if(pagename== "Raise"){class="active"}><a href="@routes.HomeController.giveRaise()">Raise</a></li>
-                        }
-                        <li @if(pagename== "Contact"){class="active"}><a href="@routes.HomeController.managerContact()">Contact</a></li>
-
+                                <li @if(pagename== "Employees"){class="active"}><a href="@routes.HomeController.employees()">Employees</a></li>
+                                <li @if(pagename== "Raise"){class="active"}><a href="@routes.HomeController.giveRaise()">Raise</a></li>
+                            }
                             
                             <li @if(pagename== "Login"){class="active"}><a href="@routes.LoginController.logout()">Logout</a></li>  
                             }
@@ -35,6 +33,9 @@
                     </div>
                 </nav>
         @content
+        
     </body>
+
+    
     <script src="@routes.Assets.versioned("javascripts/main.js")"></script>
 </html>

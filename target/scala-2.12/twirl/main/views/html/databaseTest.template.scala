@@ -31,7 +31,7 @@ emps: models.users.Employees):play.twirl.api.HtmlFormat.Appendable = {
       {
 
 
-Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
+Seq[Any](_display_(/*3.2*/main("Projects", emps)/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
 
 """),format.raw/*5.24*/("""
 """),_display_(/*6.2*/if(flash.containsKey("success"))/*6.34*/ {_display_(Seq[Any](format.raw/*6.36*/("""
@@ -44,7 +44,7 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
 """),format.raw/*13.1*/("""<table class="table table-bordered table-hover table-condensed">
     <thead>
         <!--Header-->
-        <h2>Project Table</h2>
+        <h2>Projects</h2>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -63,15 +63,15 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
             <td>"""),_display_(/*32.18*/i/*32.19*/.getStartDate),format.raw/*32.32*/("""</td>
             <td>"""),_display_(/*33.18*/i/*33.19*/.getDueDate),format.raw/*33.30*/("""</td>
             <td>"""),_display_(/*34.18*/i/*34.19*/.getNumMembers),format.raw/*34.33*/("""</td>
-
-            <!-- Button to update an existing project -->
+            """),_display_(/*35.14*/if("Manager".equals(emps.getRole()))/*35.50*/{_display_(Seq[Any](format.raw/*35.51*/("""
+            """),format.raw/*36.13*/("""<!-- Button to update an existing project -->
             <td>
                 <a href=""""),_display_(/*38.27*/routes/*38.33*/.HomeController.updateProject(i.getId)),format.raw/*38.71*/("""" class="button-xs btn-danger">
                     <span class="glyphicon-pencil"></span>
                 </a>
             </td>
 
-
+        
             <!-- Button to delete an existing project -->
             <td>
                 <a href=""""),_display_(/*46.27*/routes/*46.33*/.HomeController.deleteProject(i.getId)),format.raw/*46.71*/("""" class="button-xs btn-danger">
@@ -79,19 +79,22 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
                 </a>
             </td>
             </tr>
-            """)))}),format.raw/*51.14*/("""
+            """)))}),format.raw/*51.14*/(""" 
+        """)))}),format.raw/*52.10*/("""
 
-            """),format.raw/*53.13*/("""<!-- Button to add a new project -->
+        """),_display_(/*54.10*/if("Manager".equals(emps.getRole()))/*54.46*/{_display_(Seq[Any](format.raw/*54.47*/("""
+            """),format.raw/*55.13*/("""<!-- Button to add a new project -->
             <p>
-                <a href=""""),_display_(/*55.27*/routes/*55.33*/.HomeController.addProject()),format.raw/*55.61*/("""">
+                <a href=""""),_display_(/*57.27*/routes/*57.33*/.HomeController.addProject()),format.raw/*57.61*/("""">
                     <button class="btn btn-primary">Add a Project</button>
                 </a>
             </p>
-    </tbody>
+        """)))}),format.raw/*61.10*/("""
+    """),format.raw/*62.5*/("""</tbody>
 
 
-
-    <table class="table table-bordered table-hover table-condensed">
+    """),_display_(/*65.6*/if("Manager".equals(emps.getRole()))/*65.42*/{_display_(Seq[Any](format.raw/*65.43*/("""
+    """),format.raw/*66.5*/("""<table class="table table-bordered table-hover table-condensed">
         <thead>
             <h2>Department Table</h2>
             <tr>
@@ -102,12 +105,12 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
 
         <tbody>
 
-            """),_display_(/*74.14*/for(i<-dlist) yield /*74.27*/ {_display_(Seq[Any](format.raw/*74.29*/(""" """),format.raw/*74.30*/("""<tr>
-                <td>"""),_display_(/*75.22*/i/*75.23*/.getId),format.raw/*75.29*/("""</td>
-                <td>"""),_display_(/*76.22*/i/*76.23*/.getName),format.raw/*76.31*/("""</td>
+            """),_display_(/*77.14*/for(i<-dlist) yield /*77.27*/ {_display_(Seq[Any](format.raw/*77.29*/(""" """),format.raw/*77.30*/("""<tr>
+                <td>"""),_display_(/*78.22*/i/*78.23*/.getId),format.raw/*78.29*/("""</td>
+                <td>"""),_display_(/*79.22*/i/*79.23*/.getName),format.raw/*79.31*/("""</td>
 
                 <td>
-                    <a href=""""),_display_(/*79.31*/routes/*79.37*/.HomeController.updateDepartment(i.getId)),format.raw/*79.78*/("""" class="button-xs btn-danger">
+                    <a href=""""),_display_(/*82.31*/routes/*82.37*/.HomeController.updateDepartment(i.getId)),format.raw/*82.78*/("""" class="button-xs btn-danger">
                         <span class="glyphicon-pencil"></span>
                     </a>
                 </td>
@@ -115,20 +118,21 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
 
                 <!-- Button to delete an existing project -->
                 <td>
-                    <a href=""""),_display_(/*87.31*/routes/*87.37*/.HomeController.deleteDepartment(i.getId)),format.raw/*87.78*/("""" class="button-xs btn-danger">
+                    <a href=""""),_display_(/*90.31*/routes/*90.37*/.HomeController.deleteDepartment(i.getId)),format.raw/*90.78*/("""" class="button-xs btn-danger">
                         <span class="glyphicon glyphicon-trash"></span>
                     </a>
                 </td>
-                """)))}),format.raw/*91.18*/("""
+                """)))}),format.raw/*94.18*/("""
 
-                """),format.raw/*93.17*/("""<p>
-                    <a href=""""),_display_(/*94.31*/routes/*94.37*/.HomeController.addDepartment()),format.raw/*94.68*/("""">
+                """),format.raw/*96.17*/("""<p>
+                    <a href=""""),_display_(/*97.31*/routes/*97.37*/.HomeController.addDepartment()),format.raw/*97.68*/("""">
                         <button class="btn btn-primary">Add a Department</button>
                     </a>
                 </p>
                 </tr>
         </tbody>
-        """)))}))
+        """)))}),format.raw/*103.10*/("""
+    """)))}))
       }
     }
   }
@@ -144,11 +148,11 @@ Seq[Any](_display_(/*3.2*/main("Database", emps)/*3.24*/ {_display_(Seq[Any](for
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 18 20:15:37 GMT 2019
+                  DATE: Mon Mar 18 21:04:02 GMT 2019
                   SOURCE: /home/wdd/SDevProj/SDev_CA1/app/views/databaseTest.scala.html
-                  HASH: 032411fd6f405368e38fa0e9693a99b2f3accfc3
-                  MATRIX: 1037->1|1251->123|1281->145|1320->147|1349->172|1376->174|1416->206|1455->208|1482->209|1547->249|1560->254|1595->269|1622->270|1660->278|1690->281|2126->690|2155->703|2195->705|2224->706|2273->728|2283->729|2310->735|2360->758|2370->759|2399->767|2449->790|2459->791|2493->804|2543->827|2553->828|2585->839|2635->862|2645->863|2680->877|2815->985|2830->991|2889->1029|3149->1262|3164->1268|3223->1306|3424->1476|3466->1490|3572->1569|3587->1575|3636->1603|4046->1986|4075->1999|4115->2001|4144->2002|4197->2028|4207->2029|4234->2035|4288->2062|4298->2063|4327->2071|4412->2129|4427->2135|4489->2176|4773->2433|4788->2439|4850->2480|5049->2648|5095->2666|5156->2700|5171->2706|5223->2737
-                  LINES: 28->1|34->3|34->3|34->3|36->5|37->6|37->6|37->6|38->7|39->8|39->8|39->8|40->9|41->10|44->13|60->29|60->29|60->29|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|63->32|63->32|64->33|64->33|64->33|65->34|65->34|65->34|69->38|69->38|69->38|77->46|77->46|77->46|82->51|84->53|86->55|86->55|86->55|105->74|105->74|105->74|105->74|106->75|106->75|106->75|107->76|107->76|107->76|110->79|110->79|110->79|118->87|118->87|118->87|122->91|124->93|125->94|125->94|125->94
+                  HASH: 794ffcf7d23c577f95fa4483020c3fdbf412f4a1
+                  MATRIX: 1037->1|1251->123|1281->145|1320->147|1349->172|1376->174|1416->206|1455->208|1482->209|1547->249|1560->254|1595->269|1622->270|1660->278|1690->281|2121->685|2150->698|2190->700|2219->701|2268->723|2278->724|2305->730|2355->753|2365->754|2394->762|2444->785|2454->786|2488->799|2538->822|2548->823|2580->834|2630->857|2640->858|2675->872|2721->891|2766->927|2805->928|2846->941|2962->1030|2977->1036|3036->1074|3304->1315|3319->1321|3378->1359|3579->1529|3621->1540|3659->1551|3704->1587|3743->1588|3784->1601|3890->1680|3905->1686|3954->1714|4110->1839|4142->1844|4184->1860|4229->1896|4268->1897|4300->1902|4574->2149|4603->2162|4643->2164|4672->2165|4725->2191|4735->2192|4762->2198|4816->2225|4826->2226|4855->2234|4940->2292|4955->2298|5017->2339|5301->2596|5316->2602|5378->2643|5577->2811|5623->2829|5684->2863|5699->2869|5751->2900|5962->3079
+                  LINES: 28->1|34->3|34->3|34->3|36->5|37->6|37->6|37->6|38->7|39->8|39->8|39->8|40->9|41->10|44->13|60->29|60->29|60->29|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|63->32|63->32|64->33|64->33|64->33|65->34|65->34|65->34|66->35|66->35|66->35|67->36|69->38|69->38|69->38|77->46|77->46|77->46|82->51|83->52|85->54|85->54|85->54|86->55|88->57|88->57|88->57|92->61|93->62|96->65|96->65|96->65|97->66|108->77|108->77|108->77|108->77|109->78|109->78|109->78|110->79|110->79|110->79|113->82|113->82|113->82|121->90|121->90|121->90|125->94|127->96|128->97|128->97|128->97|134->103
                   -- GENERATED --
               */
           
