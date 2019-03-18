@@ -1,42 +1,43 @@
-@(employeeForm: Form[models.users.Worker], aForm: Form[models.Address], dForm: Form[models.Department], user: models.users.Employees, env: play.api.Environment)
+@(employeeForm: Form[models.users.Worker], aForm: Form[models.Address], dForm: Form[models.Department], user:
+models.users.Employees, env: play.api.Environment)
 
 @import helper._
 
 @main("Add Worker", user) {
-    <p class = "lead"> Add a new Worker</p>
+<p class="lead"> Add a new Worker</p>
 
-    @form(action=routes.HomeController.addWorkerSubmit(), 'class -> "form-horizontal", 'role -> "form",
-    'method -> "POST", 'enctype -> "multipart/form-data") {
-        @* CSRF attack Prevention *@
-        @CSRF.formField
-        <!-- Long id, String type, String fName, String lName, double salary -->
-        @inputText(employeeForm("email"), '_label -> "Email", 'class -> "form-control")
-        @inputText(employeeForm("fName"), '_label -> "fName", 'class -> "form-control")
-        @inputText(employeeForm("lName"), '_label -> "lName", 'class -> "form-control")
-        @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
+@form(action=routes.HomeController.addWorkerSubmit(), 'class -> "form-horizontal", 'role -> "form",
+'method -> "POST", 'enctype -> "multipart/form-data") {
+@* CSRF attack Prevention *@
+@CSRF.formField
+<!-- Long id, String type, String fName, String lName, double salary -->
+@inputText(employeeForm("email"), '_label -> "Email", 'class -> "form-control")
+@inputText(employeeForm("fName"), '_label -> "fName", 'class -> "form-control")
+@inputText(employeeForm("lName"), '_label -> "lName", 'class -> "form-control")
+@inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
 
-        @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
+@inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
 
-        @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
-        @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
-        @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
-        @inputText(aForm("county"), '_label -> "County", 'class -> "form-control")
-        @inputText(aForm("eircode"), '_label -> "Eircode",'class -> "form-control")
-        
-        <label> Image Upload</label>
-        <input class="btn-sm btn-default" type="file" name="upload">
+@inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
+@inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
+@inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
+@inputText(aForm("county"), '_label -> "County", 'class -> "form-control")
+@inputText(aForm("eircode"), '_label -> "Eircode",'class -> "form-control")
 
-        @inputText(employeeForm("role").copy(value=Some("worker")), '_label -> "", 'hidden -> "hidden")
-        @inputText(employeeForm("salary").copy(value=Some("32500")), '_label -> "", 'hidden -> "hidden")
-        
-        
+<label> Image Upload</label>
+<input class="btn-sm btn-default" type="file" name="upload">
 
-        
-        <div class="actions">
-            <input type="submit" value="Add Worker" class="btn btn-primary">
-            <a href="@routes.HomeController.employees()">
-                <button type="button" class="btn btn-warning">Cancel</button>
-            </a>
-        </div>
-    }
+@inputText(employeeForm("role").copy(value=Some("worker")), '_label -> "", 'hidden -> "hidden")
+@inputText(employeeForm("salary").copy(value=Some("32500")), '_label -> "", 'hidden -> "hidden")
+
+
+
+
+<div class="actions">
+    <input type="submit" value="Add Worker" class="btn btn-primary">
+    <a href="@routes.HomeController.employees()">
+        <button type="button" class="btn btn-warning">Cancel</button>
+    </a>
+</div>
+}
 }

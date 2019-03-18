@@ -1,7 +1,7 @@
 @(mlist: List[models.users.Manager] , emp: models.users.Employees, env: play.api.Environment)
 @main("Contact", emp) {
 
-    @*Display the success*@
+@*Display the success*@
 @if(flash.containsKey("success")) {
 <div class="alert- alert-success">
     @flash.get("success")
@@ -26,9 +26,9 @@
         @for(i<-mlist) { <tr>
 
             @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
-                <td><img src="/assets/images/workerImages@(i.getId + "thumb.jpg")"/></td>
+            <td><img src="/assets/images/workerImages@(i.getId + " thumb.jpg")" /></td>
             } else {
-                <td><img src="/assets/images/workerImages/noImage.jpg"/></td>
+            <td><img src="/assets/images/workerImages/noImage.jpg" /></td>
             }
 
             <td>@i.getEmail</td>
@@ -37,5 +37,5 @@
 
     </tbody>
     }
-    
-}
+
+    }

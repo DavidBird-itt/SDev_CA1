@@ -35,112 +35,108 @@ public class HomeController extends Controller {
 
     private Environment e;
 
-    @Inject 
+    @Inject
     public HomeController(FormFactory f, Environment env) {
-        this.formFactory=f;
-        this.e=env;
+        this.formFactory = f;
+        this.e = env;
     }
 
     public HomeController() {}
 
-    public Result index() { 
-        if(Employees.getEmployeeById(session().get("email")) != null){
-            Address address = Employees.getEmployeeById(session().get("email")).getAddress();            
+    public Result index() {
+        if (Employees.getEmployeeById(session().get("email")) != null) {
+            Address address = Employees.getEmployeeById(session().get("email")).getAddress();
 
-            return ok(index.render(address,Employees.getEmployeeById(session().get("email")), e));
+            return ok(index.render(address, Employees.getEmployeeById(session().get("email")), e));
         } else {
-            Form<Login> loginForm = formFactory.form(Login.class);
+            Form < Login > loginForm = formFactory.form(Login.class);
             return ok(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));
         }
     }
-    
+
     public Result databaseTest() {
-        List < Project>plist=Project.findAll();
-        List < Address>alist=Address.findAll();
-        List <Department>dlist=Department.findAll();
-        return ok(databaseTest.render(plist, alist,dlist, Employees.getEmployeeById(session().get("email"))));
+        List < Project > plist = Project.findAll();
+        List < Address > alist = Address.findAll();
+        List < Department > dlist = Department.findAll();
+        return ok(databaseTest.render(plist, alist, dlist, Employees.getEmployeeById(session().get("email"))));
     }
 
     public Result employees() {
-        List < Manager>mList=null;
-        List < Worker>wList=null;
+        List < Manager > mList = null;
+        List < Worker > wList = null;
 
-        mList=Manager.findAll();
-        wList=Worker.findAll();
+        mList = Manager.findAll();
+        wList = Worker.findAll();
         return ok(employees.render(mList, wList, Employees.getEmployeeById(session().get("email")), e));
     }
 
     public Result managerContact() {
-        List<Manager> mList=null;
-        mList=Manager.findAll();
+        List < Manager > mList = null;
+        mList = Manager.findAll();
 
         return ok(managerContact.render(mList, Employees.getEmployeeById(session().get("email")), e));
     }
 
     public Result giveRaise() {
-        List<Worker> wList=null;
-        wList=Worker.findAll();
+        List < Worker > wList = null;
+        wList = Worker.findAll();
 
-        
+
         return ok(giveRaise.render(wList, Employees.getEmployeeById(session().get("email")), e));
     }
 
     public Result raiseSubmit(String email) {
         Worker w;
 
-        List<Worker> wList=null;
-        wList=Worker.findAll();
-        try{
-            w=(Worker) Employees.getEmployeeById(email);
+        List < Worker > wList = null;
+        wList = Worker.findAll();
+        try {
+            w = (Worker) Employees.getEmployeeById(email);
             w.raise();
         } catch (Exception ex) {
             return badRequest("error");
         }
-        
+
         return ok(giveRaise.render(wList, Employees.getEmployeeById(session().get("email")), e));
-        
+
     }
 
 
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
     public Result addManager() {
-        Form < Manager>employeeForm=formFactory.form(Manager.class);
-        Form<Address> aForm = formFactory.form(Address.class);
-        Form<Department> dForm = formFactory.form(Department.class);
+        Form < Manager > employeeForm = formFactory.form(Manager.class);
+        Form < Address > aForm = formFactory.form(Address.class);
+        Form < Department > dForm = formFactory.form(Department.class);
         return ok(addManager.render(employeeForm, aForm, dForm, Manager.getEmployeeById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)
-    @Transactional 
+    @Transactional
     public Result addManagerSubmit() {
-        Form < Manager>newEmployeeForm=formFactory.form(Manager.class).bindFromRequest();
-        Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
-        Form<Department> newDepartmentForm=formFactory.form(Department.class).bindFromRequest();
+        Form < Manager > newEmployeeForm = formFactory.form(Manager.class).bindFromRequest();
+        Form < Address > newAddressForm = formFactory.form(Address.class).bindFromRequest();
+        Form < Department > newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
         if (newEmployeeForm.hasErrors()) {
             return badRequest(addManager.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
 
-        }
-
-        else {
-            Employees newEmployee=newEmployeeForm.get();
+        } else {
+            Employees newEmployee = newEmployeeForm.get();
             Address address = newAddressForm.get();
             Department dep = newDepartmentForm.get();
-            
+
             newEmployee.setAddress(address);
             newEmployee.setDepartment(dep);
 
-            if (Employees.getEmployeeById(newEmployee.getEmail())==null) {
+            if (Employees.getEmployeeById(newEmployee.getEmail()) == null) {
                 System.out.println("Save");
                 newEmployee.save();
-            }
-
-            else {
+            } else {
                 System.out.println("Update");
                 newEmployee.update();
             }
 
-            flash("success", "Employee "+ newEmployee.getfName() + " has been added/updated.");
+            flash("success", "Employee " + newEmployee.getfName() + " has been added/updated.");
 
             return redirect(controllers.routes.HomeController.employees());
         }
@@ -150,7 +146,7 @@ public class HomeController extends Controller {
     @Transactional
     @With(AuthManager.class)
     public Result deleteManager(String email) {
-        Manager emp=(Manager) Employees.getEmployeeById(email);
+        Manager emp = (Manager) Employees.getEmployeeById(email);
         emp.delete();
 
         //Shows the result
@@ -166,64 +162,60 @@ public class HomeController extends Controller {
         Address a;
         Department d;
 
-        Form <Manager> employeeForm;
-        Form<Address> aForm;
-        Form<Department> dForm;
+        Form < Manager > employeeForm;
+        Form < Address > aForm;
+        Form < Department > dForm;
 
         try {
             //i = Employees.find.byId(id);
-            emp=(Manager) Employees.getEmployeeById(email);
+            emp = (Manager) Employees.getEmployeeById(email);
             emp.update();
 
-            a= emp.getAddress();
-            d= emp.getDepartment();
+            a = emp.getAddress();
+            d = emp.getDepartment();
 
-            employeeForm=formFactory.form(Manager.class).fill(emp);
-            aForm=formFactory.form(Address.class).fill(a);
-            dForm=formFactory.form(Department.class).fill(d);
-        }
-
-        catch (Exception e) {
+            employeeForm = formFactory.form(Manager.class).fill(emp);
+            aForm = formFactory.form(Address.class).fill(a);
+            dForm = formFactory.form(Department.class).fill(d);
+        } catch (Exception e) {
             return badRequest("error");
         }
 
-        return ok(addManager.render(employeeForm,aForm,dForm,Employees.getEmployeeById(session().get("email")), e));
+        return ok(addManager.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
     public Result addWorker() {
-        Form <Worker> employeeForm=formFactory.form(Worker.class);
-        Form<Address> aForm = formFactory.form(Address.class);
-        Form<Department> dForm = formFactory.form(Department.class);
+        Form < Worker > employeeForm = formFactory.form(Worker.class);
+        Form < Address > aForm = formFactory.form(Address.class);
+        Form < Department > dForm = formFactory.form(Department.class);
         return ok(addWorker.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")), e));
     }
-    
+
     @Security.Authenticated(Secured.class)
     @Transactional
     public Result addWorkerSubmit() {
-        Form < Worker>newEmployeeForm=formFactory.form(Worker.class).bindFromRequest();
-        Form<Address> newAddressForm=formFactory.form(Address.class).bindFromRequest();
-        Form<Department> newDepartmentForm=formFactory.form(Department.class).bindFromRequest(); 
+        Form < Worker > newEmployeeForm = formFactory.form(Worker.class).bindFromRequest();
+        Form < Address > newAddressForm = formFactory.form(Address.class).bindFromRequest();
+        Form < Department > newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
         if (newEmployeeForm.hasErrors()) {
             return badRequest(addWorker.render(newEmployeeForm, newAddressForm, newDepartmentForm, Employees.getEmployeeById(session().get("email")), e));
-        }
-
-        else {
-            Employees newEmployees = newEmployeeForm.get(); 
-            if (Employees.getEmployeeById(newEmployees.getEmail())==null) {
+        } else {
+            Employees newEmployees = newEmployeeForm.get();
+            if (Employees.getEmployeeById(newEmployees.getEmail()) == null) {
                 System.out.println("Save");
                 newEmployees.save();
-            
+
 
             } else {
                 System.out.println("Update");
                 newEmployees.update();
 
-                MultipartFormData < File> data=request().body().asMultipartFormData();
-                FilePart < File> image = data.getFile("upload");
+                MultipartFormData < File > data = request().body().asMultipartFormData();
+                FilePart < File > image = data.getFile("upload");
                 String saveImageMessage = saveFile(newEmployees.getId(), image);
-                flash("success ", "Worker "+ newEmployees.getEmail() + " was added/updated "+ saveImageMessage);
+                flash("success ", "Worker " + newEmployees.getEmail() + " was added/updated " + saveImageMessage);
             }
             return redirect(controllers.routes.HomeController.employees());
 
@@ -234,7 +226,7 @@ public class HomeController extends Controller {
     @Transactional
     @With(AuthManager.class)
     public Result deleteWorker(String email) {
-        Worker emp=(Worker) Employees.getEmployeeById(email);
+        Worker emp = (Worker) Employees.getEmployeeById(email);
         emp.delete();
         //Shows the result
         flash("success", "Employee has been removed successfully.");
@@ -250,63 +242,59 @@ public class HomeController extends Controller {
         Address a;
         Department d;
 
-        Form <Worker> employeeForm;
-        Form<Address> aForm;
-        Form<Department> dForm;
+        Form < Worker > employeeForm;
+        Form < Address > aForm;
+        Form < Department > dForm;
 
         try {
             //i = Employees.find.byId(id);
-            emp=(Worker) Employees.getEmployeeById(email);
+            emp = (Worker) Employees.getEmployeeById(email);
             emp.update();
 
-            a= emp.getAddress();
-            d= emp.getDepartment();
+            a = emp.getAddress();
+            d = emp.getDepartment();
 
-            employeeForm=formFactory.form(Worker.class).fill(emp);
-            aForm=formFactory.form(Address.class).fill(a);
-            dForm=formFactory.form(Department.class).fill(d);
-        }
-
-        catch (Exception e) {
+            employeeForm = formFactory.form(Worker.class).fill(emp);
+            aForm = formFactory.form(Address.class).fill(a);
+            dForm = formFactory.form(Department.class).fill(d);
+        } catch (Exception e) {
             return badRequest("error");
         }
 
-        return ok(addWorker.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")),e));
+        return ok(addWorker.render(employeeForm, aForm, dForm, Employees.getEmployeeById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
     public Result addProject() {
-        Form < Project>projectForm=formFactory.form(Project.class);
+        Form < Project > projectForm = formFactory.form(Project.class);
         return ok(addProject.render(projectForm, Employees.getEmployeeById(session().get("email"))));
     }
 
     @Security.Authenticated(Secured.class)
-    @Transactional 
+    @Transactional
     public Result addProjectSubmit() {
-        Form < Project>newProjectForm=formFactory.form(Project.class).bindFromRequest();
+        Form < Project > newProjectForm = formFactory.form(Project.class).bindFromRequest();
 
         if (newProjectForm.hasErrors()) {
             //gives new form if an error has been input
             return badRequest(addProject.render(newProjectForm, Employees.getEmployeeById(session().get("email"))));
-        }
+        } else {
+            Project newProject = newProjectForm.get();
 
-        else {
-            Project newProject=newProjectForm.get();
-
-            List < Worker>newWorker=new ArrayList < Worker>();
+            List < Worker > newWorker = new ArrayList < Worker > ();
             for (Long worker: newProject.getWorkerSelect()) {
                 newWorker.add(Worker.find.byId(worker));
             }
             newProject.setWorkers(newWorker);
 
-            if(newProject.getId() == null){
+            if (newProject.getId() == null) {
                 newProject.save();
             } else {
                 newProject.update();
             }
 
-            flash("success", "Project "+ newProject.getName() + " has been added.");
+            flash("success", "Project " + newProject.getName() + " has been added.");
 
             return redirect(controllers.routes.HomeController.databaseTest());
         }
@@ -328,13 +316,13 @@ public class HomeController extends Controller {
     @With(AuthManager.class)
     public Result updateProject(Long id) {
         Project i;
-        Form < Project>projectForm;
+        Form < Project > projectForm;
 
         try {
-            i=Project.find.byId(id);
+            i = Project.find.byId(id);
 
-            projectForm=formFactory.form(Project.class).fill(i);
-        }catch (Exception e) {
+            projectForm = formFactory.form(Project.class).fill(i);
+        } catch (Exception e) {
             return badRequest("error");
         }
 
@@ -344,30 +332,30 @@ public class HomeController extends Controller {
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
     public Result addDepartment() {
-        Form < Department>departmentForm=formFactory.form(Department.class);
-       
+        Form < Department > departmentForm = formFactory.form(Department.class);
+
         return ok(addDepartment.render(departmentForm, Employees.getEmployeeById(session().get("email"))));
     }
 
     @Security.Authenticated(Secured.class)
-    @Transactional 
+    @Transactional
     public Result addDepartmentSubmit() {
-        Form<Department> newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
+        Form < Department > newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
 
 
         if (newDepartmentForm.hasErrors()) {
             //gives new form if an error has been input
             return badRequest(addDepartment.render(newDepartmentForm, Employees.getEmployeeById(session().get("email"))));
         } else {
-            Department newDepartment=newDepartmentForm.get();
+            Department newDepartment = newDepartmentForm.get();
 
-            if(newDepartment.getId() == null){
+            if (newDepartment.getId() == null) {
                 newDepartment.save();
             } else {
                 newDepartment.update();
             }
 
-            flash("success", "Department "+ newDepartment.getName() + " has been added.");
+            flash("success", "Department " + newDepartment.getName() + " has been added.");
 
             return redirect(controllers.routes.HomeController.databaseTest());
         }
@@ -388,13 +376,13 @@ public class HomeController extends Controller {
     @With(AuthManager.class)
     public Result updateDepartment(Long id) {
         Department i;
-        Form < Department>departmentForm;
+        Form < Department > departmentForm;
 
         try {
-            i=Department.find.byId(id);
+            i = Department.find.byId(id);
 
-            departmentForm=formFactory.form(Department.class).fill(i);
-        }catch (Exception e) {
+            departmentForm = formFactory.form(Department.class).fill(i);
+        } catch (Exception e) {
             return badRequest("error");
         }
 
@@ -402,33 +390,33 @@ public class HomeController extends Controller {
     }
 
     public String saveFile(Long id, FilePart < File > uploaded) {
-        if (uploaded !=null) {
-            String mimeType=uploaded.getContentType();
+        if (uploaded != null) {
+            String mimeType = uploaded.getContentType();
 
             if (mimeType.startsWith("image/")) {
-                String fileName=uploaded.getFilename();
+                String fileName = uploaded.getFilename();
 
-                String extension="";
-                int i=fileName.lastIndexOf('.');
+                String extension = "";
+                int i = fileName.lastIndexOf('.');
 
-                if (i >=0) {
-                    extension=fileName.substring(i + 1);
+                if (i >= 0) {
+                    extension = fileName.substring(i + 1);
                 }
 
-                File file=uploaded.getFile();
+                File file = uploaded.getFile();
 
-                File dir=new File("public/images/workerImages");
+                File dir = new File("public/images/workerImages");
 
-                if ( !dir.exists()) {
+                if (!dir.exists()) {
                     dir.mkdirs();
                 }
 
-                File newFile=new File("public/images/workerImages/", id + "."+ extension);
+                File newFile = new File("public/images/workerImages/", id + "." + extension);
 
                 if (file.renameTo(newFile)) {
                     try {
-                        BufferedImage img=ImageIO.read(newFile);
-                        BufferedImage scaledImg=Scalr.resize(img, 90);
+                        BufferedImage img = ImageIO.read(newFile);
+                        BufferedImage scaledImg = Scalr.resize(img, 90);
 
                         if (ImageIO.write(scaledImg, extension, new File("public/images/workerImages/", id + "testImageThumb.jpg"))) {
                             return "/ file uploaded and thumbnail created.";
@@ -436,21 +424,17 @@ public class HomeController extends Controller {
                             return "/ file uploaded but thumbnail creation failed.";
                         }
 
-                    }
-
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         return "/ file uploaded but thumbnail creation failed.";
                     }
 
-                }
-
-                else {
+                } else {
                     return "/ file upload failed.";
                 }
             }
         }
-            return "/ no image file.";
+        return "/ no image file.";
 
-        
+
     }
 }

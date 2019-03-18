@@ -1,31 +1,31 @@
-@(departmentForm: Form[models.Department],  user: models.users.Employees)
+@(departmentForm: Form[models.Department], user: models.users.Employees)
 
 @import helper._
 
 @main("Add Department", user) {
-    <p class = "lead"> Add a new Department</p>
+<p class="lead"> Add a new Department</p>
 
-    @form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form",
-    'method -> "POST", 'enctype -> "multipart/form-data") {
-        @* CSRF attack Prevention *@
-        @CSRF.formField
-        <!-- Long id, String type, String fName, String lName, double salary -->
-        @inputText(departmentForm("name"), '_label -> "Name", 'class -> "form-control")
-
-        
+@form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form",
+'method -> "POST", 'enctype -> "multipart/form-data") {
+@* CSRF attack Prevention *@
+@CSRF.formField
+<!-- Long id, String type, String fName, String lName, double salary -->
+@inputText(departmentForm("name"), '_label -> "Name", 'class -> "form-control")
 
 
-        <label> Image Upload </label>
-        <input class="btn-sm btn-default" type="file" name="upload">
 
-        @inputText(departmentForm("id"), '_label -> "", 'hidden -> "hidden")
-        @inputText(departmentForm("role").copy(value=Some("worker")), '_label -> "", 'hidden -> "hidden")
 
-        <div class="actions">
-            <input type="submit" value="Add Department" class="btn btn-primary">
-            <a href="@routes.HomeController.employees()">
-                <button type="button" class="btn btn-warning">Cancel</button>
-            </a>
-        </div>
-    }
+<label> Image Upload </label>
+<input class="btn-sm btn-default" type="file" name="upload">
+
+@inputText(departmentForm("id"), '_label -> "", 'hidden -> "hidden")
+@inputText(departmentForm("role").copy(value=Some("worker")), '_label -> "", 'hidden -> "hidden")
+
+<div class="actions">
+    <input type="submit" value="Add Department" class="btn btn-primary">
+    <a href="@routes.HomeController.employees()">
+        <button type="button" class="btn btn-warning">Cancel</button>
+    </a>
+</div>
+}
 }

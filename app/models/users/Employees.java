@@ -10,9 +10,9 @@ import models.*;
 
 @Entity
 
-@Table(name="employees")
+@Table(name = "employees")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type")
+@DiscriminatorColumn(name = "type")
 @DiscriminatorValue("e")
 
 public class Employees extends Model {
@@ -33,14 +33,14 @@ public class Employees extends Model {
 
     //Mappings
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="AID")
+    @JoinColumn(name = "AID")
     private Address address;
 
     @ManyToOne
     private Department department;
 
     public Employees() {
-        
+
     }
 
     public Employees(Long id, String email, String role, String fName, String lName, double salary, String password) {
@@ -61,7 +61,7 @@ public class Employees extends Model {
         this.id = id;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
@@ -115,7 +115,7 @@ public class Employees extends Model {
     }
 
     public void setAddress(Address address) {
-        this.address=address;
+        this.address = address;
     }
 
     public Department getDepartment() {
@@ -125,7 +125,7 @@ public class Employees extends Model {
     public void setDepartment(Department d) {
         this.department = d;
     }
-    
+
     //Finders
     public static final Finder < Long, Employees > find = new Finder < > (Employees.class);
 

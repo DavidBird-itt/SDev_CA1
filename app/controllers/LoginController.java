@@ -23,12 +23,12 @@ public class LoginController extends Controller {
     }
 
     public Result login() {
-        Form<Login> loginForm = formFactory.form(Login.class);
+        Form < Login > loginForm = formFactory.form(Login.class);
         return ok(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));
     }
 
     public Result loginSubmit() {
-        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+        Form < Login > loginForm = formFactory.form(Login.class).bindFromRequest();
 
         if (loginForm.hasErrors()) {
             return badRequest(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));

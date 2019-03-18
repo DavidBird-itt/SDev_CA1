@@ -8,36 +8,36 @@ import play.data.validation.*;
 
 import models.*;
 
-@Table(name="Employees")
+@Table(name = "Employees")
 @DiscriminatorValue("w")
 
 @Entity
 public class Worker extends Employees {
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "workers")
-    private List <Project> projects;
+    private List < Project > projects;
 
-    public Worker(){
+    public Worker() {
 
     }
 
     public Worker(Long id, String email, String role, String fName, String lName, double salary, String password) {
-        super(id,email, role,fName,lName,salary,password);
+        super(id, email, role, fName, lName, salary, password);
     }
 
-    public static final Finder<Long, Worker> find = new Finder<>(Worker.class);
+    public static final Finder < Long, Worker > find = new Finder < > (Worker.class);
 
-    public static final List<Worker> findAll(){
+    public static final List < Worker > findAll() {
         return Worker.find.all();
     }
 
-        
+
     //For many to many mapping
-    public List<Project> getProjects() {
+    public List < Project > getProjects() {
         return projects;
     }
 
-    public void setProjects(List<Project> p) {
+    public void setProjects(List < Project > p) {
         this.projects = p;
     }
 
@@ -55,11 +55,11 @@ public class Worker extends Employees {
         return find.query().where().eq("prodect.id", product).eq("id", employee).findList().size() > 0;
     }
 
-    public void raise(){
+    public void raise() {
         final double RAISE_AMOUNT = .5;
         //this.salary += this.salary* RAISE_AMOUNT;
         double s = super.getSalary();
-        s += s* RAISE_AMOUNT;
+        s += s * RAISE_AMOUNT;
 
         super.setSalary(s);
     }

@@ -14,14 +14,13 @@ public class Department extends Model {
     @Id
     private Long id;
     @Constraints.Required
-    String name; 
+    String name;
 
-    @OneToMany(mappedBy="department", cascade = CascadeType.ALL)
-    private List<Employees> employees;
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    private List < Employees > employees;
 
 
-    public Department() {
-    }
+    public Department() {}
 
     public Department(Long id, String name) {
         this.id = id;
@@ -45,18 +44,18 @@ public class Department extends Model {
     }
 
     //Mapped Getters and setters
-    public List<Employees> getEmployees() {
+    public List < Employees > getEmployees() {
         return this.employees;
     }
 
-    public void setEmployees(List<Employees> e) {
+    public void setEmployees(List < Employees > e) {
         this.employees = e;
     }
 
     //Finders
-    public static final Finder<Long, Department> find = new Finder<>(Department.class);
+    public static final Finder < Long, Department > find = new Finder < > (Department.class);
 
-    public static final List<Department> findAll() {
+    public static final List < Department > findAll() {
         return Department.find.all();
     }
 }

@@ -40,7 +40,7 @@ emps: models.users.Employees)
                 </a>
             </td>
 
-        
+
             <!-- Button to delete an existing project -->
             <td>
                 <a href="@routes.HomeController.deleteProject(i.getId)" class="button-xs btn-danger">
@@ -48,17 +48,17 @@ emps: models.users.Employees)
                 </a>
             </td>
             </tr>
-            } 
-        }
+            }
+            }
 
-        @if("Manager".equals(emps.getRole())){
+            @if("Manager".equals(emps.getRole())){
             <!-- Button to add a new project -->
             <p>
                 <a href="@routes.HomeController.addProject()">
                     <button class="btn btn-primary">Add a Project</button>
                 </a>
             </p>
-        }
+            }
     </tbody>
 
 
@@ -101,4 +101,4 @@ emps: models.users.Employees)
                 </tr>
         </tbody>
         }
-    }
+        }

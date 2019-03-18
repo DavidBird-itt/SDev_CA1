@@ -1,7 +1,8 @@
-@(mlist: List[models.users.Manager], wlist: List[models.users.Worker], emps: models.users.Employees, env: play.api.Environment)
+@(mlist: List[models.users.Manager], wlist: List[models.users.Worker], emps: models.users.Employees, env:
+play.api.Environment)
 @main("Employees", emps) {
 
-    @*Display the success*@
+@*Display the success*@
 @if(flash.containsKey("success")) {
 <div class="alert- alert-success">
     @flash.get("success")
@@ -28,9 +29,9 @@
         @for(i<-mlist) { <tr>
 
             @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
-                <td><img src="/assets/images/workerImages@(i.getId + "thumb.jpg")"/></td>
+            <td><img src="/assets/images/workerImages@(i.getId + " thumb.jpg")" /></td>
             } else {
-                <td><img src="/assets/images/workerImages/noImage.jpg"/></td>
+            <td><img src="/assets/images/workerImages/noImage.jpg" /></td>
             }
 
             <td>@i.getId</td>
@@ -51,7 +52,7 @@
                 </a>
             </td>
             </tr>
-        }
+            }
             }
 
             <p>
@@ -62,58 +63,58 @@
     </tbody>
 
 
-<table class="table table-bordered table-hover table-condensed">
+    <table class="table table-bordered table-hover table-condensed">
 
-    <thead>
-        <!--Header-->
-        <h2>Worker Table</h2>
-        <tr>
-            <th>Image</th>
-            <th>ID</th>
-            <th>Role</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <!-- Loop for creating table rows from Employee data  -->
-
-        @for(i<-wlist) { <tr>
-
-            @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
-                <td><img src="/assets/images/workerImages/@(i.getId + "thumb.jpg")"/></td>
-            } else {
-                <td><img src="/assets/images/workerImages/noImage.jpg"/></td>
-            }
-
-            <td>@i.getId</td>
-            <td>@i.getRole</td>
-            <td>@i.getfName</td>
-            <td>@i.getlName</td>
-            <td>&euro; @("%.2f".format(i.getSalary))</td>
-
-            <td>
-                <a href="@routes.HomeController.updateWorker(i.getEmail)" class="button-xs btn-danger">
-                    <span class="glyphicon-pencil"></span>
-                </a>
-            </td>
-
-            <td>
-                <a href="@routes.HomeController.deleteWorker(i.getEmail)" class="button-xs btn-danger">
-                    <span class="glyphicon glyphicon-trash"></span>
-                </a>
-            </td>
+        <thead>
+            <!--Header-->
+            <h2>Worker Table</h2>
+            <tr>
+                <th>Image</th>
+                <th>ID</th>
+                <th>Role</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Salary</th>
             </tr>
+        </thead>
 
-            }
+        <tbody>
+            <!-- Loop for creating table rows from Employee data  -->
 
-            <p>
-                <a href="@routes.HomeController.addWorker()">
-                    <button class="btn btn-primary">Add a Worker</button>
-                </a>
-            </p>
-       
-    </tbody>
-    }
+            @for(i<-wlist) { <tr>
+
+                @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
+                <td><img src="/assets/images/workerImages/@(i.getId + " thumb.jpg")" /></td>
+                } else {
+                <td><img src="/assets/images/workerImages/noImage.jpg" /></td>
+                }
+
+                <td>@i.getId</td>
+                <td>@i.getRole</td>
+                <td>@i.getfName</td>
+                <td>@i.getlName</td>
+                <td>&euro; @("%.2f".format(i.getSalary))</td>
+
+                <td>
+                    <a href="@routes.HomeController.updateWorker(i.getEmail)" class="button-xs btn-danger">
+                        <span class="glyphicon-pencil"></span>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="@routes.HomeController.deleteWorker(i.getEmail)" class="button-xs btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+                </tr>
+
+                }
+
+                <p>
+                    <a href="@routes.HomeController.addWorker()">
+                        <button class="btn btn-primary">Add a Worker</button>
+                    </a>
+                </p>
+
+        </tbody>
+        }

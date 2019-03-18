@@ -1,40 +1,41 @@
-@(employeeForm: Form[models.users.Manager], aForm: Form[models.Address], dForm: Form[models.Department], user: models.users.Employees, env: play.api.Environment)
+@(employeeForm: Form[models.users.Manager], aForm: Form[models.Address], dForm: Form[models.Department], user:
+models.users.Employees, env: play.api.Environment)
 
 @import helper._
 
 @main("Add Manager", user) {
-    <p class = "lead"> Add a new Manager</p>
+<p class="lead"> Add a new Manager</p>
 
-    @form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form",
-    'method -> "POST", 'enctype -> "multipart/form-data") {
-        @* CSRF attack Prevention *@
-        @CSRF.formField
-        <!-- Long id, String type, String fName, String lName, double salary -->
-        @inputText(employeeForm("email"), '_label -> "Email", 'class -> "form-control")
-        @inputText(employeeForm("fName"), '_label -> "First Name", 'class -> "form-control")
-        @inputText(employeeForm("lName"), '_label -> "Last Name", 'class -> "form-control")
-        @inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")
-        @inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
+@form(action=routes.HomeController.addManagerSubmit(), 'class -> "form-horizontal", 'role -> "form",
+'method -> "POST", 'enctype -> "multipart/form-data") {
+@* CSRF attack Prevention *@
+@CSRF.formField
+<!-- Long id, String type, String fName, String lName, double salary -->
+@inputText(employeeForm("email"), '_label -> "Email", 'class -> "form-control")
+@inputText(employeeForm("fName"), '_label -> "First Name", 'class -> "form-control")
+@inputText(employeeForm("lName"), '_label -> "Last Name", 'class -> "form-control")
+@inputText(employeeForm("salary"), '_label -> "Salary", 'class -> "form-control")
+@inputText(employeeForm("password"), '_label -> "Password", 'class -> "form-control")
 
-        @inputText(dForm("name"), '_label -> "Department Name", 'class -> "form-control")
-        
-        @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
-        @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
-        @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
-        @inputText(aForm("county"), '_label -> "County", 'class -> "form-control")
-        @inputText(aForm("eircode"), '_label -> "Eircode",'class -> "form-control")
+@inputText(dForm("name"), '_label -> "Department Name", 'class -> "form-control")
 
-        <label> Image Upload </label>
-        <input class="btn-sm btn-default" type="file" name="upload">
+@inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
+@inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
+@inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
+@inputText(aForm("county"), '_label -> "County", 'class -> "form-control")
+@inputText(aForm("eircode"), '_label -> "Eircode",'class -> "form-control")
 
-        @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
-        @inputText(employeeForm("role").copy(value=Some("Manager")), '_label -> "", 'hidden -> "hidden")
+<label> Image Upload </label>
+<input class="btn-sm btn-default" type="file" name="upload">
 
-        <div class="actions">
-            <input type="submit" value="Add Manager" class="btn btn-primary">
-            <a href="@routes.HomeController.employees()">
-                <button type="button" class="btn btn-warning">Cancel</button>
-            </a>
-        </div>
-    }
+@inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
+@inputText(employeeForm("role").copy(value=Some("Manager")), '_label -> "", 'hidden -> "hidden")
+
+<div class="actions">
+    <input type="submit" value="Add Manager" class="btn btn-primary">
+    <a href="@routes.HomeController.employees()">
+        <button type="button" class="btn btn-warning">Cancel</button>
+    </a>
+</div>
+}
 }

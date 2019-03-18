@@ -23,17 +23,16 @@ public class Project extends Model {
     @Constraints.Required
     @Temporal(TemporalType.DATE)
     private Date dueDate;
-    
+
     @Constraints.Required
     private int numMembers;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Worker> workers;
+    private List < Worker > workers;
 
-    private List<Long> workerSelect = new ArrayList<Long>();
+    private List < Long > workerSelect = new ArrayList < Long > ();
 
-    public Project() {
-    }
+    public Project() {}
 
     public Project(Long id, String name, Date startDate, Date dueDate, int numMembers) {
         this.id = id;
@@ -81,25 +80,25 @@ public class Project extends Model {
     public void setNumMembers(int numMembers) {
         this.numMembers = numMembers;
     }
-  
-    //Finders
-    public static final Finder<Long, Project> find = new Finder<>(Project.class);
 
-    public static final List<Project> findAll() {
+    //Finders
+    public static final Finder < Long, Project > find = new Finder < > (Project.class);
+
+    public static final List < Project > findAll() {
         return Project.find.all();
-    } 
-    
+    }
+
     //ManyToMany Mapping
-    public List<Worker> getWorkers() {
+    public List < Worker > getWorkers() {
         return workers;
     }
-    public void setWorkers(List<Worker> emps) {
+    public void setWorkers(List < Worker > emps) {
         this.workers = workers;
     }
-    public List<Long> getWorkerSelect() {
+    public List < Long > getWorkerSelect() {
         return workerSelect;
     }
-    public void setWorkerSelect(List<Long> workerSelect) {
+    public void setWorkerSelect(List < Long > workerSelect) {
         this.workerSelect = workerSelect;
     }
 }
