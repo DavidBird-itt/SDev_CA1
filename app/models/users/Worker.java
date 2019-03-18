@@ -55,6 +55,13 @@ public class Worker extends Employees {
         return find.query().where().eq("prodect.id", product).eq("id", employee).findList().size() > 0;
     }
 
+    public void raise(){
+        final double RAISE_AMOUNT = .5;
+        //this.salary += this.salary* RAISE_AMOUNT;
+        double s = super.getSalary();
+        s += s* RAISE_AMOUNT;
 
+        super.setSalary(s);
+    }
 
 }

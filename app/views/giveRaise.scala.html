@@ -1,4 +1,4 @@
-@(wlist: List[models.users.Worker],employeeForm: Form[models.users.Worker], emp: models.users.Employees, env: play.api.Environment)
+@(wlist: List[models.users.Worker], emp: models.users.Employees, env: play.api.Environment)
 @main("Raise", emp) {
 
     @*Display the success*@
@@ -17,7 +17,6 @@
         <tr>
             <th>Image</th>
             <th>ID</th>
-            <th>Role</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Salary</th>
@@ -36,12 +35,16 @@
             }
 
             <td>@i.getId</td>
-            <td>@i.getRole</td>
             <td>@i.getfName</td>
             <td>@i.getlName</td>
             <td>&euro; @("%.2f".format(i.getSalary))</td>
 
-            
+            <td>
+                <a href="@routes.HomeController.raiseSubmit(i.getEmail)" class="button-xs btn-danger">
+                    <span class="glyphicon-pencil"></span>
+                </a>
+            </td>
+        </tr>
     </tbody>
     }
 }

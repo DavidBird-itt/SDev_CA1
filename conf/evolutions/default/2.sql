@@ -2,12 +2,6 @@
 
 # --- !Ups
 
-delete from employees;
-delete from address;
-delete from department;
-delete from project;
-
-delete from project_employees;
 
 
 INSERT into employees (type,id,email,role,f_name,l_name,salary,password) values ( 'm',1, 'manager@emp.com','Manager', 'David', 'Bird', 62000.00, 'password');
@@ -38,10 +32,4 @@ INSERT into department (id,name) values (4, 'Website Design');
 INSERT into project (id,name,start_date,due_date,num_members) values ( 1, 'Project1', '2001-01-20', '2008-06-19', 4);
 INSERT into project (id,name,start_date,due_date,num_members) values ( 2, 'Project2', '2002-02-20', '2016-01-20', 2);
 
-INSERT into project_employees (project_id, employees_id) values(1,4);
-INSERT into project_employees (project_id, employees_id) values(1,5);
-INSERT into project_employees (project_id, employees_id) values(1,12);
-INSERT into project_employees (project_id, employees_id) values(1,7);
-INSERT into project_employees (project_id, employees_id) values(2,4);
-INSERT into project_employees (project_id, employees_id) values(2,10);
 

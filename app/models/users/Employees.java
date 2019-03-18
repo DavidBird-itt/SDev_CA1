@@ -27,7 +27,7 @@ public class Employees extends Model {
     @Constraints.Required
     private String lName;
     @Constraints.Required
-    private double salary;
+    protected double salary;
     @Constraints.Required
     private String password;
 

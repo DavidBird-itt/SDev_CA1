@@ -1,48 +1,21 @@
-2019-03-18 19:17:01,482 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:h2:file:./data/productsDB
-2019-03-18 19:17:01,491 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2019-03-18 19:17:02,739 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - ApplicationTimer demo: Starting application at 2019-03-18T19:17:02.738Z
-2019-03-18 19:17:03,151 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-3 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2019-03-18 19:17:03,426 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-03-18 20:48:07,878 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized at jdbc:h2:file:./data/productsDB
+2019-03-18 20:48:07,882 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2019-03-18 20:48:09,659 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - ApplicationTimer demo: Starting application at 2019-03-18T20:48:09.658Z
+2019-03-18 20:48:10,568 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-4 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2019-03-18 20:48:11,118 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     filters.ExampleFilter
 
-2019-03-18 19:17:03,432 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
-2019-03-18 19:18:41,031 [INFO] from application in application-akka.actor.default-dispatcher-8 - ApplicationTimer demo: Stopping application at 2019-03-18T19:18:41.031Z after 99s.
-2019-03-18 19:18:41,035 [INFO] from application in application-akka.actor.default-dispatcher-8 - Shutting down connection pool.
-2019-03-18 19:18:41,410 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-8 - Database [default] initialized at jdbc:h2:file:./data/productsDB
-2019-03-18 19:18:41,411 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
-2019-03-18 19:18:41,509 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-8 - ApplicationTimer demo: Starting application at 2019-03-18T19:18:41.509Z
-2019-03-18 19:18:41,543 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-8 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2019-03-18 19:18:41,666 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-8 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-03-18 20:48:11,135 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev)
+2019-03-18 20:48:15,239 [ERROR] from application in application-akka.actor.default-dispatcher-7 - 
 
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    filters.ExampleFilter
-
-2019-03-18 19:18:41,672 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-8 - Application started (Dev)
-2019-03-18 19:19:05,862 [INFO] from application in application-akka.actor.default-dispatcher-7 - ApplicationTimer demo: Stopping application at 2019-03-18T19:19:05.862Z after 24s.
-2019-03-18 19:19:05,862 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
-2019-03-18 19:19:06,169 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-9 - Database [default] initialized at jdbc:h2:file:./data/productsDB
-2019-03-18 19:19:06,171 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
-2019-03-18 19:19:06,362 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Starting application at 2019-03-18T19:19:06.362Z
-2019-03-18 19:19:06,400 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-9 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2019-03-18 19:19:06,505 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-9 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    filters.ExampleFilter
-
-2019-03-18 19:19:06,509 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-9 - Application started (Dev)
-2019-03-18 19:19:28,245 [ERROR] from application in application-akka.actor.default-dispatcher-11 - 
-
-! @7b91bec06 - Internal server error, for (POST) [/addManagerSubmit] ->
+! @7b91n5e49 - Internal server error, for (GET) [/updateProject/1] ->
  
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.util.NoSuchElementException: No value present]]
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.PersistenceException: Query threw SQLException:Column "PRODECT.ID" not found; SQL statement:
+select t0.type, t0.id, t0.email, t0.role, t0.f_name, t0.l_name, t0.salary, t0.password, t0.AID, t0.department_id from employees t0 where t0.type = 'w'  and prodect.id = ?  and t0.id = ?  [42122-197] Bind values:[null] Query was:select t0.type, t0.id, t0.email, t0.role, t0.f_name, t0.l_name, t0.salary, t0.password, t0.AID, t0.department_id from employees t0 where t0.type = 'w'  and prodect.id = ?  and t0.id = ? ]]
 	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
 	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
 	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
@@ -61,52 +34,63 @@ play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[Completio
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.util.NoSuchElementException: No value present
+Caused by: java.util.concurrent.CompletionException: javax.persistence.PersistenceException: Query threw SQLException:Column "PRODECT.ID" not found; SQL statement:
+select t0.type, t0.id, t0.email, t0.role, t0.f_name, t0.l_name, t0.salary, t0.password, t0.AID, t0.department_id from employees t0 where t0.type = 'w'  and prodect.id = ?  and t0.id = ?  [42122-197] Bind values:[null] Query was:select t0.type, t0.id, t0.email, t0.role, t0.f_name, t0.l_name, t0.salary, t0.password, t0.AID, t0.department_id from employees t0 where t0.type = 'w'  and prodect.id = ?  and t0.id = ? 
 	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
 	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
 	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:593)
 	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
-	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
-	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:21)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:18)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at scala.concurrent.BatchingExecutor$Batch.processBatch$1(BatchingExecutor.scala:63)
-	at scala.concurrent.BatchingExecutor$Batch.$anonfun$run$1(BatchingExecutor.scala:78)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at scala.concurrent.BatchingExecutor$Batch.run(BatchingExecutor.scala:55)
-	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:870)
-	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:106)
-	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:868)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at scala.concurrent.Promise.complete(Promise.scala:49)
-	at scala.concurrent.Promise.complete$(Promise.scala:48)
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:183)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:337)
-	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:322)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:39)
+	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:617)
+	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:1993)
+	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:110)
+	at play.libs.streams.Accumulator$StrictAccumulator.lambda$map$0(Accumulator.java:362)
+	at java.util.function.Function.lambda$andThen$1(Function.java:88)
+	at java.util.function.Function.lambda$andThen$1(Function.java:88)
+	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:403)
+	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:400)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
 	... 12 common frames omitted
-Caused by: java.util.NoSuchElementException: No value present
-	at java.util.Optional.get(Optional.java:135)
-	at controllers.HomeController.addManagerSubmit(HomeController.java:104)
-	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$26(Routes.scala:652)
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:Column "PRODECT.ID" not found; SQL statement:
+select t0.type, t0.id, t0.email, t0.role, t0.f_name, t0.l_name, t0.salary, t0.password, t0.AID, t0.department_id from employees t0 where t0.type = 'w'  and prodect.id = ?  and t0.id = ?  [42122-197] Bind values:[null] Query was:select t0.type, t0.id, t0.email, t0.role, t0.f_name, t0.l_name, t0.salary, t0.password, t0.AID, t0.department_id from employees t0 where t0.type = 'w'  and prodect.id = ?  and t0.id = ? 
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:48)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:195)
+	at io.ebeaninternal.server.query.CQueryEngine.translate(CQueryEngine.java:139)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.translate(DefaultOrmQueryEngine.java:38)
+	at io.ebeaninternal.server.core.OrmQueryRequest.translate(OrmQueryRequest.java:81)
+	at io.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:666)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:373)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:126)
+	at io.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:371)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1506)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:1239)
+	at io.ebeaninternal.server.expression.DefaultExpressionList.findList(DefaultExpressionList.java:382)
+	at models.users.Worker.inWorkers(Worker.java:55)
+	at views.html.addProject$.$anonfun$apply$3(addProject.template.scala:49)
+	at scala.collection.TraversableLike$WithFilter.$anonfun$map$2(TraversableLike.scala:739)
+	at scala.collection.Iterator.foreach(Iterator.scala:944)
+	at scala.collection.Iterator.foreach$(Iterator.scala:944)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1432)
+	at scala.collection.IterableLike.foreach(IterableLike.scala:71)
+	at scala.collection.IterableLike.foreach$(IterableLike.scala:70)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at scala.collection.TraversableLike$WithFilter.map(TraversableLike.scala:738)
+	at views.html.addProject$.$anonfun$apply$1(addProject.template.scala:46)
+	at views.html.helper.form$.apply(form.template.scala:35)
+	at views.html.addProject$.apply(addProject.template.scala:39)
+	at views.html.addProject$.render(addProject.template.scala:76)
+	at views.html.addProject.render(addProject.template.scala)
+	at controllers.HomeController.updateProject(HomeController.java:341)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$46(Routes.scala:731)
 	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
 	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:133)
 	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
 	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
+	at controllers.AuthManager.call(AuthManager.java:17)
 	at play.db.ebean.TransactionalAction.lambda$call$6(TransactionalAction.java:18)
 	at io.ebeaninternal.server.core.DefaultServer.execute(DefaultServer.java:670)
 	at io.ebeaninternal.server.core.DefaultServer.execute(DefaultServer.java:663)
@@ -137,9 +121,262 @@ Caused by: java.util.NoSuchElementException: No value present
 	at scala.concurrent.Future$.apply(Future.scala:654)
 	at play.core.j.JavaAction.apply(JavaAction.scala:138)
 	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:218)
+	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:217)
+	... 21 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Column "PRODECT.ID" not found; SQL statement:
+select t0.type, t0.id, t0.email, t0.role, t0.f_name, t0.l_name, t0.salary, t0.password, t0.AID, t0.department_id from employees t0 where t0.type = 'w'  and prodect.id = ?  and t0.id = ?  [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.expression.Comparison.optimize(Comparison.java:177)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:130)
+	at org.h2.command.dml.Select.prepare(Select.java:861)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:318)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQueryWithOption(CQuery.java:343)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:310)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:349)
+	... 86 common frames omitted
+2019-03-18 20:49:28,654 [INFO] from application in application-akka.actor.default-dispatcher-11 - ApplicationTimer demo: Stopping application at 2019-03-18T20:49:28.654Z after 79s.
+2019-03-18 20:49:28,663 [INFO] from application in application-akka.actor.default-dispatcher-11 - Shutting down connection pool.
+2019-03-18 20:49:29,773 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-11 - Database [default] initialized at jdbc:h2:file:./data/productsDB
+2019-03-18 20:49:29,773 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-11 - Creating Pool for datasource 'default'
+2019-03-18 20:49:29,990 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-11 - ApplicationTimer demo: Starting application at 2019-03-18T20:49:29.990Z
+2019-03-18 20:49:30,098 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-11 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2019-03-18 20:49:30,315 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-11 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2019-03-18 20:49:30,318 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-11 - Application started (Dev)
+2019-03-18 20:50:41,760 [ERROR] from application in application-akka.actor.default-dispatcher-9 - 
+
+! @7b91ndmnp - Internal server error, for (GET) [/assets/javascripts/main.js] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.RuntimeException: java.lang.BootstrapMethodError: call site initialization exception]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.util.concurrent.CompletionException: java.lang.RuntimeException: java.lang.BootstrapMethodError: call site initialization exception
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:593)
+	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
+	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:617)
+	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:1993)
+	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:110)
+	at play.libs.streams.Accumulator$StrictAccumulator.lambda$map$0(Accumulator.java:362)
+	at java.util.function.Function.lambda$andThen$1(Function.java:88)
+	at java.util.function.Function.lambda$andThen$1(Function.java:88)
+	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:403)
+	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:400)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
+	... 12 common frames omitted
+Caused by: java.lang.RuntimeException: java.lang.BootstrapMethodError: call site initialization exception
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:424)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:218)
+	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:217)
+	... 22 common frames omitted
+Caused by: java.lang.BootstrapMethodError: call site initialization exception
+	at java.lang.invoke.CallSite.makeSite(CallSite.java:341)
+	at java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)
+	at java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)
+	at controllers.AssetsBuilder.asEncodedResult(Assets.scala:756)
+	at controllers.AssetsBuilder.$anonfun$assetAt$5(Assets.scala:831)
+	at scala.Option.getOrElse(Option.scala:121)
+	at controllers.AssetsBuilder.$anonfun$assetAt$3(Assets.scala:828)
 	at scala.concurrent.Future.$anonfun$flatMap$1(Future.scala:303)
 	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallback(Promise.scala:312)
+	at scala.concurrent.impl.Promise$DefaultPromise.onComplete(Promise.scala:303)
+	at scala.concurrent.impl.Promise.transformWith(Promise.scala:36)
+	at scala.concurrent.impl.Promise.transformWith$(Promise.scala:34)
+	at scala.concurrent.impl.Promise$DefaultPromise.transformWith(Promise.scala:183)
+	at scala.concurrent.Future.flatMap(Future.scala:302)
+	at scala.concurrent.Future.flatMap$(Future.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:183)
+	at controllers.AssetsBuilder.assetAt(Assets.scala:813)
+	at controllers.AssetsBuilder.$anonfun$versioned$1(Assets.scala:787)
+	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:482)
+	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:480)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:419)
+	... 30 common frames omitted
+Caused by: java.lang.OutOfMemoryError: Metaspace
+	at sun.misc.Unsafe.defineAnonymousClass(Native Method)
+	at java.lang.invoke.InnerClassLambdaMetafactory.spinInnerClass(InnerClassLambdaMetafactory.java:326)
+	at java.lang.invoke.InnerClassLambdaMetafactory.buildCallSite(InnerClassLambdaMetafactory.java:194)
+	at java.lang.invoke.LambdaMetafactory.altMetafactory(LambdaMetafactory.java:474)
+	at java.lang.invoke.LambdaForm$DMH/1832580921.invokeStatic_L4_L(LambdaForm$DMH)
+	at java.lang.invoke.LambdaForm$BMH/1392906938.reinvoke(LambdaForm$BMH)
+	at java.lang.invoke.LambdaForm$MH/1595432539.invoker(LambdaForm$MH)
+	at java.lang.invoke.LambdaForm$MH/660879561.invokeExact_MT(LambdaForm$MH)
+	at java.lang.invoke.CallSite.makeSite(CallSite.java:325)
+	at java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)
+	at java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)
+	at controllers.AssetsBuilder.asEncodedResult(Assets.scala:756)
+	at controllers.AssetsBuilder.$anonfun$assetAt$5(Assets.scala:831)
+	at controllers.AssetsBuilder$$Lambda$8633/1456634726.apply(Unknown Source)
+	at scala.Option.getOrElse(Option.scala:121)
+	at controllers.AssetsBuilder.$anonfun$assetAt$3(Assets.scala:828)
+	at controllers.AssetsBuilder$$Lambda$8552/889009519.apply(Unknown Source)
+	at scala.concurrent.Future.$anonfun$flatMap$1(Future.scala:303)
+	at scala.concurrent.Future$$Lambda$7926/1867244575.apply(Unknown Source)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.Promise$$Lambda$7927/714162672.apply(Unknown Source)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallback(Promise.scala:312)
+	at scala.concurrent.impl.Promise$DefaultPromise.onComplete(Promise.scala:303)
+	at scala.concurrent.impl.Promise.transformWith(Promise.scala:36)
+	at scala.concurrent.impl.Promise.transformWith$(Promise.scala:34)
+	at scala.concurrent.impl.Promise$DefaultPromise.transformWith(Promise.scala:183)
+	at scala.concurrent.Future.flatMap(Future.scala:302)
+	at scala.concurrent.Future.flatMap$(Future.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:183)
+2019-03-18 20:50:42,777 [ERROR] from application in application-akka.actor.default-dispatcher-9 - 
+
+! @7b91ndob3 - Internal server error, for (GET) [/favicon.ico] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.RuntimeException: java.lang.BootstrapMethodError: call site initialization exception]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.util.concurrent.CompletionException: java.lang.RuntimeException: java.lang.BootstrapMethodError: call site initialization exception
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:593)
+	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
+	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:617)
+	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:1993)
+	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:110)
+	at play.libs.streams.Accumulator$StrictAccumulator.lambda$map$0(Accumulator.java:362)
+	at java.util.function.Function.lambda$andThen$1(Function.java:88)
+	at java.util.function.Function.lambda$andThen$1(Function.java:88)
+	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:403)
+	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:400)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
 	... 12 common frames omitted
-2019-03-18 19:19:36,742 [INFO] from play.core.server.AkkaHttpServer in pool-8-thread-1 - Stopping server...
-2019-03-18 19:19:36,756 [INFO] from application in application-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Stopping application at 2019-03-18T19:19:36.756Z after 30s.
-2019-03-18 19:19:36,756 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+Caused by: java.lang.RuntimeException: java.lang.BootstrapMethodError: call site initialization exception
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:424)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:218)
+	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:217)
+	... 22 common frames omitted
+Caused by: java.lang.BootstrapMethodError: call site initialization exception
+	at java.lang.invoke.CallSite.makeSite(CallSite.java:341)
+	at java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)
+	at java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)
+	at router.Routes.documentation(Routes.scala:83)
+	at router.Routes.documentation(Routes.scala:15)
+	at views.html.defaultpages.devNotFound$.apply(devNotFound.template.scala:133)
+	at play.api.http.DefaultHttpErrorHandler.onNotFound(HttpErrorHandler.scala:147)
+	at play.api.http.DefaultHttpErrorHandler.onClientError(HttpErrorHandler.scala:115)
+	at play.api.http.DefaultHttpRequestHandler.$anonfun$handlerForRequest$2(HttpRequestHandler.scala:109)
+	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:482)
+	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:480)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:419)
+	... 30 common frames omitted
+Caused by: java.lang.OutOfMemoryError: Metaspace
+	at sun.misc.Unsafe.defineAnonymousClass(Native Method)
+	at java.lang.invoke.InnerClassLambdaMetafactory.spinInnerClass(InnerClassLambdaMetafactory.java:326)
+	at java.lang.invoke.InnerClassLambdaMetafactory.buildCallSite(InnerClassLambdaMetafactory.java:194)
+	at java.lang.invoke.LambdaMetafactory.altMetafactory(LambdaMetafactory.java:474)
+	at java.lang.invoke.LambdaForm$DMH/1832580921.invokeStatic_L4_L(LambdaForm$DMH)
+	at java.lang.invoke.LambdaForm$BMH/1395672463.reinvoke(LambdaForm$BMH)
+	at java.lang.invoke.LambdaForm$MH/1595432539.invoker(LambdaForm$MH)
+	at java.lang.invoke.LambdaForm$MH/660879561.invokeExact_MT(LambdaForm$MH)
+	at java.lang.invoke.CallSite.makeSite(CallSite.java:325)
+	at java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)
+	at java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)
+	at router.Routes.documentation(Routes.scala:83)
+	at router.Routes.documentation(Routes.scala:15)
+	at views.html.defaultpages.devNotFound$.apply(devNotFound.template.scala:133)
+	at play.api.http.DefaultHttpErrorHandler.onNotFound(HttpErrorHandler.scala:147)
+	at play.api.http.DefaultHttpErrorHandler.onClientError(HttpErrorHandler.scala:115)
+	at play.api.http.DefaultHttpRequestHandler.$anonfun$handlerForRequest$2(HttpRequestHandler.scala:109)
+	at play.api.http.DefaultHttpRequestHandler$$Lambda$8903/1591874367.apply(Unknown Source)
+	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:482)
+	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:480)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:419)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.mvc.Action$$Lambda$8429/1737878423.apply(Unknown Source)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$Lambda$8439/823368420.apply(Unknown Source)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$Lambda$8430/754647344.apply(Unknown Source)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1$$Lambda$8428/1688346277.apply(Unknown Source)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1$$Lambda$8428/1688346277.apply(Unknown Source)

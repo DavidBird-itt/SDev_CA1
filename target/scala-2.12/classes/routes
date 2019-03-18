@@ -23,6 +23,8 @@ GET     /logout                   controllers.LoginController.logout
 
 GET     /managerContact          controllers.HomeController.managerContact
 GET     /giveRaise               controllers.HomeController.giveRaise
+GET     /raiseSubmit/:id         controllers.HomeController.raiseSubmit(id: String)
+
 GET     /employees               controllers.HomeController.employees
 
 

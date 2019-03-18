@@ -59,68 +59,42 @@ emps: models.users.Employees)
     </tbody>
 
 
+
     <table class="table table-bordered table-hover table-condensed">
         <thead>
-            <!--Header-->
-            <h2>Address Table</h2>
+            <h2>Department Table</h2>
             <tr>
-                <th>Street 1</th>
-                <th>Street 2</th>
-                <th>Town</th>
-                <th>Post Code</th>
-            </tr>
+                <th> ID </th>
+                <th> Name </th>
+
         </thead>
 
         <tbody>
-            <!-- Loop for creating table rows from Employee data  -->
 
-            @for(i<-alist) { <tr>
-                <td>@i.getStreet1</td>
-                <td>@i.getStreet2</td>
-                <td>@i.getTown</td>
-                <td>@i.getEircode</td>
+            @for(i<-dlist) { <tr>
+                <td>@i.getId</td>
+                <td>@i.getName</td>
 
-                </tr>
+                <td>
+                    <a href="@routes.HomeController.updateDepartment(i.getId)" class="button-xs btn-danger">
+                        <span class="glyphicon-pencil"></span>
+                    </a>
+                </td>
+
+
+                <!-- Button to delete an existing project -->
+                <td>
+                    <a href="@routes.HomeController.deleteDepartment(i.getId)" class="button-xs btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
                 }
 
-                <table class="table table-bordered table-hover table-condensed">
-                    <thead>
-                        <h2>Department Table</h2>
-                        <tr>
-                            <th> ID </th>
-                            <th> Name </th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        @for(i<-dlist) { <tr>
-                            <td>@i.getId</td>
-                            <td>@i.getName</td>
-
-                            </tr>
-
-
-                            <td>
-                                <a href="@routes.HomeController.updateDepartment(i.getId)" class="button-xs btn-danger">
-                                    <span class="glyphicon-pencil"></span>
-                                </a>
-                            </td>
-
-
-                            <!-- Button to delete an existing project -->
-                            <td>
-                                <a href="@routes.HomeController.deleteDepartment(i.getId)" class="button-xs btn-danger">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </td>
-                            }
-
-                            <p>
-                                <a href="@routes.HomeController.addDepartment()">
-                                    <button class="btn btn-primary">Add a Department</button>
-                                </a>
-                            </p>
-                    </tbody>
+                <p>
+                    <a href="@routes.HomeController.addDepartment()">
+                        <button class="btn btn-primary">Add a Department</button>
+                    </a>
+                </p>
+                </tr>
         </tbody>
         }

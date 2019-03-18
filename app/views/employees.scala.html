@@ -37,8 +37,8 @@
             <td>@i.getRole</td>
             <td>@i.getfName</td>
             <td>@i.getlName</td>
-            <td>&euro; @("%.2f".format(i.getSalary))</td>
 
+            @if(emps.getId() == 1){
             <td>
                 <a href="@routes.HomeController.updateManager(i.getEmail)" class="button-xs btn-danger">
                     <span class="glyphicon-pencil"></span>
@@ -51,7 +51,7 @@
                 </a>
             </td>
             </tr>
-
+        }
             }
 
             <p>
@@ -114,5 +114,6 @@
                     <button class="btn btn-primary">Add a Worker</button>
                 </a>
             </p>
+       
     </tbody>
     }

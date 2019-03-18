@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/SDev_CA1/conf/routes
-// @DATE:Mon Mar 18 19:16:25 GMT 2019
+// @SOURCE:/home/wdd/SDevProj/SDev_CA1/conf/routes
+// @DATE:Mon Mar 18 20:33:26 GMT 2019
 
 import play.api.mvc.Call
 
@@ -48,13 +48,13 @@ package controllers {
     }
 
   
-    // @LINE:32
+    // @LINE:34
     def updateManager(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateManager/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:40
+    // @LINE:42
     def addProject(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addProject")
@@ -66,43 +66,43 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "managerContact")
     }
   
-    // @LINE:47
+    // @LINE:49
     def updateDepartment(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateDepartment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:36
+    // @LINE:38
     def addWorkerSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addWorkerSubmit")
     }
   
-    // @LINE:33
+    // @LINE:35
     def deleteManager(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteManager/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:43
+    // @LINE:45
     def deleteProject(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteProject/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:35
+    // @LINE:37
     def addWorker(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addWorker")
     }
   
-    // @LINE:42
+    // @LINE:44
     def updateProject(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateProject/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:30
+    // @LINE:32
     def addManager(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addManager")
@@ -114,7 +114,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "giveRaise")
     }
   
-    // @LINE:46
+    // @LINE:48
     def addDepartmentSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addDepartmentSubmit")
@@ -126,37 +126,43 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "databaseTest")
     }
   
-    // @LINE:48
+    // @LINE:50
     def deleteDepartment(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteDepartment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:26
+    // @LINE:28
     def employees(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "employees")
     }
   
-    // @LINE:37
+    // @LINE:39
     def updateWorker(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateWorker/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:31
+    // @LINE:33
     def addManagerSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addManagerSubmit")
     }
   
-    // @LINE:41
+    // @LINE:43
     def addProjectSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addProjectSubmit")
     }
   
-    // @LINE:45
+    // @LINE:26
+    def raiseSubmit(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "raiseSubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:47
     def addDepartment(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addDepartment")
@@ -168,7 +174,7 @@ package controllers {
       Call("GET", _prefix)
     }
   
-    // @LINE:38
+    // @LINE:40
     def deleteWorker(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteWorker/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
