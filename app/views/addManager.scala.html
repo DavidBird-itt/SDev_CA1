@@ -28,7 +28,7 @@
         <input class="btn-sm btn-default" type="file" name="upload">
 
         @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
-        @inputText(employeeForm("role").copy(value=Some("manager")), '_label -> "", 'hidden -> "hidden")
+        @inputText(employeeForm("role").copy(value=Some("Manager")), '_label -> "", 'hidden -> "hidden")
 
         <div class="actions">
             <input type="submit" value="Add Manager" class="btn btn-primary">

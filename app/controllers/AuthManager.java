@@ -13,7 +13,7 @@ public class AuthManager extends Action.Simple {
 
         if (id != null) {
             Employees e = Employees.getEmployeeById(id);
-            if ("manager".equals(e.getRole())) {
+            if ("Manager".equals(e.getRole())) {
                 return delegate.call(ctx);
             }
         }

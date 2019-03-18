@@ -1,4 +1,45 @@
-@(emps: models.users.Employees)
-@main("Home", emps){
-	<h1></h1>
+@(emp: models.users.Employees, env: play.api.Environment)
+@main("Home", emp){
+
+	<table class="table table-bordered table-hover table-condensed">
+	
+		<thead>
+			<!--Header-->
+			<h2>Personal Info</h2>
+			<tr>
+				<th>Image</th>
+				<th>ID</th>
+				<th>Role</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Salary</th>
+			</tr>
+		</thead>
+	
+		<tbody>
+			<!-- Loop for creating table rows from Employee data  -->
+	
+			<tr>
+	
+				@if(env.resource("public/images/workerImages/" + emp.getId + "thumb.jpg").isDefined) {
+					<td><img src="/assets/images/workerImages@(emp.getId + "thumb.jpg")"/></td>
+				} else {
+					<td><img src="/assets/images/workerImages/noImage.jpg"/></td>
+				}
+	
+				<td>@emp.getId</td>
+				<td>@emp.getRole</td>
+				<td>@emp.getfName</td>
+				<td>@emp.getlName</td>
+				<td>&euro; @("%.2f".format(emp.getSalary))</td>
+	
+				<td>
+					<a href="@routes.HomeController.updateWorker(emp.getEmail)" class="button-xs btn-danger">
+						<span class="glyphicon-pencil"></span>
+					</a>
+				</td>
+	
+				</tr>
+	
+		</tbody>
 }

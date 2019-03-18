@@ -45,7 +45,7 @@ public class HomeController extends Controller {
 
     public Result index() { 
         if(Employees.getEmployeeById(session().get("email")) != null){
-            return ok(index.render(Employees.getEmployeeById(session().get("email"))));
+            return ok(index.render(Employees.getEmployeeById(session().get("email")), e));
         } else {
             Form<Login> loginForm = formFactory.form(Login.class);
             return ok(login.render(loginForm, Employees.getEmployeeById(session().get("email"))));
